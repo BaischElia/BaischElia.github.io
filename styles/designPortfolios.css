@@ -1,72 +1,184 @@
-/* -------- responsive media queries -------- */
+/* ---------- Base ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 
-@media only screen and (max-width: 700px) {
+body {
+    background-color: #edf6ff;
+    color: black;
+}
 
-    .header-text {
-        font-size: 30px;
-    }
+.container {
+    padding: 0 10%;
+}
 
-    .row  {
-        flex-direction: column;
-    }
-  
-    .leftcolumn-text, .rightcolumn-img, .leftcolumn-img, .rightcolumn-text {
-        flex-basis: 100%;
-        margin-top: 20px;
-    }
+/* ---------- Hero Header ---------- */
+#header {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(180deg, #dbedff, #edf6ff)
+}
 
-    .leftcolumn-text, .leftcolumn-img img{
-        margin-top: 80px;
-    }
+.header-text {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #393E4D;
+}
 
-    .leftcolumn-text p, .rightcolumn-text p{
-        width: 117%;
-    }
+.subheader-text {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #4b5563;
+}
 
-    .rightcolumn-text p{
-        margin-left: -17%;
-    }
-  
-    .leftcolumn-img, .rightcolumn-img {
-        margin-top: 20px;
-        width: 100%;
-    }
+.text-block {
+    flex: 1 1 60%;
+    max-width: 600px;  /* begrenzt die Breite des Textes */
+    margin: 0 left;    /* zentriert den Textblock */
+    text-align: left;  /* optional: Text linksbündig */
+}
 
-    .leftcolumn-img img, .rightcolumn-img img {
-        width: 56%;
-        margin-left: 22%;
-        margin-right: 22%;
-    }
+.text-block h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
 
-    .footer-left p{
-        font-size: 12px;
-    }
-
-    #footer .row  {
-        flex-direction: row;
-    }
-
-    .btn {
-        display: block;
-        margin: 50px auto;
-        width: fit-content;
-        border: 1px solid #393E4D;
-        padding: 14px 50px;
-        border-radius: 6px;
-        text-decoration: none;
-        color: #393E4D;
-        transition: 0.5s;
-    }
-    
-    .btn:hover {
-        background-color: #393E4D;
-        color: white;
-    }
-    
-    .dp-btn {
-        margin-left: auto;
-        margin-right: auto;
-    }
+.text-block p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #374151;
 }
 
 
+/* ---------- Portfolio Sections ---------- */
+section {
+    padding: 80px 0;
+}
+
+.leftcolumn-text, .rightcolumn-text, .leftcolumn-img, .rightcolumn-img {
+    flex-basis: 50%;
+}
+
+.leftcolumn-text p, .rightcolumn-text p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #374151;
+}
+
+.rightcolumn-img img, .leftcolumn-img img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-block;
+    padding: 14px 36px;
+    border-radius: 8px;
+    background-color: #111827;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.dp-btn {
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* ---------- Screens Row ---------- */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.screen {
+    flex: 1 1 220px;
+    max-width: 260px;
+}
+
+/* ---------- Footer ---------- */
+#footer {
+    padding: 40px 0 20px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-left p {
+    font-size: 14px;
+    color: #393E4D;
+}
+
+.social-icons a {
+    font-size: 1.8rem;
+    margin-left: 16px;
+    color: rgba(57,62,77,0.8);
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #393E4D;
+    transform: translateY(-5px);
+}
+
+/* ---------- Responsive ---------- */
+@media only screen and (max-width: 768px) {
+
+    .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-text {
+        font-size: 2.5rem;
+    }
+
+    .subheader-text {
+        font-size: 1.2rem;
+    }
+
+    .leftcolumn-text, .rightcolumn-text, .leftcolumn-img, .rightcolumn-img {
+        flex-basis: 100%;
+    }
+
+    .screen {
+        flex: 1 1 80%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .dp-btn {
+        margin: 20px 0;
+    }
+    @media only screen and (max-width: 768px) {
+    .text-block {
+        max-width: 90%;    /* kleiner als Desktop, für mobile */
+        text-align: center; /* zentriert den Text auf mobilen Geräten */
+        margin-bottom: 20px;
+    }
+}
+
+}

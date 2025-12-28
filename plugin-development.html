@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plugin Development – Elia Baisch</title>
+
+    <link rel="stylesheet" href="styles/plugin.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+
+    <script src="https://kit.fontawesome.com/2cf1a5ff5b.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="hero-inner">
+        <h1 data-aos="fade-up">Plugin Development</h1>
+        <p data-aos="fade-up" data-aos-delay="200">
+            VST3 Audio Plugins · JUCE · FL Studio
+        </p>
+    </div>
+</header>
+
+<main>
+
+<!-- INTRO -->
+<section class="section">
+    <div class="content" data-aos="fade-up">
+        <h2>Music driven Software Engineering</h2>
+        <p>
+            Music production is one of my strongest creative outlets.
+            I produce my own tracks using FL Studio by Image Line.
+            High quality plugins are essential, but often expensive.
+            <br><br>
+            Coming from a software development background,
+            I decided to design and build my own VST3 plugins
+            using JUCE, C++ and AI assisted development.
+        </p>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section dark">
+    <div class="content split">
+        <div data-aos="fade-right">
+            <h2>Vibe Coding with Purpose</h2>
+            <p>
+                Audio plugin development is complex.
+                By combining my own coding experience
+                with AI assisted workflows,
+                I was able to prototype faster,
+                explore DSP concepts deeply
+                and build clean, maintainable architectures.
+            </p>
+        </div>
+        <div class="highlight" data-aos="fade-left">
+            JUCE<br>
+            C++<br>
+            DSP<br>
+            VST3
+        </div>
+    </div>
+</section>
+
+<!-- PLUGINS -->
+<section class="section">
+    <div class="content">
+        <h2 data-aos="fade-up">Developed Plugins</h2>
+
+        <div class="cards">
+
+            <div class="card" data-plugin="threeknob" data-aos="fade-up">
+                <h3>ThreeKnobFX</h3>
+                <p>
+                    Minimal effect plugin focused on
+                    learning parameter handling and DSP basics.
+                </p>
+                <span>Delay · Reverb · Drive</span>
+            </div>
+
+            <div class="card" data-plugin="sidechain001" data-aos="fade-up" data-aos-delay="150">
+                <h3>Sidechain Gate</h3>
+                <p>
+                    Tempo synced volume gate inspired
+                    by Kickstart-style ducking.
+                </p>
+                <span>Host Sync · Beat Division</span>
+            </div>
+
+            <div class="card" data-plugin="sidechainpro" data-aos="fade-up" data-aos-delay="300">
+                <h3>Sidechain Gate Pro</h3>
+                <p>
+                    Advanced envelope shaper with
+                    visual feedback and fine control.
+                </p>
+                <span>Shapes · Swing · Visualizer</span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- MODAL -->
+<div class="plugin-modal" id="pluginModal">
+    <div class="plugin-modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
+
+        <img id="modalImage" src="" alt="Plugin UI">
+
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+
+        <ul id="modalFeatures"></ul>
+
+        <p class="modal-tech" id="modalTech"></p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2023 Elia Baisch</p>
+    <div class="social-icons">
+        <a href="https://github.com/BaischElia"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:eliamerlin@gmx.de"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/elia-baisch"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+AOS.init({ once: true, duration: 900 });
+
+const modal = document.getElementById("pluginModal");
+const closeBtn = document.getElementById("closeModal");
+
+const pluginData = {
+    threeknob: {
+        title: "ThreeKnobFX",
+        image: "images/plugin/threeknobfx.png",
+        description:
+            "A minimal VST3 effect plugin designed as an entry point into audio plugin development.",
+        features: [
+            "Delay in milliseconds",
+            "Reverb wet/dry percentage",
+            "Drive distortion in decibels"
+        ],
+        tech: "JUCE · C++ · VST3 · CMake"
+    },
+    sidechain001: {
+        title: "Sidechain Gate",
+        image: "images/plugin/sidechaingate.png",
+        description:
+            "A host-synchronized volume gate inspired by Kickstart style ducking effects.",
+        features: [
+            "Host BPM synchronization",
+            "Multiple beat divisions",
+            "Dry / Wet mix control"
+        ],
+        tech: "JUCE · DSP · Host Sync · VST3"
+    },
+    sidechainpro: {
+        title: "Sidechain Gate Pro",
+        image: "images/plugin/sidechainpro.png",
+        description:
+            "An advanced envelope-based gate with extensive shaping and real-time visualization.",
+        features: [
+            "Multiple envelope shapes",
+            "Swing, phase and width control",
+            "60 Hz animated envelope visualizer"
+        ],
+        tech: "JUCE · AudioProcessorValueTreeState · Advanced DSP"
+    }
+};
+
+document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("click", () => {
+        const data = pluginData[card.dataset.plugin];
+        if (!data) return;
+
+        document.getElementById("modalImage").src = data.image;
+        document.getElementById("modalTitle").innerText = data.title;
+        document.getElementById("modalDescription").innerText = data.description;
+
+        const ul = document.getElementById("modalFeatures");
+        ul.innerHTML = "";
+        data.features.forEach(f => {
+            const li = document.createElement("li");
+            li.textContent = f;
+            ul.appendChild(li);
+        });
+
+        document.getElementById("modalTech").innerText = data.tech;
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    });
+});
+
+closeBtn.addEventListener("click", closeModal);
+modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+function closeModal() {
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+}
+</script>
+
+</body>
+</html>

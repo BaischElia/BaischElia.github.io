@@ -1,111 +1,103 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
-    <meta charset = "utf-8">
-    <meta http-equiv = "X-UA-Compatible" content = "IE=ed">
-    <meta name = "viewport" content = "width=device-width, initial-scale=1">
-    <title>Elia Baisch</title>
-    <link rel = "stylesheet" href = "styles/project.css">
-    <link rel="stylesheet" href="styles/designPortfolios.css">
-    <link rel="stylesheet" href="https://kit.fontawesome.com/2cf1a5ff5b.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elia Baisch – ToDoList</title>
+
+    <link rel="stylesheet" href="styles/project.css">
+    <link rel="stylesheet" href="styles/todolist.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <script src="https://kit.fontawesome.com/2cf1a5ff5b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="header">
-        <div class="container">
-            <div class="header-text" data-aos="fade" data-aos-delay="200">ToDoList</div>
-            <div class="subheader-text" data-aos="fade" data-aos-delay="800">"A picture says more than a thousand words."</div>
+
+<header id="header">
+    <div class="container">
+        <h1 class="header-text" data-aos="fade">ToDoList</h1>
+        <p class="subheader-text" data-aos="fade" data-aos-delay="400">
+            "A picture says more than a thousand words."
+        </p>
+    </div>
+</header>
+
+<main>
+
+<section id="quote">
+    <div class="container">
+        <div class="quote-text" data-aos="fade-up">
+            <p>
+              "Efforts were directed towards mastering Android app development within the framework of Android Studio."
+            </p>
         </div>
     </div>
+</section>
 
-    <div id="quote">
-            <div class="container">
-                <div class="quote-text">
-                    <p  data-aos="fade-up">
-                      "Efforts were directed towards mastering Android app development within the framework of Android Studio."
-                    </p>
-                </div>
-            </div>
-
-
-    <div id="intro">
-      <div class="container">
-          <div class="intro-text">
-              <p  data-aos="fade-up">
-                  In a team of 2, we developed an app in Android Studio, based on the detailed lessons and tools of the course.
-                  Basic concepts such as UI design, data management and background processes through fragments,
-                  broadcast receivers and asynchronous programming were integrated.
-                  The application uses Android features to store data and provides a user-friendly interface.
-              </p>
-          </div>
-      </div>
-  </div>
-
-
-  <div id="overview">
-<div class="container">
-  <div class="row">
-      <div class="leftcolumn-text" data-aos="fade-right" data-aos-delay="700">
-          <p class="overview-text">
-              ToDoList is an android app that allows you to create tasks and notes
-              with the addition to add images and photos to it, for improvement of memory.<br><br>
-              Here you can simply check or delete single tasks or delet your whole list.
-          </p>
-      </div>
-      <div class="rightcolumn-img" data-aos="fade-left">
-          <img src="images/ToDoList/Main.jpg">
-      </div>
-  </div>
-</div>
-</div>
-
-<div id="additem">
-<div class="container">
-  <div class="row">
-      <div class="leftcolumn-img" data-aos="fade-right">
-          <img src="images/ToDoList/Add.jpg">
-      </div>
-      <div class="rightcolumn-text" data-aos="fade-left" data-aos-delay="700">
-          <p class="additem-text">
-              You can simply enter your task or item with the associated description,
-              optionaly you'll be able to add an image or a photo.
-          </p>
-      </div>
-  </div>
-</div>
-</div>
-
-<div>
-<a href="https://github.com/BaischElia/ToDoList.git" class="btn"><i class="fa-brands fa-github"></i> <span> go to repo</span></a>
-</div>
-
+<section id="intro">
+    <div class="container">
+        <div class="intro-text" data-aos="fade-up">
+            <p>
+                In a team of 2, we developed an app in Android Studio, based on the detailed lessons and tools of the course.
+                Basic concepts such as UI design, data management and background processes through fragments,
+                broadcast receivers and asynchronous programming were integrated.
+                The application uses Android features to store data and provides a user-friendly interface.
+            </p>
         </div>
+    </div>
+</section>
 
-    <hr width="80%">
-    <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-left">
-                    <p> &copy;2023 Elia Baisch</p>
-                </div>
-                <div class="footer-right">
-                    <div class="social-icons">
-                        <a href="https://github.com/BaischElia"><i class="fa-brands fa-square-github"></i></a>
-                        <a href="mailto:eliamerlin@gmx.de"><i class="fa-solid fa-envelope"></i></a>
-                        <a href="https://www.linkedin.com/in/elia-baisch"><i class="fa-brands fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
+<section id="overview">
+    <div class="container row">
+        <div class="leftcolumn-text" data-aos="fade-right">
+            <p>
+                ToDoList is an Android app that allows you to create tasks and notes with optional images, improving memory retention.
+                You can check, delete, or clear entire lists easily. The app ensures intuitive interaction and clear visualization of tasks.
+            </p>
         </div>
-    </footer>
+        <div class="rightcolumn-img" data-aos="fade-left">
+            <img src="images/ToDoList/Main.jpg" alt="Main Screen ToDoList">
+        </div>
+    </div>
+</section>
 
+<section id="additem">
+    <div class="container row">
+        <div class="leftcolumn-img" data-aos="fade-right">
+            <img src="images/ToDoList/Add.jpg" alt="Add Item Screen">
+        </div>
+        <div class="rightcolumn-text" data-aos="fade-left" data-aos-delay="200">
+            <p>
+                Simply enter your task or item with description. Optionally, add images or photos to enrich your entries.
+                Each item can be marked as completed or removed, keeping the task list organized and user-friendly.
+            </p>
+        </div>
+    </div>
+</section>
 
-    <!-- -----------icons---------------- -->
-    <script src="https://kit.fontawesome.com/2cf1a5ff5b.js" crossorigin="anonymous"></script>
+<div style="text-align:center;" data-aos="fade-up" data-aos-delay="400">
+    <a href="https://github.com/BaischElia/ToDoList.git" class="btn">
+        <i class="fa-brands fa-github"></i> <span>Go to Repo</span>
+    </a>
+</div>
 
-    <!-- -----------aos---------------- -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="script/aos.js"></script>
+<hr width="80%">
+
+<footer id="footer">
+    <div class="container row">
+        <p class="footer-left">© 2023 Elia Baisch</p>
+        <div class="social-icons">
+            <a href="https://github.com/BaischElia"><i class="fa-brands fa-square-github"></i></a>
+            <a href="mailto:eliamerlin@gmx.de"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/elia-baisch"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 1000, once: true });
+</script>
 
 </body>
 </html>
