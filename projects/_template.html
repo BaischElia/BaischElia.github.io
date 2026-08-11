@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<!-- TITEL ANPASSEN -->
+<title>Projektname — Elia Baisch</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- CSS liegt eine Ebene höher -> ../css/ -->
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="nav scrolled" id="nav">
+  <a href="../index.html" class="brand"><b>Elia</b><span class="dot">.</span>Baisch</a>
+  <div class="nav-r">
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html#about" data-de="Über mich" data-en="About">Über mich</a>
+      <a href="../index.html#work" data-de="Projekte" data-en="Work">Projekte</a>
+      <a href="../index.html#tools">Tools</a>
+      <a href="../index.html#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    </div>
+    <button class="lang" id="langBtn" onclick="toggleLang()">DE</button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main class="project-page">
+  <div class="wrap">
+
+    <a href="../index.html#work" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span data-de="Zurück zu Projekten" data-en="Back to work">Zurück zu Projekten</span>
+    </a>
+
+    <!-- ===== KOPF: Kicker · Titel · Jahr · Lead · Tags ===== -->
+    <div class="project-kicker" data-de="Kategorie" data-en="Category">Kategorie</div>
+
+    <div class="project-head">
+      <h1>Projektname</h1>
+      <span class="py">2026</span>
+    </div>
+
+    <p class="project-lead"
+       data-de="Ein Satz, der das Projekt auf den Punkt bringt."
+       data-en="One sentence that sums the project up.">Ein Satz, der das Projekt auf den Punkt bringt.</p>
+
+    <div class="project-meta">
+      <span class="tag">Tag 1</span>
+      <span class="tag">Tag 2</span>
+      <!-- Für unfertige Projekte: <span class="tag soon">In Arbeit</span> -->
+    </div>
+
+    <!-- ===== COVER (optional) =====
+         .contain = Bild wird nicht beschnitten (gut für Logos/Screenshots) -->
+    <div class="project-cover rv">
+      <img src="../assets/covers/mein-projekt.jpg" alt="" data-optional>
+    </div>
+
+    <!-- ===== FAKTEN (optional) ===== -->
+    <dl class="p-facts rv">
+      <div><dt data-de="Rolle" data-en="Role">Rolle</dt><dd data-de="Design & Entwicklung" data-en="Design & development">Design & Entwicklung</dd></div>
+      <div><dt data-de="Team" data-en="Team">Team</dt><dd data-de="Einzelprojekt" data-en="Solo project">Einzelprojekt</dd></div>
+      <div><dt data-de="Zeitraum" data-en="Timeframe">Zeitraum</dt><dd>2026</dd></div>
+      <div><dt data-de="Werkzeuge" data-en="Tools">Werkzeuge</dt><dd>Figma · Code</dd></div>
+    </dl>
+
+    <!-- ===== ZITAT (optional) ===== -->
+    <blockquote class="p-quote rv">
+      <p data-de="Ein Leitsatz oder Zitat aus dem Projekt."
+         data-en="A guiding sentence or quote from the project.">Ein Leitsatz oder Zitat aus dem Projekt.</p>
+      <cite>Team / Quelle</cite>
+    </blockquote>
+
+    <!-- ===== TEXTABSCHNITT ===== -->
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Über das Projekt" data-en="About the project">Über das Projekt</div>
+      <h2 data-de="Überschrift des Abschnitts" data-en="Section heading">Überschrift des Abschnitts</h2>
+      <p data-de="Beschreibung hier einfügen …" data-en="Add your description here …">Beschreibung hier einfügen …</p>
+    </section>
+
+    <!-- ===== SPLIT: Text + Bild  (Klasse „rev“ dreht die Seiten) ===== -->
+    <section class="p-split rv">
+      <div>
+        <div class="p-kicker" data-de="Schritt" data-en="Step">Schritt</div>
+        <h3 data-de="Titel" data-en="Title">Titel</h3>
+        <p data-de="Text zum Bild …" data-en="Text next to the image …">Text zum Bild …</p>
+      </div>
+      <div class="p-split-media">
+        <img class="zoom" src="../assets/mein-projekt/bild.jpg" alt="" data-optional>
+      </div>
+    </section>
+
+    <!-- ===== GALERIE / SCREENS ===== -->
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Screens" data-en="Screens">Screens</div>
+      <h2 data-de="Ergebnis" data-en="Result">Ergebnis</h2>
+      <div class="p-screens">
+        <figure><img class="zoom" src="../assets/mein-projekt/screen1.png" alt="" data-optional><figcaption>Screen 1</figcaption></figure>
+        <figure><img class="zoom" src="../assets/mein-projekt/screen2.png" alt="" data-optional><figcaption>Screen 2</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ===== KARTEN (z. B. Teilprojekte) ===== -->
+    <section class="p-sec rv">
+      <div class="p-cards">
+        <article class="p-card">
+          <div class="p-card-img"><img class="zoom" src="../assets/mein-projekt/karte.png" alt="" data-optional></div>
+          <div class="p-card-b">
+            <div class="rt">01 — Modul</div>
+            <h3>Titel</h3>
+            <p data-de="Kurzbeschreibung." data-en="Short description.">Kurzbeschreibung.</p>
+            <ul>
+              <li data-de="Merkmal" data-en="Feature">Merkmal</li>
+            </ul>
+            <div class="tech">Tech · Stack</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="p-sec rv">
+      <div class="p-cta">
+        <a href="#" target="_blank" rel="noopener" class="btn btn-primary" data-de="Zum Repo" data-en="View repo">Zum Repo
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+      </div>
+    </section>
+
+    <!-- ===== NÄCHSTES PROJEKT ===== -->
+    <nav class="p-next">
+      <a href="sustainappility.html">
+        <span>
+          <span class="lbl" data-de="Nächstes Projekt" data-en="Next project">Nächstes Projekt</span>
+          <span class="t">Projektname</span>
+        </span>
+        <span class="arr"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Elia Baisch</span>
+    <span data-de="Gebaut mit Sorgfalt" data-en="Built with care">Gebaut mit Sorgfalt</span>
+    <span id="clock">--:--</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/project.js"></script>
+</body>
+</html>

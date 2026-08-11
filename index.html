@@ -1,284 +1,252 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="de">
 <head>
-    <meta charset = "utf-8">
-    <meta http-equiv = "X-UA-Compatible" content = "IE=ed">
-    <meta name = "viewport" content = "width=device-width, initial-scale=1">
-    <title>Elia Baisch</title>
-    <link rel = "stylesheet" href = "styles/index.css">
-    <link rel="stylesheet" href="https://kit.fontawesome.com/2cf1a5ff5b.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Elia Baisch — Developer & Designer</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-    <div id="header">
-        <div class="container">
-            <nav>
-                <ul id="sidemenu"  data-aos="slide-down" data-aos-duration="2000">
-                    <li><i class="fa-regular fa-xmark" onclick="closeMenu()"></i></li>
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
 
-                </ul>
-                <i id="burger" class="fa-regular fa-bars" onclick="openMenu()"></i>
-            </nav>
-
-            <div class="header-text" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="2000">
-                <h1>Hi, I'm <span class="typing"></span> </h1>
-            </div>
-        </div>
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav">
+  <a href="#top" class="brand"><b>Elia</b><span class="dot">.</span>Baisch</a>
+  <div class="nav-r">
+    <div class="nav-links" id="navLinks">
+      <a href="#about" data-de="Über mich" data-en="About">Über mich</a>
+      <a href="#work" data-de="Projekte" data-en="Work">Projekte</a>
+      <a href="#tools">Tools</a>
+      <a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
     </div>
-    <!-- -----------about---------------- -->
+    <button class="lang" id="langBtn" onclick="toggleLang()">DE</button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
 
-    <div id="about">
-        <div class="container">
-            <div class="row">
-                <div class="about-col1" data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-in-out">
-                    <img src="images/Homepage/Foto2.jpg">
-                </div>
-                <div class="about-col2" data-aos="fade" data-aos-duration="2000" data-aos-delay="1000">
-                    <h2 class="sub-title">About Me</h2>
-                    <p>
-                        I am Elia Baisch, 23 years old, and I am currently pursuing a Master’s degree in Media Informatics at the University of Tübingen.
-                        I'm a passionate developer and designer who loves to create new things in the digital world.
-                    </p>
-                    <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                        <p class="tab-links" onclick="opentab('education')">Education</p>
-                    </div>
-                    <div class="tab-contents active-tab" id="skills">
-                        <ul>
-                            <li><span>UI/UX Designer</span><br>Designing interactive App interfaces</li>
-                            <li><span>App/Web Development</span><br>Building Android, iOS or Web Applications</li>
-                            <li><span>Software Developer</span><br>Developing applications and scripts with intermediate coding skills</li>
-                            <li><span>Graphic/Media Designer</span><br>Designing graphics for different media plattforms</li>
-                            <li><span>Visual Designer</span><br>Creating and Designing 3D Models</li>
-                            <li><span>Junior Project Manager</span><br>Coordinating tasks and facilitating communication within project teams</li>
-                            <li><span>Concept Developer</span><br>Develop creative ideas and concepts for products</li>
-                            <li><span>Automation Engineer</span><br>Initiating and implementing automation of workflows on system and process level to improve efficiency and reduce manual effort</li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="experience">
-                        <ul>
-                            <li><span>02/2026 - Present</span><br>6-month working student position in Order Engineering at Weinmann Holzbausystemtechnik GmbH, focusing on technical analysis, data evaluation, and proactive automation of operational workflows</li>
-                            <li><span>03/2025 - 10/2025</span><br>8-month position in retail operations at a hardware store, covering end-to-end responsibilities including customer consulting, inventory and warehouse management, cash handling, financial reconciliations, and day-to-day operational support at Baumarkt in Engstingen</li>
-                            <li><span>09/2023 - 03/2024</span><br>6-months internship in IT-Testmanagement, Test Automation and RPA at Hugo Boss AG in Metzingen</li>
-                            <li><span>08/2022 - 09/2022</span><br>4-week vacation job in the logistic area at Robert Bosch GmbH in Reutlingen</li>
-                            <li><span>07/2021 - 08/2021</span><br>6-week vacation job in the logistic area at Robert Bosch GmbH in Reutlingen</li>
-                        </ul>
-                    </div>
-                    <div class="tab-contents" id="education">
-                        <ul>
-                            <li><span>10/2025 - current</span><br>Study of Media Informatics at the Tübingen University</li>
-                            <li><span>10/2021 - 08/2025</span><br>Study of Mobile Media at the Stuttgart Media University</li>
-                            <li><span>09/2018 - 07/2021</span><br>Attendance of "Kerschensteinerschule Reutlingen"<br>
-                                                              <span>Profile subject: "Design and media technology"</span> <br>
-                                                                    School-leaving qualification: General qualification for university entrance</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="cv-btn" data-aos="fade" data-aos-duration="1000" data-aos-delay="200">
-                    <a href="files/CV Elia Baisch.pdf" download class="btn">Download CV</a>
-                </div>
-            </div>
-        </div>
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-eyebrow">Portfolio — 2026</div>
+      <h1><span class="typing"></span></h1>
+      <p class="hero-sub"
+         <p data-de="Ich verbinde Design, Entwicklung und Management — für kreative Ideen, klare Lösungen und effiziente Wege."
+          data-en="I connect design, development, and management — turning creative ideas into clear solutions and efficient ways of working.">Ich verbinde Design, Entwicklung und Management — für kreative Ideen, klare Lösungen und effiziente Wege.</p>
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-primary" data-de="Projekte ansehen" data-en="View work">Projekte ansehen
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#tools" class="btn btn-ghost">Tools</a>
+        <span class="hero-avail"><span class="dot"></span><span data-de="Offen für Projekte" data-en="Available for work">Offen für Projekte</span></span>
+      </div>
     </div>
+    <div class="hero-photo">
+      <!-- Eigenes Foto: assets/portrait.jpg austauschen -->
+      <img src="assets/portrait.jpg" alt="Elia Baisch" onerror="this.style.display='none'">
+      <div class="cap"><span>Elia Baisch</span><span>Stuttgart / Tübingen</span></div>
+    </div>
+  </div>
+</header>
 
-    <!-- -----------portfolio---------------- -->
+<!-- ================= MARQUEE ================= -->
+<div class="strip"><div class="strip-track" id="strip"></div></div>
 
-    <div id="portfolio">
-        <div class="container">
-            <h2 class="sub-title" data-aos="fade" data-aos-duration="2000">My Work</h2>
-            <div class="cv-btn" data-aos="fade" data-aos-duration="1000" data-aos-delay="200">
-                <a href="files/Portfolio.pdf" download class="btn" target="_blank">Portfolio-Overview-PDF</a>
-            </div>
-                <div class="work-list">
-                    <div class="work" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
-                        <img src="images/Homepage/uid-logo.png">
-                        <div class="layer">
-                            <h3>User Interface Design</h3>
-                            <p>A high-fidelity prototype of the application "SustainAppility" which helps you to get information about the sustainabilty of a product by scanning its barcode </p>
-                            <a href="sustainAppility.html"><i class="fa-regular fa-eye"></i></a>
-                        </div>
-                    </div>
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-top">
+      <h2 class="sec-title rv" data-de="Über mich" data-en="About me">Über mich</h2>
+      <span class="sec-idx rv">01 / 04</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-text rv">
+        <p data-de="Elia Baisch, geb. 2002. Ich arbeite an der Schnittstelle von Design, Entwicklung und Management und verbinde dabei unterschiedliche Perspektiven miteinander. Mein bisheriger Weg hat mir Grundlagen in verschiedenen Bereichen gegeben und vor allem gezeigt, wie wertvoll es ist, nicht nur eine Disziplin zu betrachten, sondern Zusammenhänge zu verstehen."
+          data-en="Elia Baisch, b. 2002. I work at the intersection of design, development and management, bringing different perspectives together. My journey so far has given me a foundation across various fields and has shown me the value of looking beyond individual disciplines and understanding how they connect.">
+          Elia Baisch, geb. 2002. Ich arbeite an der Schnittstelle von Design, Entwicklung und Management und verbinde dabei unterschiedliche Perspektiven miteinander. Mein bisheriger Weg hat mir Grundlagen in verschiedenen Bereichen gegeben und vor allem gezeigt, wie wertvoll es ist, nicht nur eine Disziplin zu betrachten, sondern Zusammenhänge zu verstehen.
+        </p>
+        <p class="muted"
+          data-de="Ich interessiere mich für kreative Lösungen, effiziente Arbeitsweisen und die Frage, wie aus einer Idee etwas entsteht, das am Ende tatsächlich funktioniert und einen Mehrwert bietet. Dabei bewege ich mich gerne zwischen Gestaltung und Technik, probiere neue Ansätze aus und finde mich schnell in unbekannten Themen zurecht. Mit meinem aktuellen Fokus auf Management erweitere ich dieses Fundament um eine strategische und organisatorische Perspektive. Mein Ziel ist es, die verschiedenen Bereiche nicht getrennt voneinander zu betrachten, sondern miteinander zu verbinden und daraus bessere Lösungen zu entwickeln. Dabei bleibt für mich vor allem eines wichtig: neugierig zu bleiben, neue Möglichkeiten auszuprobieren und das eigene Wissen kontinuierlich weiterzuentwickeln."
+          data-en="I am interested in creative solutions, efficient ways of working and turning ideas into things that genuinely work and provide value. I enjoy moving between design and technology, exploring new approaches and quickly finding my way into unfamiliar topics. With my current focus on management, I am expanding this foundation with a strategic and organizational perspective. My goal is to connect these different areas rather than viewing them separately and use them to develop better solutions. Above all, I want to stay curious, explore new possibilities and continuously expand my knowledge.">
+          Ich interessiere mich für kreative Lösungen, effiziente Arbeitsweisen und die Frage, wie aus einer Idee etwas entsteht, das am Ende tatsächlich funktioniert und einen Mehrwert bietet. Dabei bewege ich mich gerne zwischen Gestaltung und Technik, probiere neue Ansätze aus und finde mich schnell in unbekannten Themen zurecht. Mit meinem aktuellen Fokus auf Management erweitere ich dieses Fundament um eine strategische und organisatorische Perspektive. Mein Ziel ist es, die verschiedenen Bereiche nicht getrennt voneinander zu betrachten, sondern miteinander zu verbinden und daraus bessere Lösungen zu entwickeln. Dabei bleibt für mich vor allem eines wichtig: neugierig zu bleiben, neue Möglichkeiten auszuprobieren und das eigene Wissen kontinuierlich weiterzuentwickeln.
+        </p>
+        <a href="files/CV%20Elia%20Baisch.pdf" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-top:8px" data-de="Lebenslauf (PDF)" data-en="Download CV (PDF)">Lebenslauf (PDF)
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13M7 11l5 5 5-5M5 21h14"/></svg></a>
+      </div>
+      <div class="rv">
+        <div class="about-tabs">
+          <button class="active" onclick="atab(event,'exp')" data-de="Erfahrung" data-en="Experience">Erfahrung</button>
+          <button onclick="atab(event,'edu')" data-de="Ausbildung" data-en="Education">Ausbildung</button>
+        </div>
+        <div class="tp active" id="exp">
+          <div class="tl">
+            <div class="tl-item now"><div class="tl-date">2026 — <span data-de="heute" data-en="now">heute</span></div><h4>Werkstudent Order Engineering</h4><div class="org">Weinmann Holzbausystemtechnik</div><p data-de="Technische Analyse, Datenauswertung & Automatisierung von Abläufen." data-en="Technical analysis, data evaluation & workflow automation.">Technische Analyse, Datenauswertung & Automatisierung von Abläufen.</p></div>
+            <div class="tl-item"><div class="tl-date">2025</div><h4>Retail Operations</h4><div class="org">Baumarkt Engstingen</div><p data-de="Beratung, Lager- & Warenmanagement, Kassenabrechnung." data-en="Consulting, inventory & cash handling.">Beratung, Lager- & Warenmanagement, Kassenabrechnung.</p></div>
+            <div class="tl-item"><div class="tl-date">2023 — 2024</div><h4>Praktikum IT-Testmanagement</h4><div class="org">Hugo Boss AG</div><p data-de="Testautomatisierung & RPA." data-en="Test automation & RPA.">Testautomatisierung & RPA.</p></div>
+            <div class="tl-item"><div class="tl-date">2021 — 2022</div><h4>Werkstudent Logistik</h4><div class="org">Robert Bosch GmbH</div><p data-de="Werkstudent- & Ferienjobs im Logistikbereich." data-en="Student & vacation jobs in logistics.">Werkstudent- & Ferienjobs im Logistikbereich.</p></div>
+          </div>
+        </div>
+        <div class="tp" id="edu">
+          <div class="tl">
+            <div class="tl-item now"><div class="tl-date">2026 — <span data-de="heute" data-en="now">heute</span></div><h4 data-de="M.Sc. Computer Science and Media" data-en="M.Sc. Computer Science and Media">M.Sc. Computer Science and Media</h4><div class="org">Hochschule der Medien Stuttgart</div></div>
+            <div class="tl-item"><div class="tl-date">2025 — 2026</div><h4 data-de="M.Sc. Medieninformatik" data-en="M.Sc. Media Informatics">M.Sc. Medieninformatik</h4><div class="org">Universität Tübingen</div></div>            
+            <div class="tl-item"><div class="tl-date">2021 — 2025</div><h4 data-de="B.Sc. Mobile Medien" data-en="B.Sc. Mobile Media">B.Sc. Mobile Medien</h4><div class="org">Hochschule der Medien Stuttgart</div></div>
+            <div class="tl-item"><div class="tl-date">2018 — 2021</div><h4 data-de="Allg. Hochschulreife" data-en="University entrance qualification">Allg. Hochschulreife</h4><div class="org">Kerschensteinerschule Reutlingen — Gestaltungs- & Medientechnik</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <div class="work" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="600">
-                        <img src="images/Homepage/ToDoList.jpg">
-                        <div class="layer">
-                            <h3>Android Application Development</h3>
-                            <p> ToDoList is an android app that allows you to create tasks and notes
-                                with the addition to add images and photos to it, for improvement of memory. </p>
-                            <a href="toDoList.html"><i class="fa-regular fa-eye"></i></a>
-                        </div>
-                    </div>
+<!-- ================= WORK ================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-top">
+      <h2 class="sec-title rv" data-de="Ausgewählte Arbeiten" data-en="Selected work">Ausgewählte Arbeiten</h2>
+      <span class="sec-idx rv">02 / 04</span>
+    </div>
+    <!-- Liste wird aus js/projects.js gerendert -->
+    <div class="rv" id="projList"></div>
+    <div class="rv" style="margin-top:44px">
+      <a href="files/Portfolio.pdf" target="_blank" rel="noopener" class="btn btn-ghost"
+         data-de="Portfolio-Überblick (PDF)" data-en="Portfolio overview (PDF)">Portfolio-Überblick (PDF)
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13M7 11l5 5 5-5M5 21h14"/></svg></a>
+    </div>
+  </div>
+</section>
 
+<!-- ================= TOOLS ================= -->
+<section id="tools" class="tools-sec">
+  <div class="wrap">
+    <div class="sec-top">
+      <h2 class="sec-title rv" data-de="Kleine Tools" data-en="Small tools">Kleine Tools</h2>
+      <span class="sec-idx rv">03 / 04</span>
+    </div>
+    <p class="tools-lead rv" data-de="Verfahren aus meinen Bildverarbeitungs-Projekten, direkt zum Ausprobieren — komplett im Browser, kein Upload, kein Server. Über das Info-Symbol im Tool steht jeweils, wie das Verfahren funktioniert."
+       data-en="Methods from my image-processing projects, ready to try — entirely in the browser, no upload, no server. The info icon inside each tool explains how the method works.">Verfahren aus meinen Bildverarbeitungs-Projekten, direkt zum Ausprobieren — komplett im Browser, kein Upload, kein Server. Über das Info-Symbol im Tool steht jeweils, wie das Verfahren funktioniert.</p>
+    <div class="tgrid rv">
+      <div class="tool" onclick="openTool('hybrid')">
+        <div class="rt">01 — BILDVERARBEITUNG</div>
+        <h3>Hybrid Image</h3>
+        <p data-de="Zwei Bilder in einem: aus der Nähe das eine, aus der Ferne das andere. Tief- und Hochpass nach Oliva &amp; Torralba." data-en="Two images in one: one up close, the other from afar. Low- and high-pass after Oliva &amp; Torralba.">Zwei Bilder in einem: aus der Nähe das eine, aus der Ferne das andere. Tief- und Hochpass nach Oliva &amp; Torralba.</p>
+        <span class="go" data-de="Öffnen" data-en="Open">Öffnen <span class="a">→</span></span>
+      </div>
+      <div class="tool" onclick="openTool('fusion')">
+        <div class="rt">02 — BILDVERARBEITUNG</div>
+        <h3>Laplacian Fusion</h3>
+        <p data-de="Zwei Bilder nahtlos verschmelzen — Multi-Band-Blending über Laplace-Pyramiden, ganz ohne sichtbare Naht." data-en="Merge two images seamlessly — multi-band blending via Laplacian pyramids, with no visible seam.">Zwei Bilder nahtlos verschmelzen — Multi-Band-Blending über Laplace-Pyramiden, ganz ohne sichtbare Naht.</p>
+        <span class="go" data-de="Öffnen" data-en="Open">Öffnen <span class="a">→</span></span>
+      </div>
+      <div class="tool" onclick="openTool('awb')">
+        <div class="rt">03 — BILDVERARBEITUNG</div>
+        <h3>Auto White Balance</h3>
+        <p data-de="Farbstiche automatisch herausrechnen — Gray World und White Patch, im linearen Lichtraum." data-en="Remove colour casts automatically — Gray World and White Patch, computed in linear light.">Farbstiche automatisch herausrechnen — Gray World und White Patch, im linearen Lichtraum.</p>
+        <span class="go" data-de="Öffnen" data-en="Open">Öffnen <span class="a">→</span></span>
+      </div>
+      <div class="tool" onclick="openTool('mosaic')">
+        <div class="rt">04 — BILDVERARBEITUNG</div>
+        <h3>Photo Mosaic</h3>
+        <p data-de="Bilder in ein Kachelraster zerlegen — sieben Methoden von Mittelwert bis K-Means und Bilateralfilter." data-en="Break images into a tile grid — seven methods from mean to K-Means and bilateral filtering.">Bilder in ein Kachelraster zerlegen — sieben Methoden von Mittelwert bis K-Means und Bilateralfilter.</p>
+        <span class="go" data-de="Öffnen" data-en="Open">Öffnen <span class="a">→</span></span>
+      </div>
+      <div class="tool" onclick="openTool('grad')">
+        <div class="rt">05 — BILDFORENSIK</div>
+        <h3>Gradienten-Analyse</h3>
+        <p data-de="Zwei Bilder über Sobel, Scharr und Laplace vergleichen — Spurensuche nach Artefakten generierter Bilder." data-en="Compare two images via Sobel, Scharr and Laplacian — looking for artefacts of generated images.">Zwei Bilder über Sobel, Scharr und Laplace vergleichen — Spurensuche nach Artefakten generierter Bilder.</p>
+        <span class="go" data-de="Öffnen" data-en="Open">Öffnen <span class="a">→</span></span>
+      </div>
+      <div class="tool" onclick="openTool('conv')">
+        <div class="rt">06 — UTILITY</div>
+        <h3>Image Converter</h3>
+        <p data-de="Bilder zwischen PNG, JPG, WebP und AVIF umwandeln und skalieren — mit Größenvergleich." data-en="Convert and resize images between PNG, JPG, WebP and AVIF — with a size comparison.">Bilder zwischen PNG, JPG, WebP und AVIF umwandeln und skalieren — mit Größenvergleich.</p>
+        <span class="go" data-de="Öffnen" data-en="Open">Öffnen <span class="a">→</span></span>
+      </div>
+      <div class="tool" onclick="openTool('qr')">
+        <div class="rt">07 — UTILITY</div>
+        <h3>QR Poster Generator</h3>
+        <p data-de="URL oder Text als gestaltetes Poster — sechs Themes, Titel, Untertitel, Badge. Als PNG downloadbar." data-en="A URL or text as a designed poster — six themes, title, subtitle, badge. Downloadable as PNG.">URL oder Text als gestaltetes Poster — sechs Themes, Titel, Untertitel, Badge. Als PNG downloadbar.</p>
+        <span class="go" data-de="Öffnen" data-en="Open">Öffnen <span class="a">→</span></span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                    <div class="work" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
-                        <img src="images/Homepage/design portfolio.png">
-                        <div class="layer">
-                            <h3>Design Portfolios</h3>
-                            <p>Here are some compact Design-Portfolios I made due to study lectures in Mobile Interaction Design</p>
-                            <a href="designPortfolios.html"><i class="fa-regular fa-eye"></i></a>
-                        </div>
-                    </div>
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact">
+  <div class="wrap rv">
+    <span class="sec-idx" style="display:block;margin-bottom:6px">04 / 04</span>
+    <h2 class="contact-h" data-de="Lass uns <span class='em'>reden</span>." data-en="Let's <span class='em'>talk</span>.">Lass uns <span class="em">reden</span>.</h2>
+    <a href="mailto:baischelia@gmx.de" class="contact-mail">baischelia@gmx.de</a>
+    <div class="social-row">
+      <a href="https://github.com/BaischElia" target="_blank" class="social">GitHub</a>
+      <a href="https://www.linkedin.com/in/elia-baisch" target="_blank" class="social">LinkedIn</a>
+    </div>
+  </div>
+</section>
 
-                    <div class="work" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
-                        <img src="images/Homepage/videos.png">
-                        <div class="layer">
-                            <h3>Videos</h3>
-                            <p>Here are a few videos i tried my hand at</p>
-                            <a href="videos.html"><i class="fa-regular fa-eye"></i></a>
-                        </div>
-                    </div>
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Elia Baisch</span>
+    <span data-de="Gebaut mit Sorgfalt" data-en="Built with care">Gebaut mit Sorgfalt</span>
+    <span id="clock">--:--</span>
+  </div>
+</footer>
 
-                    <div class="work" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
-                        <img src="images/Homepage/lunar.png">
-                        <div class="layer">
-                            <h3>VR Projekt - Lunar Lunacy</h3>
-                            <p>UPCOMING: In a group of 9, we developed a VR Game, where my task was to create 3D-Assets for it</p>
-                            <a href="#portfolio"><i class="fa-regular fa-eye"></i></a>
-                        </div>
-                    </div>
+<!-- ================= TOOL-MODAL ================= -->
+<div class="mb" id="mb">
+  <div class="modal">
+    <div class="mh">
+      <h3 id="mTitle">Tool</h3>
+      <div class="mh-r">
+        <button class="ib" id="mInfo" aria-label="Info" style="display:none">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.6v.4"/></svg></button>
+        <button class="cl" onclick="closeTool()" aria-label="Close">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+    </div>
+    <div class="mbody" id="mBody"></div>
 
-                    <div class="work" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
-                        <img src="images/Homepage/Adventurous.png">
-                        <div class="layer">
-                            <h3>Adventurous - Unity Project</h3>
-                            <p>UPCOMING: Here I created a whole Unity Game, including Assets and Sound Design</p>
-                            <a href=""><i class="fa-regular fa-eye"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="work" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
-                        <img src="images/Homepage/plugin.png" alt="Plugin Development">
-                        <div class="layer">
-                            <h3>Plugin Development</h3>
-                            <p>
-                                VST3 audio plugins developed with JUCE and C++.
-                                Personal exploration of DSP, UI design and
-                                AI assisted coding for FL Studio.
-                            </p>
-                            <a href="plugin-development.html"><i class="fa-regular fa-eye"></i>
-                            </a>
-                        </div>
+    <!-- Erklärung zum Verfahren — schiebt sich über den Tool-Inhalt -->
+    <aside class="tinfo" id="mInfoPanel">
+      <div class="tinfo-h">
+        <button class="tinfo-back" id="mInfoBack">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+          <span data-de="Zurück zum Tool" data-en="Back to the tool">Zurück zum Tool</span>
+        </button>
+      </div>
+      <div class="tinfo-b" id="mInfoBody"></div>
+    </aside>
+  </div>
 </div>
-<!--
-                    <div class="work" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
-                        <img src="images/Homepage/progress.png">
-                        <div class="layer">
-                            <h3>UX Project - Mental Health at Home Office</h3>
-                            <p>UPCOMING: In a group of 3, we are developing a Product focusing on the problem of mental health at home office</p>
-                            <a href=""><i class="fa-regular fa-eye"></i></a>
-                        </div>
-                    </div> 
 
+<!-- ================= LIBRARIES (CDN) ================= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.16/typed.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 
-                    <div class="work" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
-                        <img src="images/Homepage/progress.png">
-                        <div class="layer">
-                            <h3>3D Printing/Modelling</h3>
-                            <p>UPCOMING: In my freetime I am modelling 3D models for my 3D printer</p>
-                            <a href=""><i class="fa-regular fa-eye"></i></a>
-                        </div>
-                    </div>
--->
-                </div>
-            </div>
-        </div>
+<!-- ================= EIGENE SCRIPTS ================= -->
+<script src="js/main.js"></script>
+<script src="js/projects.js"></script>
+<script src="js/tools.js"></script>
+<!-- Gemeinsame Basis der Bild-Tools — muss vor den Tools kommen -->
+<script src="js/tools/_lib.js"></script>
+<!-- Einzelne Tools (jederzeit erweiterbar) -->
+<script src="js/tools/hybrid.js"></script>
+<script src="js/tools/fusion.js"></script>
+<script src="js/tools/awb.js"></script>
+<script src="js/tools/mosaic.js"></script>
+<script src="js/tools/gradients.js"></script>
+<script src="js/tools/converter.js"></script>
+<script src="js/tools/filter.js"></script>
+<script src="js/tools/qr.js"></script>
 
-    <!-- -----------contact---------------- -->
-    <div id="contact"></div>
-        <div class="container">
-            <div class="row">
-                <div class="contact-left">
-                    <h2 class="sub-title" data-aos="fade" data-aos-duration="2000"><del>Contact Me!</del></h2>
-                    <div class="subheader-text" data-aos="fade" data-aos-delay="800" style="color:Tomato;">Out of Order, use icons in footer instead!</div>
-                    <form id="myForm">
-                        <input name="Name" type="text" id="inputName" placeholder="Your Name ..." data-aos="fade-right" required >
-                        <input name="Email" type="email" id="inputEmail" placeholder="Your Email ..." data-aos="fade-right" data-aos-delay="200" required>
-                        <textarea name="Message" id="inputMsg" rows=6 placeholder="Your Message ..." data-aos="fade-right" data-aos-delay="400" required></textarea>
-                    </form>
-                    <button class="btn" type="submit" onclick= 'checkUserInput()' data-aos="fade" data-aos-duration="1000" data-aos-delay="200" ><i class="fa-solid fa-paper-plane"></i></button>
-                </div>
-                <div class="contact-right">
-                    <div class="wrapper" style="display: none;">
-                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
-                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-                        </svg>
-                    <p data-aos="fade" data-aos-duration="2000" data-aos-delay="1000">Thanks for your message!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    <!-- -----------footer---------------- -->
-    <hr width="80%">
-    <footer id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-left">
-                    <p> &copy;2023 Elia Baisch</p>
-                </div>
-                <div class="footer-right">
-                    <div class="social-icons">
-                      <a href="https://github.com/BaischElia"><i class="fa-brands fa-square-github"></i></a>
-                      <a href="mailto:eliamerlin@gmx.de"><i class="fa-solid fa-envelope"></i></a>
-                      <a href="https://www.linkedin.com/in/elia-baisch"><i class="fa-brands fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-     <!-- -----------java script---------------- -->
-
-
-        <!-- -----------icons---------------- -->
-
-        <script src="https://kit.fontawesome.com/2cf1a5ff5b.js" crossorigin="anonymous"></script>
-
-        <!-- -----------typed.js---------------- -->
-
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-        <script src="script/typed.js"></script>
-
-        <!-- -----------tab manager---------------- -->
-
-        <script src="script/tab_manager.js"></script>
-
-        <!-- -----------burger menu---------------- -->
-
-        <script src="script/burger_menu.js"></script>
-
-        <!-- -----------form---------------- -->
-
-        <script
-            src="https://code.jquery.com/jquery-3.4.1.js"
-            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-            crossorigin="anonymous">
-        </script>
-
-        <script src="script/form.js"></script>
-
-        <!-- -----------aos---------------- -->
-
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>
-            AOS.init();
-
-            if(window.innerWidth < 700) {
-                const elements = document.querySelectorAll('[data-aos-delay]');
-                for (let i = 0; i < elements.length; i++) {
-                elements[i].removeAttribute('data-aos');
-                }
-            }
-        </script>
 </body>
-
-
 </html>

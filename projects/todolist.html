@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>ToDoList — Elia Baisch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <a href="../index.html" class="brand"><b>Elia</b><span class="dot">.</span>Baisch</a>
+  <div class="nav-r">
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html#about" data-de="Über mich" data-en="About">Über mich</a>
+      <a href="../index.html#work" data-de="Projekte" data-en="Work">Projekte</a>
+      <a href="../index.html#tools">Tools</a>
+      <a href="../index.html#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    </div>
+    <button class="lang" id="langBtn" onclick="toggleLang()">DE</button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main class="project-page">
+  <div class="wrap">
+
+    <a href="../index.html#work" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span data-de="Zurück zu Projekten" data-en="Back to work">Zurück zu Projekten</span>
+    </a>
+
+    <div class="project-kicker" data-de="Android-App-Entwicklung" data-en="Android app development">Android-App-Entwicklung</div>
+
+    <div class="project-head">
+      <h1>ToDoList</h1>
+      <span class="py">2024</span>
+    </div>
+
+    <p class="project-lead"
+       data-de="Eine Aufgabenliste, die sich Dinge besser merkt — weil zu jeder Notiz auch ein Bild gehören darf."
+       data-en="A task list that remembers better — because every note can carry an image.">Eine Aufgabenliste, die sich Dinge besser merkt — weil zu jeder Notiz auch ein Bild gehören darf.</p>
+
+    <div class="project-meta">
+      <span class="tag">Android</span>
+      <span class="tag">Android Studio</span>
+      <span class="tag">Java</span>
+      <span class="tag">UI</span>
+    </div>
+
+    <div class="project-cover rv">
+      <img src="../assets/covers/todolist.jpg" alt="ToDoList" data-optional>
+    </div>
+
+    <dl class="p-facts rv">
+      <div><dt data-de="Rolle" data-en="Role">Rolle</dt><dd data-de="Entwicklung & UI" data-en="Development & UI">Entwicklung & UI</dd></div>
+      <div><dt data-de="Team" data-en="Team">Team</dt><dd data-de="2 Personen" data-en="2 people">2 Personen</dd></div>
+      <div><dt data-de="Kontext" data-en="Context">Kontext</dt><dd data-de="Studienprojekt, HdM Stuttgart" data-en="University project, HdM Stuttgart">Studienprojekt, HdM Stuttgart</dd></div>
+      <div><dt data-de="Werkzeuge" data-en="Tools">Werkzeuge</dt><dd>Android Studio · SQLite</dd></div>
+    </dl>
+
+    <blockquote class="p-quote rv">
+      <p data-de="Ein Bild sagt mehr als tausend Worte."
+         data-en="A picture says more than a thousand words.">Ein Bild sagt mehr als tausend Worte.</p>
+      <cite data-de="Leitgedanke des Projekts" data-en="Guiding idea of the project">Leitgedanke des Projekts</cite>
+    </blockquote>
+
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Über das Projekt" data-en="About the project">Über das Projekt</div>
+      <h2 data-de="Android von Grund auf verstehen" data-en="Understanding Android from the ground up">Android von Grund auf verstehen</h2>
+      <p data-de="Im Zweierteam haben wir eine App in Android Studio entwickelt, aufbauend auf den Inhalten der Vorlesung. Grundkonzepte wie UI-Design, Datenhaltung und Hintergrundprozesse über Fragments, Broadcast Receiver und asynchrone Programmierung sind darin eingeflossen."
+         data-en="In a team of two we developed an app in Android Studio, building on the course material. Core concepts such as UI design, data management and background processes via fragments, broadcast receivers and asynchronous programming were integrated.">Im Zweierteam haben wir eine App in Android Studio entwickelt, aufbauend auf den Inhalten der Vorlesung. Grundkonzepte wie UI-Design, Datenhaltung und Hintergrundprozesse über Fragments, Broadcast Receiver und asynchrone Programmierung sind darin eingeflossen.</p>
+      <p data-de="Die App nutzt Android-Bordmittel zur Datenspeicherung und stellt sie in einem bewusst schlichten, gut bedienbaren Interface dar."
+         data-en="The app uses Android's own features to store data and presents it through a deliberately simple, easy-to-use interface.">Die App nutzt Android-Bordmittel zur Datenspeicherung und stellt sie in einem bewusst schlichten, gut bedienbaren Interface dar.</p>
+    </section>
+
+    <section class="p-split rv">
+      <div>
+        <div class="p-kicker" data-de="Hauptansicht" data-en="Main screen">Hauptansicht</div>
+        <h3 data-de="Alles auf einen Blick" data-en="Everything at a glance">Alles auf einen Blick</h3>
+        <p data-de="ToDoList erlaubt es, Aufgaben und Notizen mit optionalen Bildern anzulegen — das hilft beim Erinnern. Einträge lassen sich abhaken, löschen oder als ganze Liste leeren. Der Fokus lag auf intuitiver Bedienung und klarer Darstellung."
+           data-en="ToDoList lets you create tasks and notes with optional images, which helps with recall. Entries can be checked off, deleted or cleared as a whole list. The focus was intuitive interaction and clear visualisation.">ToDoList erlaubt es, Aufgaben und Notizen mit optionalen Bildern anzulegen — das hilft beim Erinnern. Einträge lassen sich abhaken, löschen oder als ganze Liste leeren. Der Fokus lag auf intuitiver Bedienung und klarer Darstellung.</p>
+      </div>
+      <div class="p-split-media phone">
+        <img class="zoom" src="../assets/todolist/main.jpg" alt="Main Screen" data-optional>
+      </div>
+    </section>
+
+    <section class="p-split rev rv">
+      <div>
+        <div class="p-kicker" data-de="Eintrag anlegen" data-en="Adding an entry">Eintrag anlegen</div>
+        <h3 data-de="Aufgabe, Beschreibung, Bild" data-en="Task, description, image">Aufgabe, Beschreibung, Bild</h3>
+        <p data-de="Aufgabe und Beschreibung eintragen — optional ein Foto oder Bild hinzufügen, um den Eintrag anzureichern. Jeder Eintrag kann als erledigt markiert oder entfernt werden, damit die Liste übersichtlich bleibt."
+           data-en="Enter the task and its description — optionally add a photo or image to enrich the entry. Each item can be marked as done or removed, keeping the list tidy.">Aufgabe und Beschreibung eintragen — optional ein Foto oder Bild hinzufügen, um den Eintrag anzureichern. Jeder Eintrag kann als erledigt markiert oder entfernt werden, damit die Liste übersichtlich bleibt.</p>
+      </div>
+      <div class="p-split-media phone">
+        <img class="zoom" src="../assets/todolist/add.jpg" alt="Add Item Screen" data-optional>
+      </div>
+    </section>
+
+    <section class="p-sec rv">
+      <div class="p-cta">
+        <a class="btn btn-primary" href="https://github.com/BaischElia/ToDoList" target="_blank" rel="noopener"
+           data-de="Zum Repository" data-en="View repository">Zum Repository
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></a>
+      </div>
+    </section>
+
+    <nav class="p-next">
+      <a href="design-portfolios.html">
+        <span>
+          <span class="lbl" data-de="Nächstes Projekt" data-en="Next project">Nächstes Projekt</span>
+          <span class="t">Design Portfolios</span>
+        </span>
+        <span class="arr"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Elia Baisch</span>
+    <span data-de="Gebaut mit Sorgfalt" data-en="Built with care">Gebaut mit Sorgfalt</span>
+    <span id="clock">--:--</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/project.js"></script>
+</body>
+</html>

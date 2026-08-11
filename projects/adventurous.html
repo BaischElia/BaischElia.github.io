@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Adventurous — Elia Baisch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <a href="../index.html" class="brand"><b>Elia</b><span class="dot">.</span>Baisch</a>
+  <div class="nav-r">
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html#about" data-de="Über mich" data-en="About">Über mich</a>
+      <a href="../index.html#work" data-de="Projekte" data-en="Work">Projekte</a>
+      <a href="../index.html#tools">Tools</a>
+      <a href="../index.html#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    </div>
+    <button class="lang" id="langBtn" onclick="toggleLang()">DE</button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main class="project-page">
+  <div class="wrap">
+
+    <a href="../index.html#work" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span data-de="Zurück zu Projekten" data-en="Back to work">Zurück zu Projekten</span>
+    </a>
+
+    <div class="project-kicker" data-de="Unity-Spiel · Assets & Sound" data-en="Unity game · assets & sound">Unity-Spiel · Assets & Sound</div>
+
+    <div class="project-head">
+      <h1>Adventurous</h1>
+      <span class="py">2026</span>
+    </div>
+
+    <p class="project-lead"
+       data-de="Ein komplettes Unity-Spiel in Eigenregie — inklusive Assets und Sound Design."
+       data-en="A complete Unity game built on my own — including assets and sound design.">Ein komplettes Unity-Spiel in Eigenregie — inklusive Assets und Sound Design.</p>
+
+    <div class="project-meta">
+      <span class="tag">Unity</span>
+      <span class="tag">C#</span>
+      <span class="tag">Sound Design</span>
+      <span class="tag soon" data-de="In Arbeit" data-en="In progress">In Arbeit</span>
+    </div>
+
+    <div class="project-cover rv">
+      <img src="../assets/covers/adventurous.png" alt="Adventurous" data-optional>
+    </div>
+
+    <dl class="p-facts rv">
+      <div><dt data-de="Rolle" data-en="Role">Rolle</dt><dd data-de="Alles — Code, Assets, Sound" data-en="Everything — code, assets, sound">Alles — Code, Assets, Sound</dd></div>
+      <div><dt data-de="Team" data-en="Team">Team</dt><dd data-de="Einzelprojekt" data-en="Solo project">Einzelprojekt</dd></div>
+      <div><dt data-de="Kontext" data-en="Context">Kontext</dt><dd data-de="Studienprojekt" data-en="University project">Studienprojekt</dd></div>
+      <div><dt data-de="Status" data-en="Status">Status</dt><dd data-de="In Entwicklung" data-en="In development">In Entwicklung</dd></div>
+    </dl>
+
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Über das Projekt" data-en="About the project">Über das Projekt</div>
+      <h2 data-de="Ein Spiel, von der ersten Zeile bis zum letzten Ton"
+          data-en="A game, from the first line of code to the last sound">Ein Spiel, von der ersten Zeile bis zum letzten Ton</h2>
+      <p data-de="Hier habe ich ein vollständiges Unity-Spiel gebaut — Spielmechanik in C#, die Assets dafür selbst erstellt und das Sound Design gleich mit. Ein Projekt, bei dem alle Bereiche zusammenlaufen, die mich interessieren."
+         data-en="Here I built a complete Unity game — gameplay in C#, the assets created myself and the sound design on top. A project where all the areas I care about come together.">Hier habe ich ein vollständiges Unity-Spiel gebaut — Spielmechanik in C#, die Assets dafür selbst erstellt und das Sound Design gleich mit. Ein Projekt, bei dem alle Bereiche zusammenlaufen, die mich interessieren.</p>
+    </section>
+
+    <section class="p-sec rv">
+      <div class="p-soon">
+        <div class="rt" data-de="Demnächst" data-en="Coming soon">Demnächst</div>
+        <p data-de="Das Projekt ist noch nicht abgeschlossen. Hier folgen bald Screenshots, ein Gameplay-Video und Details zum Sound Design."
+           data-en="The project isn't finished yet. Screenshots, a gameplay video and details on the sound design will follow here soon.">Das Projekt ist noch nicht abgeschlossen. Hier folgen bald Screenshots, ein Gameplay-Video und Details zum Sound Design.</p>
+      </div>
+    </section>
+
+    <nav class="p-next">
+      <a href="sustainappility.html">
+        <span>
+          <span class="lbl" data-de="Zurück zum Anfang" data-en="Back to the start">Zurück zum Anfang</span>
+          <span class="t">SustainAppility</span>
+        </span>
+        <span class="arr"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Elia Baisch</span>
+    <span data-de="Gebaut mit Sorgfalt" data-en="Built with care">Gebaut mit Sorgfalt</span>
+    <span id="clock">--:--</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/project.js"></script>
+</body>
+</html>

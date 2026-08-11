@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>VST3 Plugin Dev — Elia Baisch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <a href="../index.html" class="brand"><b>Elia</b><span class="dot">.</span>Baisch</a>
+  <div class="nav-r">
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html#about" data-de="Über mich" data-en="About">Über mich</a>
+      <a href="../index.html#work" data-de="Projekte" data-en="Work">Projekte</a>
+      <a href="../index.html#tools">Tools</a>
+      <a href="../index.html#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    </div>
+    <button class="lang" id="langBtn" onclick="toggleLang()">DE</button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main class="project-page">
+  <div class="wrap">
+
+    <a href="../index.html#work" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span data-de="Zurück zu Projekten" data-en="Back to work">Zurück zu Projekten</span>
+    </a>
+
+    <div class="project-kicker" data-de="Audio-Software" data-en="Audio software">Audio-Software</div>
+
+    <div class="project-head">
+      <h1>VST3 Plugin Dev</h1>
+      <span class="py">2025</span>
+    </div>
+
+    <p class="project-lead"
+       data-de="Gute Plugins sind teuer. Also habe ich meine eigenen gebaut — mit JUCE, C++ und einer ordentlichen Portion DSP."
+       data-en="Good plugins are expensive. So I built my own — with JUCE, C++ and a healthy dose of DSP.">Gute Plugins sind teuer. Also habe ich meine eigenen gebaut — mit JUCE, C++ und einer ordentlichen Portion DSP.</p>
+
+    <div class="project-meta">
+      <span class="tag">JUCE</span>
+      <span class="tag">C++</span>
+      <span class="tag">DSP</span>
+      <span class="tag">VST3</span>
+    </div>
+
+    <div class="project-cover rv">
+      <img src="../assets/covers/vst3-plugin-dev.png" alt="VST3 Plugin Development" data-optional>
+    </div>
+
+    <dl class="p-facts rv">
+      <div><dt data-de="Rolle" data-en="Role">Rolle</dt><dd data-de="Konzept, DSP, UI, Build" data-en="Concept, DSP, UI, build">Konzept, DSP, UI, Build</dd></div>
+      <div><dt data-de="Team" data-en="Team">Team</dt><dd data-de="Einzelprojekt" data-en="Solo project">Einzelprojekt</dd></div>
+      <div><dt data-de="Kontext" data-en="Context">Kontext</dt><dd data-de="Privates Projekt" data-en="Personal project">Privates Projekt</dd></div>
+      <div><dt data-de="Werkzeuge" data-en="Tools">Werkzeuge</dt><dd>JUCE · CMake · FL Studio</dd></div>
+    </dl>
+
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Über das Projekt" data-en="About the project">Über das Projekt</div>
+      <h2 data-de="Software-Entwicklung, angetrieben von Musik"
+          data-en="Music-driven software engineering">Software-Entwicklung, angetrieben von Musik</h2>
+      <p data-de="Musikproduktion ist eines meiner stärksten kreativen Ventile — ich produziere meine eigenen Tracks in FL Studio von Image-Line. Hochwertige Plugins sind dabei essenziell, aber oft teuer."
+         data-en="Music production is one of my strongest creative outlets — I produce my own tracks in FL Studio by Image-Line. High-quality plugins are essential, but often expensive.">Musikproduktion ist eines meiner stärksten kreativen Ventile — ich produziere meine eigenen Tracks in FL Studio von Image-Line. Hochwertige Plugins sind dabei essenziell, aber oft teuer.</p>
+      <p data-de="Aus der Softwareentwicklung kommend, habe ich mich entschieden, meine eigenen VST3-Plugins zu entwerfen und zu bauen — mit JUCE, C++ und KI-gestützter Entwicklung."
+         data-en="Coming from a software development background, I decided to design and build my own VST3 plugins — using JUCE, C++ and AI-assisted development.">Aus der Softwareentwicklung kommend, habe ich mich entschieden, meine eigenen VST3-Plugins zu entwerfen und zu bauen — mit JUCE, C++ und KI-gestützter Entwicklung.</p>
+    </section>
+
+    <section class="p-split rv">
+      <div>
+        <div class="p-kicker" data-de="Arbeitsweise" data-en="Approach">Arbeitsweise</div>
+        <h3 data-de="Vibe Coding mit Absicht" data-en="Vibe coding with purpose">Vibe Coding mit Absicht</h3>
+        <p data-de="Audio-Plugin-Entwicklung ist komplex. Durch die Kombination aus eigener Coding-Erfahrung und KI-gestützten Workflows konnte ich schneller prototypen, DSP-Konzepte tiefer durchdringen und trotzdem saubere, wartbare Architekturen bauen."
+           data-en="Audio plugin development is complex. By combining my own coding experience with AI-assisted workflows I could prototype faster, explore DSP concepts more deeply and still build clean, maintainable architectures.">Audio-Plugin-Entwicklung ist komplex. Durch die Kombination aus eigener Coding-Erfahrung und KI-gestützten Workflows konnte ich schneller prototypen, DSP-Konzepte tiefer durchdringen und trotzdem saubere, wartbare Architekturen bauen.</p>
+      </div>
+      <div class="p-split-media">
+        <img class="zoom" src="../assets/plugin/flstudio.png" alt="FL Studio" data-optional>
+      </div>
+    </section>
+
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Die Plugins" data-en="The plugins">Die Plugins</div>
+      <h2 data-de="Drei Plugins, drei Lernstufen" data-en="Three plugins, three levels of learning">Drei Plugins, drei Lernstufen</h2>
+      <p style="margin-bottom:38px" data-de="Jedes Plugin war ein Schritt tiefer in die Signalverarbeitung — vom ersten Parameter-Handling bis zum animierten Envelope-Visualizer."
+         data-en="Each plugin was a step deeper into signal processing — from the first parameter handling to an animated envelope visualiser.">Jedes Plugin war ein Schritt tiefer in die Signalverarbeitung — vom ersten Parameter-Handling bis zum animierten Envelope-Visualizer.</p>
+
+      <div class="p-cards">
+        <article class="p-card">
+          <div class="p-card-img"><img class="zoom" src="../assets/plugin/threeknobfx.png" alt="ThreeKnobFX" data-optional></div>
+          <div class="p-card-b">
+            <div class="rt">01 — Effect</div>
+            <h3>ThreeKnobFX</h3>
+            <p data-de="Minimales Effekt-Plugin als Einstieg in die Audio-Plugin-Entwicklung."
+               data-en="A minimal effect plugin designed as an entry point into audio plugin development.">Minimales Effekt-Plugin als Einstieg in die Audio-Plugin-Entwicklung.</p>
+            <ul>
+              <li data-de="Delay in Millisekunden" data-en="Delay in milliseconds">Delay in Millisekunden</li>
+              <li data-de="Reverb als Wet/Dry-Anteil" data-en="Reverb wet/dry percentage">Reverb als Wet/Dry-Anteil</li>
+              <li data-de="Drive-Verzerrung in Dezibel" data-en="Drive distortion in decibels">Drive-Verzerrung in Dezibel</li>
+            </ul>
+            <div class="tech">JUCE · C++ · VST3 · CMake</div>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-card-img"><img class="zoom" src="../assets/plugin/sidechaingate.png" alt="Sidechain Gate" data-optional></div>
+          <div class="p-card-b">
+            <div class="rt">02 — Dynamics</div>
+            <h3>Sidechain Gate</h3>
+            <p data-de="Host-synchronisiertes Volume-Gate, inspiriert vom Kickstart-typischen Ducking."
+               data-en="A host-synchronised volume gate inspired by Kickstart-style ducking effects.">Host-synchronisiertes Volume-Gate, inspiriert vom Kickstart-typischen Ducking.</p>
+            <ul>
+              <li data-de="Synchronisation zur Host-BPM" data-en="Host BPM synchronisation">Synchronisation zur Host-BPM</li>
+              <li data-de="Mehrere Beat-Unterteilungen" data-en="Multiple beat divisions">Mehrere Beat-Unterteilungen</li>
+              <li data-de="Dry/Wet-Mix-Regelung" data-en="Dry / wet mix control">Dry/Wet-Mix-Regelung</li>
+            </ul>
+            <div class="tech">JUCE · DSP · Host Sync · VST3</div>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="p-card-img"><img class="zoom" src="../assets/plugin/sidechainpro.png" alt="Sidechain Gate Pro" data-optional></div>
+          <div class="p-card-b">
+            <div class="rt">03 — Advanced</div>
+            <h3>Sidechain Gate Pro</h3>
+            <p data-de="Fortgeschrittener Envelope-Shaper mit visuellem Feedback und feiner Kontrolle."
+               data-en="An advanced envelope-based gate with extensive shaping and real-time visualisation.">Fortgeschrittener Envelope-Shaper mit visuellem Feedback und feiner Kontrolle.</p>
+            <ul>
+              <li data-de="Verschiedene Envelope-Formen" data-en="Multiple envelope shapes">Verschiedene Envelope-Formen</li>
+              <li data-de="Swing-, Phasen- und Width-Kontrolle" data-en="Swing, phase and width control">Swing-, Phasen- und Width-Kontrolle</li>
+              <li data-de="Envelope-Visualizer mit 60 Hz" data-en="60 Hz animated envelope visualiser">Envelope-Visualizer mit 60 Hz</li>
+            </ul>
+            <div class="tech">JUCE · AudioProcessorValueTreeState · Advanced DSP</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <nav class="p-next">
+      <a href="todolist.html">
+        <span>
+          <span class="lbl" data-de="Nächstes Projekt" data-en="Next project">Nächstes Projekt</span>
+          <span class="t">ToDoList</span>
+        </span>
+        <span class="arr"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Elia Baisch</span>
+    <span data-de="Gebaut mit Sorgfalt" data-en="Built with care">Gebaut mit Sorgfalt</span>
+    <span id="clock">--:--</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/project.js"></script>
+</body>
+</html>
