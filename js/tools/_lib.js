@@ -79,6 +79,7 @@ window.TL = (function(){
     /* ---- Zustand ---- */
     const api = {
       images: {},                                    // id → HTMLImageElement
+      files:  {},                                    // id → File (Originaldatei)
       panel:  body.querySelector('.tpanel'),
       note:   body.querySelector('.tnote'),
       val(id){
@@ -120,7 +121,8 @@ window.TL = (function(){
         if(!file || !file.type.startsWith('image/')) return;
         readImage(file).then(img => {
           api.images[d.id] = img;
-          const c = fitInto(thumb, img, 260);
+          api.files[d.id]  = file;          // Originaldatei merken (Größe, Typ, Name)
+          fitInto(thumb, img, 260);
           zone.classList.add('has');
           if(api.ready()){ api.panel.style.display = 'block'; run(); }
         }).catch(() => api.say(t({de:'Bild konnte nicht gelesen werden.', en:'Could not read the image.'})));
@@ -137,23 +139,38 @@ window.TL = (function(){
     });
 
     /* ---- Parameter ---- */
-    let timer;
+    let timer, runId = 0;
     const run = () => {
       if(!api.ready()) return;
+      // Nur der jüngste Lauf darf zeichnen. Das Token muss der Lauf selbst
+      // festhalten (api.token gleich zu Beginn lesen) — eine gemeinsame
+      // stale()-Funktion ohne Token würde von jedem neuen Lauf überschrieben
+      // und alte Läufe hielten sich für aktuell.
+      const mine = ++runId;
+      api.token = mine;
+      api.stale = tok => tok !== runId;
       body.classList.add('tbusy');
       // Kurz Luft holen, damit der Ladezustand gezeichnet wird, bevor
       // die Berechnung den Hauptthread blockiert. (setTimeout statt
       // requestAnimationFrame, damit es auch in Hintergrund-Tabs läuft.)
       setTimeout(() => {
-        // Erst leeren, dann rechnen — sonst würde die Meldung des Tools
-        // gleich wieder überschrieben.
-        try { api.say(''); cfg.onInput(api); }
-        catch(err){
+        const fertig = () => { if(mine === runId) body.classList.remove('tbusy'); };
+        const schief = err => {
           console.error(err);
+          if(mine !== runId) return;
           api.say(t({de:'Berechnung fehlgeschlagen — versuch ein kleineres Bild.',
                      en:'Computation failed — try a smaller image.'}));
+        };
+        // Erst leeren, dann rechnen — sonst würde die Meldung des Tools
+        // gleich wieder überschrieben.
+        try {
+          api.say('');
+          const r = cfg.onInput(api);
+          // Tools dürfen auch asynchron rechnen (z. B. Kodierläufe).
+          if(r && typeof r.then === 'function') r.then(fertig, err => { schief(err); fertig(); });
+          else fertig();
         }
-        body.classList.remove('tbusy');
+        catch(err){ schief(err); fertig(); }
       }, 16);
     };
     api.run = run;

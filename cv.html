@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Elia Baisch — CV</title>
+<meta name="description" content="Curriculum vitae of Elia Baisch — design, development and management.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   Lebenslauf — Elia Baisch
+   ---------------------------------------------------------
+   Einspaltig und mit echtem Text aufgebaut, damit Bewerbungs-
+   systeme (ATS) und KI-Auswertungen den Inhalt sauber lesen
+   können. Nichts Wichtiges steckt in Bildern oder Grafiken.
+
+   PDF erzeugen:  im Browser öffnen -> Cmd/Strg + P ->
+   „Als PDF sichern“, Ränder „Standard“, Hintergrundgrafiken an.
+   ========================================================= */
+
+:root{
+  --ink:#1A1917;          /* Fließtext */
+  --ink-2:#4A4741;        /* Sekundärtext */
+  --ink-3:#8A857C;        /* Meta, Daten */
+  --line:#E2DED6;
+  --accent:#9A6B45;
+  --page:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:#EDEAE4}
+body{
+  font-family:'Roboto',system-ui,sans-serif;
+  color:var(--ink);
+  font-size:10.2pt;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- Seite ---------- */
+.page{
+  width:210mm;
+  min-height:297mm;
+  margin:24px auto;
+  padding:16mm 15mm 14mm;
+  background:var(--page);
+  box-shadow:0 18px 50px -24px rgba(26,25,23,.35);
+}
+
+/* ---------- Kopf ---------- */
+header{display:flex;gap:12mm;align-items:flex-start;padding-bottom:6mm;border-bottom:1.5px solid var(--ink)}
+.id{flex:1;min-width:0}
+h1{font-size:24pt;font-weight:700;letter-spacing:-.025em;line-height:1;margin-bottom:3.5mm}
+h1 .last{font-weight:300}
+.role{font-family:'Roboto Mono';font-size:8.4pt;letter-spacing:.17em;text-transform:uppercase;color:var(--accent);margin-bottom:4mm}
+.contact{display:flex;flex-wrap:wrap;gap:1.3mm 4.5mm;font-size:9.1pt;color:var(--ink-2)}
+.contact span{white-space:nowrap}
+.contact a{color:inherit;text-decoration:none;border-bottom:.5px solid var(--line)}
+.contact .k{font-family:'Roboto Mono';font-size:7.6pt;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-right:1.4mm}
+.photo{width:27mm;flex-shrink:0}
+.photo img{width:100%;display:block;border-radius:2mm;filter:grayscale(.08) contrast(1.02)}
+
+/* ---------- Kurzprofil ---------- */
+.profile{padding:4.5mm 0;border-bottom:1px solid var(--line);font-size:10pt;color:var(--ink-2);line-height:1.55;max-width:165mm}
+
+/* ---------- Abschnitte ---------- */
+section{padding-top:4.5mm}
+h2{
+  font-family:'Roboto Mono';font-size:8.2pt;font-weight:500;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--ink-3);
+  padding-bottom:2mm;margin-bottom:3mm;border-bottom:1px solid var(--line);
+}
+
+/* ---------- Eintrag ---------- */
+.item{margin-bottom:3.3mm;break-inside:avoid}
+.item:last-child{margin-bottom:0}
+.item-h{display:flex;justify-content:space-between;align-items:baseline;gap:6mm}
+.item-h h3{font-size:11pt;font-weight:500;letter-spacing:-.01em;line-height:1.3}
+.item-h h3 .at{font-weight:400;color:var(--accent)}
+.when{font-family:'Roboto Mono';font-size:8.4pt;color:var(--ink-3);white-space:nowrap;flex-shrink:0}
+.org{font-size:9.6pt;color:var(--accent);margin:.6mm 0 1.8mm}
+.item ul{list-style:none}
+.item li{position:relative;padding-left:4mm;font-size:9.6pt;color:var(--ink-2);line-height:1.45;margin-bottom:.9mm}
+.item li::before{content:"";position:absolute;left:0;top:2.05mm;width:1.8mm;height:.4mm;background:var(--accent)}
+.item .note{font-size:9.2pt;color:var(--ink-3);font-style:italic;margin-top:1mm}
+
+/* ---------- Kompetenzen ----------
+   Kategorie links, Inhalte rechts: kompakt, gut scanbar und für
+   Parser eindeutig zuzuordnen. */
+.skills{display:block}
+.skill-row{display:flex;gap:5mm;margin-bottom:1.8mm;break-inside:avoid}
+.skill-row:last-child{margin-bottom:0}
+.skill-row dt{
+  flex:0 0 33mm;padding-top:.5mm;
+  font-family:'Roboto Mono';font-size:7.8pt;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.skill-row dd{flex:1;font-size:9.6pt;color:var(--ink-2);line-height:1.45}
+
+/* ---------- Sprachen ---------- */
+.langs{display:flex;gap:12mm;flex-wrap:wrap;font-size:9.6pt;color:var(--ink-2)}
+.langs b{font-weight:500;color:var(--ink)}
+
+/* ---------- Fuß ---------- */
+footer{margin-top:7mm;padding-top:3mm;border-top:1px solid var(--line);
+  font-family:'Roboto Mono';font-size:7.6pt;letter-spacing:.08em;color:var(--ink-3);
+  display:flex;justify-content:space-between}
+
+/* ---------- Bildschirm-Hinweis (wird nicht gedruckt) ---------- */
+.hint{max-width:210mm;margin:0 auto;padding:0 4mm;font-size:12px;color:#6B665E;text-align:center}
+.hint b{color:#1A1917}
+
+/* Laufender Kopf der zweiten Seite — nur im Druck sichtbar */
+.runhead{display:none}
+
+/* ---------- Druck ---------- */
+@page{ size:A4; margin:0; }
+@media print{
+  html{background:#fff}
+  body{font-size:10.2pt}
+  .page{width:auto;min-height:0;margin:0;padding:14mm 15mm 12mm;box-shadow:none}
+  .hint{display:none}
+  a{text-decoration:none}
+  section,.item,.skill-row{break-inside:avoid}
+
+  /* Sauberer Umbruch: Seite 1 endet nach den Kernkompetenzen,
+     Seite 2 beginnt mit den Projekten. */
+  #seite2{break-before:page;padding-top:0}
+  .runhead{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding-bottom:2.5mm;margin-bottom:5mm;border-bottom:1px solid var(--line);
+  }
+  .runhead b{font-size:11pt;font-weight:500;letter-spacing:-.01em}
+  .runhead span{font-family:'Roboto Mono';font-size:7.6pt;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-3)}
+}
+</style>
+</head>
+<body>
+
+<p class="hint">Zum Speichern als PDF: <b>Cmd/Strg + P</b> → Ziel „Als PDF sichern“ · Ränder <b>„Keine“</b> (der Rand steckt schon im Dokument) · Format A4 · Hintergrundgrafiken an. Es sollen genau <b>2 Seiten</b> in der Vorschau stehen.</p>
+
+<main class="page">
+
+  <!-- ===================== KOPF ===================== -->
+  <header>
+    <div class="id">
+      <h1>Elia <span class="last">Baisch</span></h1>
+      <div class="role">Design · Development · Management</div>
+      <div class="contact">
+        <span><span class="k">Mail</span><a href="mailto:baischelia@gmx.de">baischelia@gmx.de</a></span>
+        <span><span class="k">Phone</span>+49 1575 1991315</span>
+        <span><span class="k">Location</span>Schillerstraße 7, 72829 Engstingen, Germany</span>
+        <span><span class="k">Portfolio</span><a href="https://baischelia.github.io">baischelia.github.io</a></span>
+        <span><span class="k">GitHub</span><a href="https://github.com/BaischElia">github.com/BaischElia</a></span>
+        <span><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/elia-baisch">linkedin.com/in/elia-baisch</a></span>
+      </div>
+    </div>
+    <div class="photo">
+      <img src="assets/cv-photo.jpg" alt="Elia Baisch">
+    </div>
+  </header>
+
+  <!-- ===================== KURZPROFIL ===================== -->
+  <p class="profile">
+    Media informatics student at the intersection of design, software development and management &mdash;
+    from UI/UX design and prototyping to test automation, RPA and data analysis in industrial environments.
+  </p>
+
+  <!-- ===================== BILDUNG ===================== -->
+  <section>
+    <h2>Education</h2>
+
+    <div class="item">
+      <div class="item-h">
+        <h3>M.Sc. Computer Science and Media <span class="at">&mdash; Stuttgart Media University (HdM)</span></h3>
+        <span class="when">2026 &ndash; Present</span>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="item-h">
+        <h3>M.Sc. Media Informatics <span class="at">&mdash; University of T&uuml;bingen</span></h3>
+        <span class="when">2025 &ndash; 2026</span>
+      </div>
+      <div class="note">Transferred to Stuttgart Media University to continue in Computer Science and Media.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-h">
+        <h3>B.Sc. Mobile Media <span class="at">&mdash; Stuttgart Media University (HdM)</span></h3>
+        <span class="when">10/2021 &ndash; 07/2025</span>
+      </div>
+      <div class="note">Focus: interface design, mobile and web development, image processing, 3D.</div>
+    </div>
+
+    <div class="item">
+      <div class="item-h">
+        <h3>Abitur, Design and Media Technology <span class="at">&mdash; Kerschensteinerschule, Reutlingen</span></h3>
+        <span class="when">09/2018 &ndash; 07/2021</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BERUFSERFAHRUNG ===================== -->
+  <section>
+    <h2>Professional Experience</h2>
+
+    <div class="item">
+      <div class="item-h">
+        <h3>Working Student &mdash; Order Engineering</h3>
+        <span class="when">02/2026 &ndash; Present</span>
+      </div>
+      <div class="org">Weinmann Holzbausystemtechnik GmbH</div>
+      <ul>
+        <li>General support in order engineering for timber construction systems</li>
+        <li>Technical analysis of order and component data</li>
+        <li>Data management and data evaluation</li>
+        <li>Automation of recurring operational workflows using Excel and VBA</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-h">
+        <h3>Intern &mdash; IT Test Management, Test Automation &amp; RPA</h3>
+        <span class="when">09/2023 &ndash; 03/2024</span>
+      </div>
+      <div class="org">Hugo Boss AG, Metzingen</div>
+      <ul>
+        <li>Support in test management across the software release cycle</li>
+        <li>Review, validation and administration of test data</li>
+        <li>Preparation and support of release phases</li>
+        <li>Test automation with Tricentis Tosca; robotic process automation with UiPath</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== KERNKOMPETENZEN ===================== -->
+  <section>
+    <h2>Core Skills</h2>
+    <dl class="skills">
+      <div class="skill-row">
+        <dt>Design &amp; UX</dt>
+        <dd>Figma, Adobe Creative Suite, UI/UX design, prototyping, user research</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Development</dt>
+        <dd>HTML, CSS, JavaScript, Python, C#, C++, Git</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Automation &amp; QA</dt>
+        <dd>Tricentis Tosca, UiPath, RPA, test management, Excel and VBA</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Analysis</dt>
+        <dd>Technical analysis, data evaluation, data management</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- ===================== SEITE 2: PROJEKTE ===================== -->
+  <section id="seite2">
+    <div class="runhead"><b>Elia Baisch</b><span>Curriculum Vitae &mdash; Page 2</span></div>
+    <h2>Selected Projects</h2>
+
+    <div class="item">
+      <div class="item-h">
+        <h3>Image Processing Toolkit</h3>
+        <span class="when">2026</span>
+      </div>
+      <ul>
+        <li>Hybrid images, Laplacian pyramid fusion, auto white balance, photo mosaic and gradient-based
+            image forensics &mdash; Python (NumPy, OpenCV, PyTorch), ported to run in the browser with
+            JavaScript and the Canvas API</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-h">
+        <h3>Portfolio Website &amp; Browser Tools</h3>
+        <span class="when">2026</span>
+      </div>
+      <ul>
+        <li>Bilingual, responsive site built from scratch in HTML, CSS and JavaScript, including
+            client-side tools for image compression, format conversion and QR poster generation</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-h">
+        <h3>VST3 Audio Plugins</h3>
+        <span class="when">2025</span>
+      </div>
+      <ul>
+        <li>Three audio effect plugins with JUCE, C++ and CMake &mdash; digital signal processing,
+            host synchronisation, custom plugin interfaces</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-h">
+        <h3>SustainAppility &mdash; UI/UX Concept</h3>
+        <span class="when">2025</span>
+      </div>
+      <ul>
+        <li>Mobile app interface making product sustainability visible via barcode scan; full design
+            process from user research to an interactive high-fidelity prototype in Figma, in a team of six</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== WEITERE ERFAHRUNG ===================== -->
+  <section>
+    <h2>Further Experience</h2>
+
+    <div class="item">
+      <div class="item-h">
+        <h3>Retail Operations (part-time)</h3>
+        <span class="when">03/2025 &ndash; 10/2025</span>
+      </div>
+      <div class="org">Sonderpreis Baumarkt, Engstingen</div>
+      <ul>
+        <li>Customer consulting, inventory and warehouse management, checkout and cash reconciliation</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="item-h">
+        <h3>Seasonal Work &mdash; Logistics</h3>
+        <span class="when">07/2021 &ndash; 08/2021 &middot; 08/2022 &ndash; 09/2022</span>
+      </div>
+      <div class="org">Robert Bosch GmbH, Reutlingen</div>
+      <ul>
+        <li>Warehouse and materials handling in an industrial production environment</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== WERKZEUGE ===================== -->
+  <section>
+    <h2>Tools &amp; Technologies</h2>
+    <dl class="skills">
+      <div class="skill-row">
+        <dt>3D &amp; CAD</dt>
+        <dd>Blender, Shapr3D, Vectorworks, Unity, 3D modelling and printing</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Image processing</dt>
+        <dd>NumPy, OpenCV, PyTorch, Canvas API</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Audio</dt>
+        <dd>JUCE, digital signal processing, CMake</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Ways of working</dt>
+        <dd>Cross-functional teamwork, project coordination, process optimisation, MS Office</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- ===================== SPRACHEN ===================== -->
+  <section>
+    <h2>Languages</h2>
+    <div class="langs">
+      <span><b>German</b> &mdash; native</span>
+      <span><b>English</b> &mdash; B2</span>
+      <span><b>French</b> &mdash; A1</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>Elia Baisch &mdash; Curriculum Vitae</span>
+    <span>baischelia.github.io</span>
+  </footer>
+
+</main>
+
+<!-- Maschinenlesbare Fassung derselben Angaben — hilft KI-Auswertungen
+     der HTML-Version, hat keinen Einfluss auf Darstellung oder Druck. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Elia Baisch",
+  "email": "baischelia@gmx.de",
+  "telephone": "+49 1575 1991315",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Schillerstraße 7",
+    "postalCode": "72829",
+    "addressLocality": "Engstingen",
+    "addressCountry": "DE"
+  },
+  "url": "https://baischelia.github.io",
+  "sameAs": [
+    "https://github.com/BaischElia",
+    "https://www.linkedin.com/in/elia-baisch"
+  ],
+  "knowsLanguage": [
+    { "@type": "Language", "name": "German" },
+    { "@type": "Language", "name": "English" },
+    { "@type": "Language", "name": "French" }
+  ],
+  "knowsAbout": [
+    "UI/UX Design", "Prototyping", "Figma", "Adobe Creative Suite",
+    "Web Development", "JavaScript", "Python", "C#", "C++", "Git",
+    "Test Automation", "Tricentis Tosca", "RPA", "UiPath", "Test Management",
+    "Data Analysis", "Excel", "VBA",
+    "Blender", "Shapr3D", "Vectorworks", "Unity", "3D Modelling",
+    "Image Processing", "OpenCV", "NumPy", "PyTorch"
+  ],
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Stuttgart Media University (HdM)",
+      "description": "M.Sc. Computer Science and Media (2026–present); B.Sc. Mobile Media (2021–2025)"
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Tübingen",
+      "description": "M.Sc. Media Informatics (2025–2026)"
+    }
+  ],
+  "hasOccupation": [
+    {
+      "@type": "OccupationalExperienceRequirements",
+      "name": "Working Student — Order Engineering, Weinmann Holzbausystemtechnik GmbH (02/2026–present)"
+    },
+    {
+      "@type": "OccupationalExperienceRequirements",
+      "name": "Intern — IT Test Management, Test Automation & RPA, Hugo Boss AG (09/2023–03/2024)"
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
