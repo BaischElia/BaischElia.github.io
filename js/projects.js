@@ -42,13 +42,6 @@ const PROJECTS = [
     year:  '2024',
     cover: 'assets/covers/design-portfolios.png',
     link:  'projects/design-portfolios.html'
-  },
-  {
-    title: '3D Modeling',
-    tags:  { de:['3D','Shapr3D','3D-Druck'], en:['3D','Shapr3D','3D printing'] },
-    year:  '2023',
-    cover: 'assets/covers/3d-modeling.png',
-    link:  'projects/3d-modeling.html'
   }
 ];
 

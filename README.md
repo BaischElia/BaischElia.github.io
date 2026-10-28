@@ -32,16 +32,14 @@ Portfolio/
 │  ├─ reachy-mini.html
 │  ├─ sustainappility.html
 │  ├─ vst3-plugin-dev.html
-│  ├─ design-portfolios.html
-│  └─ 3d-modeling.html
-├─ files/                  → PDFs (Lebenslauf, Portfolios, Messestand)
+│  └─ design-portfolios.html
+├─ files/                  → PDFs (Lebenslauf, Portfolios)
 ├─ assets/
 │  ├─ portrait.jpg         → Foto im Hero
 │  ├─ covers/              → ein Cover je Projekt (Liste + Projektkopf)
 │  ├─ reachy-mini/         → Roboterfoto, Studien-Setup, Erkennung
 │  ├─ sustainappility/     → Screens & Sketches
-│  ├─ plugin/              → Plugin-UIs
-│  └─ modeling/            → 3D-Renderings
+│  └─ plugin/              → Plugin-UIs
 └─ README.md
 ```
 
@@ -100,7 +98,6 @@ mit Leerzeichen müssen im `href` als `%20` geschrieben werden, z. B.
 | `CV Elia Baisch.pdf` | `index.html` (Über mich) |
 | `Portfolio.pdf` | `index.html` (Ausgewählte Arbeiten) |
 | `Grundlagen Design.pdf`, `A1_App_Deconstruction_Elia_Baisch.pdf`, `A2_Design_Prototyping.pdf`, `Design_Reflection.pdf` | `projects/design-portfolios.html` |
-| `Messestand.pdf` | `projects/3d-modeling.html` |
 
 ## Bilder tauschen
 
