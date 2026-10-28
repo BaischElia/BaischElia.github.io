@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Robotics — Elia Baisch</title>
+<meta name="description" content="Robotics: selbst gebaute Hardware-Projekte mit ESP32, Sensoren, Servos und 3D-gedruckten Gehäusen. Spotify-Controller, Druck-Kamera, Arcade-Konsole, 3-Achsen-Gimbal und eine MPCNC-Fräse.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+/* =========================================================
+   Nur für diese Seite: Werkstatt-Übersicht mit Unterprojekten.
+   Farben und Schriften kommen aus den Tokens in style.css.
+   ========================================================= */
+:root{
+  --done:#3F8A55;     /* Status: fertig */
+  --wip:#B07A1E;      /* Status: in Arbeit */
+  --paper:#FFFFFF;    /* Bildgrund: die Fotos sind weiß freigestellt */
+}
+
+/* ---- Großer Einstieg ---- */
+.p-sec .rb-statement{font-size:clamp(26px,4.2vw,50px);font-weight:500;line-height:1.08;letter-spacing:-.035em;color:var(--ink);max-width:920px;text-wrap:balance;margin-bottom:28px}
+.p-sec .rb-statement em{font-style:normal;color:var(--accent)}
+
+/* ---- Hero-Collage ---- */
+.rb-hero{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto;gap:16px;margin-bottom:22px}
+.rb-hero figure{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;min-width:0}
+.rb-hero img{width:100%;height:100%;object-fit:contain}
+.rb-hero .big{grid-row:1 / span 2;aspect-ratio:3/2.6}
+.rb-hero .sm{aspect-ratio:3/2}
+@media(max-width:780px){.rb-hero{grid-template-columns:1fr 1fr}.rb-hero .big{grid-column:1 / -1;grid-row:auto;aspect-ratio:3/2}}
+.rb-ai{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink-3);line-height:1.5;margin-bottom:60px;max-width:640px}
+.rb-ai svg{flex-shrink:0;margin-top:2px;color:var(--ink-3)}
+
+/* ---- Übersicht der Builds ---- */
+.rb-index{border-top:1px solid var(--line-2);margin-top:34px}
+.rb-index a{display:grid;grid-template-columns:44px 1fr auto auto;gap:18px;align-items:center;padding:20px 6px;border-bottom:1px solid var(--line-2);transition:padding .45s var(--ease)}
+.rb-index a:hover{padding-left:16px}
+.rb-index .n{font-family:'Roboto Mono';font-size:12.5px;color:var(--ink-3)}
+.rb-index .t{font-size:clamp(19px,2.4vw,26px);font-weight:500;letter-spacing:-.02em;transition:color .35s}
+.rb-index a:hover .t{color:var(--accent)}
+.rb-index .chip{font-family:'Roboto Mono';font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+@media(max-width:620px){.rb-index a{grid-template-columns:34px 1fr auto;gap:12px}.rb-index .chip{display:none}}
+.rb-status{font-family:'Roboto Mono';font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:100px;border:1px solid currentColor;white-space:nowrap;display:inline-flex;align-items:center;gap:7px}
+.rb-status::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.rb-status.done{color:var(--done)}
+.rb-status.wip{color:var(--wip)}
+
+/* ---- Ein Build ---- */
+.rb-build{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,64px);align-items:start;padding-top:70px;margin-top:70px;border-top:1px solid var(--line-2);scroll-margin-top:90px}
+.rb-build.rev .rb-media{order:2}
+@media(max-width:860px){.rb-build{grid-template-columns:1fr;gap:28px;padding-top:50px;margin-top:50px}.rb-build.rev .rb-media{order:0}}
+.rb-media{margin:0;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;position:sticky;top:96px}
+@media(max-width:860px){.rb-media{position:static}}
+.rb-media img{width:100%;display:block;object-fit:contain;max-height:76vh}
+.rb-media figcaption{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-top:1px solid var(--line);font-family:'Roboto Mono';font-size:10.5px;letter-spacing:.06em;color:var(--ink-3);background:var(--bg)}
+.rb-body{min-width:0}
+.rb-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.rb-top .num{font-family:'Roboto Mono';font-size:12px;letter-spacing:.12em;color:var(--accent)}
+.rb-body h2{font-size:clamp(30px,4vw,46px);font-weight:500;letter-spacing:-.035em;line-height:1.02;margin-bottom:16px;text-wrap:balance}
+.rb-body .lead{font-size:clamp(17px,1.9vw,20px);color:var(--ink);line-height:1.5;letter-spacing:-.01em;margin-bottom:18px;max-width:560px}
+.rb-body p{font-size:16px;color:var(--ink-2);line-height:1.65;margin-bottom:14px;max-width:580px}
+
+/* ---- Ablauf in drei Schritten ---- */
+.rb-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:10px;overflow:hidden;margin:24px 0}
+@media(max-width:480px){.rb-flow{grid-template-columns:1fr}}
+.rb-flow div{background:var(--bg);padding:14px 14px 13px}
+.rb-flow b{display:block;font-family:'Roboto Mono';font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;font-weight:500}
+.rb-flow span{font-size:13.5px;color:var(--ink);line-height:1.45;display:block}
+
+/* ---- Bauteil-Liste ---- */
+.rb-parts{margin-top:22px;border-top:1px solid var(--line)}
+.rb-parts div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:11px 0;border-bottom:1px solid var(--line)}
+@media(max-width:420px){.rb-parts div{grid-template-columns:1fr;gap:3px}}
+.rb-parts dt{font-family:'Roboto Mono';font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding-top:2px}
+.rb-parts dd{font-size:14.5px;color:var(--ink);line-height:1.5}
+
+/* ---- Gimbal: Sensor-Zeitleiste ---- */
+.rb-sensors{margin:26px 0 8px;display:grid;gap:0}
+.rb-sensor{display:grid;grid-template-columns:22px 1fr;gap:14px;position:relative;padding-bottom:20px}
+.rb-sensor:last-child{padding-bottom:0}
+.rb-sensor::before{content:"";position:absolute;left:10px;top:20px;bottom:0;width:1px;background:var(--line-2)}
+.rb-sensor:last-child::before{display:none}
+.rb-sensor i{width:21px;height:21px;border-radius:50%;border:1.5px solid var(--line-2);background:var(--bg);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:11px;color:var(--ink-3);margin-top:1px}
+.rb-sensor.fail i{border-color:#C9A79A;color:#B8452F}
+.rb-sensor.ok i{border-color:var(--done);background:var(--done);color:#fff}
+.rb-sensor h4{font-size:16px;font-weight:500;letter-spacing:-.01em;margin-bottom:3px}
+.rb-sensor h4 small{font-family:'Roboto Mono';font-size:10.5px;font-weight:400;letter-spacing:.04em;color:var(--ink-3);margin-left:6px}
+.rb-sensor p{font-size:14.5px!important;margin:0!important;line-height:1.55!important}
+
+/* ---- Zusammenarbeit-Hinweis ---- */
+.rb-with{display:inline-flex;align-items:center;gap:8px;font-family:'Roboto Mono';font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line-2);border-radius:100px;padding:5px 11px}
+
+/* ---- Werkzeugkasten ---- */
+.rb-kit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line-2);border:1px solid var(--line-2);border-radius:12px;overflow:hidden;margin-top:34px}
+@media(max-width:860px){.rb-kit{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:440px){.rb-kit{grid-template-columns:1fr}}
+.rb-kit div{background:var(--bg);padding:22px 22px 20px}
+.rb-kit dt{font-family:'Roboto Mono';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+.rb-kit dd{font-size:15px;color:var(--ink);line-height:1.55}
+
+/* ---- Ausblick ---- */
+.rb-next{background:var(--ink);color:var(--bg);border-radius:16px;padding:clamp(30px,5vw,60px);margin-top:90px;margin-bottom:10px}
+.rb-next .p-kicker{color:var(--accent-soft)}
+.rb-next h2{color:var(--bg);font-size:clamp(28px,4vw,46px);font-weight:500;letter-spacing:-.03em;line-height:1.08;max-width:760px;margin-bottom:26px;text-wrap:balance}
+.rb-next ul{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+@media(max-width:780px){.rb-next ul{grid-template-columns:1fr}}
+.rb-next li{border-top:1px solid rgba(251,250,247,.18);padding-top:16px;font-size:15.5px;line-height:1.55;color:rgba(251,250,247,.75)}
+.rb-next li b{display:block;color:var(--bg);font-weight:500;font-size:17px;margin-bottom:4px}
+</style>
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <a href="../index.html" class="brand"><b>Elia</b><span class="dot">.</span>Baisch</a>
+  <div class="nav-r">
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html#about" data-de="Über mich" data-en="About">Über mich</a>
+      <a href="../index.html#work" data-de="Projekte" data-en="Work">Projekte</a>
+      <a href="../index.html#tools">Tools</a>
+      <a href="../index.html#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    </div>
+    <button class="lang" id="langBtn" onclick="toggleLang()">DE</button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main class="project-page">
+  <div class="wrap">
+
+    <a href="../index.html#work" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span data-de="Zurück zu Projekten" data-en="Back to work">Zurück zu Projekten</span>
+    </a>
+
+    <!-- ===== KOPF ===== -->
+    <div class="project-kicker" data-de="Hobby · Hardware &amp; Embedded" data-en="Side projects · Hardware &amp; embedded">Hobby · Hardware &amp; Embedded</div>
+
+    <div class="project-head">
+      <h1>Robotics</h1>
+      <span class="py">2026</span>
+    </div>
+
+    <p class="project-lead"
+       data-de="Mikrocontroller, Sensoren, Motoren und Gehäuse aus dem eigenen 3D-Drucker. Fünf Builds, vom Spotify-Controller bis zur selbst gebauten CNC-Fräse."
+       data-en="Microcontrollers, sensors, motors and enclosures from my own 3D printer. Five builds, from a Spotify controller to a self-built CNC router.">Mikrocontroller, Sensoren, Motoren und Gehäuse aus dem eigenen 3D-Drucker. Fünf Builds, vom Spotify-Controller bis zur selbst gebauten CNC-Fräse.</p>
+
+    <div class="project-meta">
+      <span class="tag">ESP32</span>
+      <span class="tag">C++</span>
+      <span class="tag" data-de="Sensorik" data-en="Sensors">Sensorik</span>
+      <span class="tag">CAD</span>
+      <span class="tag" data-de="3D-Druck" data-en="3D printing">3D-Druck</span>
+    </div>
+
+    <!-- ===== HERO-COLLAGE ===== -->
+    <section class="rb-hero rv">
+      <figure class="big"><img class="zoom" src="../assets/robotics/gimbal.jpg" alt="Selbst konstruierter 3-Achsen-Gimbal mit drei Servos" data-optional></figure>
+      <figure class="sm"><img class="zoom" src="../assets/robotics/arcade.jpg" alt="Arcade-Konsole im Gehäuse eines alten Mini-Fernsehers" data-optional></figure>
+      <figure class="sm"><img class="zoom" src="../assets/robotics/printcam.jpg" alt="ESP32-CAM in einer Halterung für den 3D-Drucker" data-optional></figure>
+    </section>
+    <p class="rb-ai">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 7.6v.4"/></svg>
+      <span data-de="Hinweis: Die Fotos auf dieser Seite wurden mit KI freigestellt. Kleine Details können deshalb minimal vom echten Aufbau abweichen."
+            data-en="Note: the photos on this page were cut out with AI. Small details may therefore differ slightly from the real build.">Hinweis: Die Fotos auf dieser Seite wurden mit KI freigestellt. Kleine Details können deshalb minimal vom echten Aufbau abweichen.</span>
+    </p>
+
+    <dl class="p-facts rv">
+      <div><dt data-de="Rolle" data-en="Role">Rolle</dt><dd data-de="Konstruktion, Elektronik, Firmware" data-en="Design, electronics, firmware">Konstruktion, Elektronik, Firmware</dd></div>
+      <div><dt data-de="Team" data-en="Team">Team</dt><dd data-de="Allein, die CNC mit meinem Bruder" data-en="Solo, the CNC with my brother">Allein, die CNC mit meinem Bruder</dd></div>
+      <div><dt data-de="Kontext" data-en="Context">Kontext</dt><dd data-de="Hobby, seit Sommer 2026" data-en="Hobby, since summer 2026">Hobby, seit Sommer 2026</dd></div>
+      <div><dt data-de="Werkzeuge" data-en="Tools">Werkzeuge</dt><dd>PlatformIO · Arduino · Kobra Neo</dd></div>
+    </dl>
+
+    <!-- ===== EINSTIEG ===== -->
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Wie es angefangen hat" data-en="How it started">Wie es angefangen hat</div>
+      <p class="rb-statement" data-de="Im HRI-Modul habe ich einen Roboter programmiert. Danach wollte ich verstehen, <em>wie man so etwas selbst baut</em>."
+         data-en="In the HRI module I programmed a robot. Afterwards I wanted to understand <em>how to build one myself</em>.">Im HRI-Modul habe ich einen Roboter programmiert. Danach wollte ich verstehen, <em>wie man so etwas selbst baut</em>.</p>
+      <p data-de="Seitdem entsteht ein Projekt nach dem anderen. Jedes ist ein Stück größer als das davor: erst ein Display mit WLAN, dann eine Kamera, dann Ton und Eingabegeräte, dann Sensoren und Motoren, die in Echtzeit zusammenspielen müssen. Die Gehäuse und Halterungen konstruiere ich selbst und drucke sie auf meinem 3D-Drucker."
+         data-en="Since then one project has followed the next, each a step bigger than the last: first a display with Wi-Fi, then a camera, then sound and input devices, then sensors and motors that have to work together in real time. I design the enclosures and mounts myself and print them on my own 3D printer.">Seitdem entsteht ein Projekt nach dem anderen. Jedes ist ein Stück größer als das davor: erst ein Display mit WLAN, dann eine Kamera, dann Ton und Eingabegeräte, dann Sensoren und Motoren, die in Echtzeit zusammenspielen müssen. Die Gehäuse und Halterungen konstruiere ich selbst und drucke sie auf meinem 3D-Drucker.</p>
+
+      <nav class="rb-index" aria-label="Builds">
+        <a href="#spotify"><span class="n">01</span><span class="t" data-de="Spotify-Controller" data-en="Spotify controller">Spotify-Controller</span><span class="chip">ESP32 · Touch</span><span class="rb-status done" data-de="Fertig" data-en="Done">Fertig</span></a>
+        <a href="#printcam"><span class="n">02</span><span class="t" data-de="Druck-Kamera" data-en="Print camera">Druck-Kamera</span><span class="chip">ESP32-CAM</span><span class="rb-status done" data-de="Fertig" data-en="Done">Fertig</span></a>
+        <a href="#arcade"><span class="n">03</span><span class="t" data-de="Arcade-Konsole" data-en="Arcade console">Arcade-Konsole</span><span class="chip">ESP32-S3 · Audio</span><span class="rb-status done" data-de="Fertig" data-en="Done">Fertig</span></a>
+        <a href="#gimbal"><span class="n">04</span><span class="t" data-de="3-Achsen-Gimbal" data-en="3-axis gimbal">3-Achsen-Gimbal</span><span class="chip">IMU · Servos</span><span class="rb-status wip" data-de="In Arbeit" data-en="In progress">In Arbeit</span></a>
+        <a href="#mpcnc"><span class="n">05</span><span class="t" data-de="MPCNC-Fräse" data-en="MPCNC router">MPCNC-Fräse</span><span class="chip">Open Source · CNC</span><span class="rb-status wip" data-de="Im Bau" data-en="Being built">Im Bau</span></a>
+      </nav>
+    </section>
+
+    <!-- ===== 01 SPOTIFY ===== -->
+    <section class="rb-build rv" id="spotify">
+      <figure class="rb-media">
+        <img class="zoom" src="../assets/robotics/spotify.jpg" alt="Gehäuse des Spotify-Controllers, geschlossen und als Explosionsansicht mit Display" data-optional>
+        <figcaption><span data-de="Eigenes Gehäuse, Explosionsansicht" data-en="Custom enclosure, exploded view">Eigenes Gehäuse, Explosionsansicht</span><span data-de="KI-freigestellt" data-en="AI cut-out">KI-freigestellt</span></figcaption>
+      </figure>
+      <div class="rb-body">
+        <div class="rb-top"><span class="num">01</span><span class="rb-status done" data-de="Fertig" data-en="Done">Fertig</span></div>
+        <h2 data-de="Spotify-Controller" data-en="Spotify controller">Spotify-Controller</h2>
+        <p class="lead" data-de="Ein kleiner Touch-Bildschirm auf dem Schreibtisch, der zeigt, was gerade läuft, und die Musik steuert, ohne dass ich zum Handy greifen muss."
+           data-en="A small touchscreen on the desk that shows what's playing and controls the music, without me reaching for my phone.">Ein kleiner Touch-Bildschirm auf dem Schreibtisch, der zeigt, was gerade läuft, und die Musik steuert, ohne dass ich zum Handy greifen muss.</p>
+        <p data-de="Herzstück ist ein sogenanntes Cheap Yellow Display: ein ESP32, auf dessen Platine direkt ein 2,8-Zoll-Touchdisplay sitzt. Es verbindet sich mit dem WLAN und spricht über die Spotify Web API mit meinem Account. Läuft irgendwo auf einem meiner Geräte Musik, holt es sich den aktuellen Titel und schickt meine Eingaben als Befehle zurück."
+           data-en="At its heart is a so-called Cheap Yellow Display: an ESP32 with a 2.8-inch touch display mounted right on the board. It joins the Wi-Fi and talks to my account through the Spotify Web API. Whenever music is playing on any of my devices, it fetches the current track and sends my input back as commands.">Herzstück ist ein sogenanntes Cheap Yellow Display: ein ESP32, auf dessen Platine direkt ein 2,8-Zoll-Touchdisplay sitzt. Es verbindet sich mit dem WLAN und spricht über die Spotify Web API mit meinem Account. Läuft irgendwo auf einem meiner Geräte Musik, holt es sich den aktuellen Titel und schickt meine Eingaben als Befehle zurück.</p>
+        <p data-de="Die Oberfläche habe ich bewusst flach und reduziert gestaltet. Wenn nichts läuft, schaltet der Bildschirm auf einen Screensaver mit animierten Roboteraugen. Das Gehäuse ist selbst konstruiert: Rahmen, Rückschale und Ausschnitt für die Platine, passgenau gedruckt."
+           data-en="I kept the interface deliberately flat and minimal. When nothing is playing, the screen switches to a screensaver with animated robot eyes. The enclosure is my own design: bezel, back shell and a cut-out for the board, printed to fit.">Die Oberfläche habe ich bewusst flach und reduziert gestaltet. Wenn nichts läuft, schaltet der Bildschirm auf einen Screensaver mit animierten Roboteraugen. Das Gehäuse ist selbst konstruiert: Rahmen, Rückschale und Ausschnitt für die Platine, passgenau gedruckt.</p>
+        <div class="rb-flow">
+          <div><b data-de="Abfragen" data-en="Fetch">Abfragen</b><span data-de="Aktueller Titel per Web API" data-en="Current track via Web API">Aktueller Titel per Web API</span></div>
+          <div><b data-de="Anzeigen" data-en="Show">Anzeigen</b><span data-de="Titel, Künstler, Fortschritt" data-en="Title, artist, progress">Titel, Künstler, Fortschritt</span></div>
+          <div><b data-de="Steuern" data-en="Control">Steuern</b><span data-de="Play, Pause, Skip, Lautstärke" data-en="Play, pause, skip, volume">Play, Pause, Skip, Lautstärke</span></div>
+        </div>
+        <dl class="rb-parts">
+          <div><dt data-de="Board" data-en="Board">Board</dt><dd>ESP32-2432S028 („Cheap Yellow Display“)</dd></div>
+          <div><dt data-de="Software" data-en="Software">Software</dt><dd>Arduino · TFT_eSPI · Spotify Web API</dd></div>
+          <div><dt data-de="Gehäuse" data-en="Enclosure">Gehäuse</dt><dd data-de="Selbst konstruiert, 3D-gedruckt" data-en="Own design, 3D printed">Selbst konstruiert, 3D-gedruckt</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== 02 DRUCK-KAMERA ===== -->
+    <section class="rb-build rev rv" id="printcam">
+      <figure class="rb-media">
+        <img class="zoom" src="../assets/robotics/printcam.jpg" alt="ESP32-CAM, Gehäuse und Halterung für die X-Achse des 3D-Druckers" data-optional>
+        <figcaption><span data-de="Kameragehäuse mit Halterung" data-en="Camera housing with mount">Kameragehäuse mit Halterung</span><span data-de="KI-freigestellt" data-en="AI cut-out">KI-freigestellt</span></figcaption>
+      </figure>
+      <div class="rb-body">
+        <div class="rb-top"><span class="num">02</span><span class="rb-status done" data-de="Fertig" data-en="Done">Fertig</span></div>
+        <h2 data-de="Druck-Kamera" data-en="Print camera">Druck-Kamera</h2>
+        <p class="lead" data-de="Lange Drucke laufen oft stundenlang. Mit dieser Kamera sehe ich vom Handy aus, wie weit der Druck ist und ob alles sauber läuft."
+           data-en="Long prints often run for hours. With this camera I can check from my phone how far along a print is and whether everything is going well.">Lange Drucke laufen oft stundenlang. Mit dieser Kamera sehe ich vom Handy aus, wie weit der Druck ist und ob alles sauber läuft.</p>
+        <p data-de="Eine ESP32-CAM sitzt in einem eigenen Gehäuse an einem geschwungenen Arm. Die Halterung wird einfach auf die Querachse meines 3D-Druckers gesteckt, so fährt die Kamera mit und bleibt immer auf die Düse gerichtet. Ohne Schrauben, ohne den Drucker umzubauen."
+           data-en="An ESP32-CAM sits in its own housing at the end of a curved arm. The mount simply clips onto the X-axis of my 3D printer, so the camera moves along and always points at the nozzle. No screws, no modifications to the printer.">Eine ESP32-CAM sitzt in einem eigenen Gehäuse an einem geschwungenen Arm. Die Halterung wird einfach auf die Querachse meines 3D-Druckers gesteckt, so fährt die Kamera mit und bleibt immer auf die Düse gerichtet. Ohne Schrauben, ohne den Drucker umzubauen.</p>
+        <p data-de="Der ESP verbindet sich mit dem Heimnetz und startet einen kleinen Webserver. Über dessen Adresse und Port öffne ich im Handy-Browser eine Seite mit dem Live-Bild. Eine App braucht es dafür nicht."
+           data-en="The ESP joins the home network and starts a small web server. Using its address and port, I open a page with the live feed in my phone's browser. No app needed.">Der ESP verbindet sich mit dem Heimnetz und startet einen kleinen Webserver. Über dessen Adresse und Port öffne ich im Handy-Browser eine Seite mit dem Live-Bild. Eine App braucht es dafür nicht.</p>
+        <div class="rb-flow">
+          <div><b data-de="Aufnehmen" data-en="Capture">Aufnehmen</b><span data-de="Kamera fährt mit der Düse" data-en="Camera rides along the nozzle">Kamera fährt mit der Düse</span></div>
+          <div><b data-de="Streamen" data-en="Stream">Streamen</b><span data-de="Webserver im lokalen WLAN" data-en="Web server on local Wi-Fi">Webserver im lokalen WLAN</span></div>
+          <div><b data-de="Ansehen" data-en="Watch">Ansehen</b><span data-de="Live im Handy-Browser" data-en="Live in the phone browser">Live im Handy-Browser</span></div>
+        </div>
+        <dl class="rb-parts">
+          <div><dt data-de="Board" data-en="Board">Board</dt><dd>ESP32-CAM</dd></div>
+          <div><dt data-de="Drucker" data-en="Printer">Drucker</dt><dd>Anycubic Kobra Neo</dd></div>
+          <div><dt data-de="Gehäuse" data-en="Enclosure">Gehäuse</dt><dd data-de="Steckhalterung für die X-Achse, selbst konstruiert" data-en="Clip-on X-axis mount, own design">Steckhalterung für die X-Achse, selbst konstruiert</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== 03 ARCADE ===== -->
+    <section class="rb-build rv" id="arcade">
+      <figure class="rb-media">
+        <img class="zoom" src="../assets/robotics/arcade.jpg" alt="Alter Mini-Fernseher als Arcade-Konsole mit Spielemenü und eigenem Controller" data-optional>
+        <figcaption><span data-de="Altes LKW-Radio/TV mit neuem Innenleben" data-en="Old truck radio/TV with new internals">Altes LKW-Radio/TV mit neuem Innenleben</span><span data-de="KI-freigestellt" data-en="AI cut-out">KI-freigestellt</span></figcaption>
+      </figure>
+      <div class="rb-body">
+        <div class="rb-top"><span class="num">03</span><span class="rb-status done" data-de="Fertig" data-en="Done">Fertig</span></div>
+        <h2 data-de="Arcade-Konsole" data-en="Arcade console">Arcade-Konsole</h2>
+        <p class="lead" data-de="Ein altes LKW-Radio mit Fernseher, das jetzt Tetris und Snake spielt. Mit Joystick, vier Tasten und dem originalen Lautsprecher."
+           data-en="An old truck radio with a built-in TV that now plays Tetris and Snake. With a joystick, four buttons and the original speaker.">Ein altes LKW-Radio mit Fernseher, das jetzt Tetris und Snake spielt. Mit Joystick, vier Tasten und dem originalen Lautsprecher.</p>
+        <p data-de="Das Gerät lief noch mit einer Bildröhre, die Elektronik war nicht mehr zu retten. Also habe ich alles ausgebaut und nur den Lautsprecher behalten. An die Stelle der Röhre kam ein 3,5-Zoll-Touchdisplay, gesteuert von einem ESP32-S3 mit viel Speicher für Grafik und Spiele. Ein I²S-Mono-Verstärker treibt den alten Lautsprecher an, so klingt die Konsole aus dem Original-Gehäuse."
+           data-en="The set still ran on a picture tube and the electronics were beyond saving. So I stripped it out and kept only the speaker. In place of the tube went a 3.5-inch touch display driven by an ESP32-S3 with plenty of memory for graphics and games. An I²S mono amplifier powers the old speaker, so the sound comes out of the original housing.">Das Gerät lief noch mit einer Bildröhre, die Elektronik war nicht mehr zu retten. Also habe ich alles ausgebaut und nur den Lautsprecher behalten. An die Stelle der Röhre kam ein 3,5-Zoll-Touchdisplay, gesteuert von einem ESP32-S3 mit viel Speicher für Grafik und Spiele. Ein I²S-Mono-Verstärker treibt den alten Lautsprecher an, so klingt die Konsole aus dem Original-Gehäuse.</p>
+        <p data-de="Den Controller habe ich selbst gebaut: ein analoges Joystick-Modul und einfache Taster, die durch gedruckte Kappen und ein eigenes Gehäuse zu richtigen Arcade-Buttons werden. Die Spiele sind selbst geschrieben, kein Emulator."
+           data-en="I built the controller myself: an analog joystick module and simple switches that become proper arcade buttons thanks to printed caps and a custom case. The games are written from scratch, no emulator.">Den Controller habe ich selbst gebaut: ein analoges Joystick-Modul und einfache Taster, die durch gedruckte Kappen und ein eigenes Gehäuse zu richtigen Arcade-Buttons werden. Die Spiele sind selbst geschrieben, kein Emulator.</p>
+        <dl class="rb-parts">
+          <div><dt data-de="Board" data-en="Board">Board</dt><dd>ESP32-S3 (N16R8, 16 MB Flash, 8 MB PSRAM)</dd></div>
+          <div><dt data-de="Display" data-en="Display">Display</dt><dd data-de="3,5″ TFT-Touch, ILI9488" data-en="3.5″ TFT touch, ILI9488">3,5″ TFT-Touch, ILI9488</dd></div>
+          <div><dt data-de="Audio" data-en="Audio">Audio</dt><dd data-de="MAX98357A an Original-Lautsprecher" data-en="MAX98357A driving the original speaker">MAX98357A an Original-Lautsprecher</dd></div>
+          <div><dt data-de="Eingabe" data-en="Input">Eingabe</dt><dd data-de="Joystick KY-023, 4 Taster mit gedruckten Kappen" data-en="KY-023 joystick, 4 switches with printed caps">Joystick KY-023, 4 Taster mit gedruckten Kappen</dd></div>
+          <div><dt data-de="Software" data-en="Software">Software</dt><dd data-de="PlatformIO, eigene Spiele wie Tetris und Snake" data-en="PlatformIO, own games such as Tetris and Snake">PlatformIO, eigene Spiele wie Tetris und Snake</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== 04 GIMBAL ===== -->
+    <section class="rb-build rev rv" id="gimbal">
+      <figure class="rb-media">
+        <img class="zoom" src="../assets/robotics/gimbal.jpg" alt="3-Achsen-Gimbal aus 3D-gedruckten Armen mit drei Servos auf einem Holzsockel" data-optional>
+        <figcaption><span data-de="Aktueller Prototyp ohne Gehäuse" data-en="Current prototype without housing">Aktueller Prototyp ohne Gehäuse</span><span data-de="KI-freigestellt" data-en="AI cut-out">KI-freigestellt</span></figcaption>
+      </figure>
+      <div class="rb-body">
+        <div class="rb-top"><span class="num">04</span><span class="rb-status wip" data-de="In Arbeit" data-en="In progress">In Arbeit</span></div>
+        <h2 data-de="3-Achsen-Gimbal" data-en="3-axis gimbal">3-Achsen-Gimbal</h2>
+        <p class="lead" data-de="Ein Handy-Gimbal, der das Bild über drei Achsen ruhig hält. Inspiriert von den Gimbals von DJI, aber komplett selbst konstruiert."
+           data-en="A phone gimbal that keeps the shot steady across three axes. Inspired by DJI's gimbals, but designed entirely by me.">Ein Handy-Gimbal, der das Bild über drei Achsen ruhig hält. Inspiriert von den Gimbals von DJI, aber komplett selbst konstruiert.</p>
+        <p data-de="Das Gestell habe ich so ausgelegt, dass drei Servos mit Metallgetriebe die Achsen für Neigen, Rollen und Schwenken direkt tragen. Ein ESP32 liest die Lage des Handys aus einem Sensor und regelt die Servos so nach, dass sie jede Bewegung ausgleichen. Die eigentliche Herausforderung war dabei nicht die Mechanik, sondern der Sensor."
+           data-en="I designed the frame so that three metal-gear servos carry the tilt, roll and pan axes directly. An ESP32 reads the phone's orientation from a sensor and drives the servos to counter every movement. The real challenge wasn't the mechanics, it was the sensor.">Das Gestell habe ich so ausgelegt, dass drei Servos mit Metallgetriebe die Achsen für Neigen, Rollen und Schwenken direkt tragen. Ein ESP32 liest die Lage des Handys aus einem Sensor und regelt die Servos so nach, dass sie jede Bewegung ausgleichen. Die eigentliche Herausforderung war dabei nicht die Mechanik, sondern der Sensor.</p>
+
+        <div class="rb-sensors">
+          <div class="rb-sensor fail"><i>✕</i><div><h4>MPU-6050<small data-de="6 Achsen" data-en="6 axes">6 Achsen</small></h4><p data-de="Beschleunigung und Drehrate allein reichen für Neigen und Rollen. Für das Schwenken fehlt aber ein fester Bezug, die Richtung driftet mit der Zeit weg." data-en="Acceleration and rotation rate alone are enough for tilt and roll. But panning has no fixed reference, so the heading drifts over time.">Beschleunigung und Drehrate allein reichen für Neigen und Rollen. Für das Schwenken fehlt aber ein fester Bezug, die Richtung driftet mit der Zeit weg.</p></div></div>
+          <div class="rb-sensor fail"><i>✕</i><div><h4>+ GY-271<small data-de="Magnetometer" data-en="Magnetometer">Magnetometer</small></h4><p data-de="Ein zusätzlicher Kompass sollte die Drift korrigieren. Die beiden Sensoren sauber zusammenzurechnen, hat aber nicht zuverlässig funktioniert." data-en="An added compass was meant to correct the drift. Fusing the two sensors cleanly didn't work reliably, though.">Ein zusätzlicher Kompass sollte die Drift korrigieren. Die beiden Sensoren sauber zusammenzurechnen, hat aber nicht zuverlässig funktioniert.</p></div></div>
+          <div class="rb-sensor ok"><i>✓</i><div><h4>BNO080<small data-de="9 Achsen" data-en="9 axes">9 Achsen</small></h4><p data-de="Beschleunigung, Drehrate und Magnetfeld in einem Modul, das die Sensorfusion selbst übernimmt und direkt eine stabile Lage liefert. Damit funktioniert es." data-en="Accelerometer, gyroscope and magnetometer in one module that handles sensor fusion itself and delivers a stable orientation directly. This one works.">Beschleunigung, Drehrate und Magnetfeld in einem Modul, das die Sensorfusion selbst übernimmt und direkt eine stabile Lage liefert. Damit funktioniert es.</p></div></div>
+        </div>
+
+        <p style="margin-top:22px" data-de="Als Nächstes fehlt ein richtiges Gehäuse, das Elektronik und Kabel aufnimmt. Das war für den aktuellen Stand noch ein Schritt zu viel und ist gerade in Arbeit."
+           data-en="What's still missing is a proper housing for the electronics and cables. That was one step too many for the current stage and is in the works now.">Als Nächstes fehlt ein richtiges Gehäuse, das Elektronik und Kabel aufnimmt. Das war für den aktuellen Stand noch ein Schritt zu viel und ist gerade in Arbeit.</p>
+        <dl class="rb-parts">
+          <div><dt data-de="Controller" data-en="Controller">Controller</dt><dd>ESP32</dd></div>
+          <div><dt data-de="Antrieb" data-en="Drive">Antrieb</dt><dd data-de="3 × MG996R, Metallgetriebe, 180°" data-en="3 × MG996R, metal gear, 180°">3 × MG996R, Metallgetriebe, 180°</dd></div>
+          <div><dt data-de="Sensor" data-en="Sensor">Sensor</dt><dd data-de="BNO080, 9-Achsen-IMU mit Sensorfusion" data-en="BNO080, 9-axis IMU with sensor fusion">BNO080, 9-Achsen-IMU mit Sensorfusion</dd></div>
+          <div><dt data-de="Gestell" data-en="Frame">Gestell</dt><dd data-de="Eigene Konstruktion, auf die Servos zugeschnitten" data-en="Own design, built around the servos">Eigene Konstruktion, auf die Servos zugeschnitten</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== 05 MPCNC ===== -->
+    <section class="rb-build rv" id="mpcnc">
+      <figure class="rb-media">
+        <img class="zoom" src="../assets/robotics/mpcnc.jpg" alt="Rahmen der MPCNC aus Stahlrohren und roten 3D-gedruckten Verbindern mit Oberfräse" data-optional>
+        <figcaption><span data-de="Rahmen mit Fräsmotor" data-en="Frame with router">Rahmen mit Fräsmotor</span><span data-de="KI-freigestellt" data-en="AI cut-out">KI-freigestellt</span></figcaption>
+      </figure>
+      <div class="rb-body">
+        <div class="rb-top"><span class="num">05</span><span class="rb-status wip" data-de="Im Bau" data-en="Being built">Im Bau</span><span class="rb-with" data-de="Mit meinem Bruder" data-en="With my brother">Mit meinem Bruder</span></div>
+        <h2 data-de="MPCNC-Fräse" data-en="MPCNC router">MPCNC-Fräse</h2>
+        <p class="lead" data-de="Eine CNC-Fräse, Schraube für Schraube selbst aufgebaut. Fast alle Verbindungsteile kommen aus dem 3D-Drucker."
+           data-en="A CNC router, built screw by screw. Almost all of the connecting parts come out of the 3D printer.">Eine CNC-Fräse, Schraube für Schraube selbst aufgebaut. Fast alle Verbindungsteile kommen aus dem 3D-Drucker.</p>
+        <p data-de="Die MPCNC, kurz für „Mostly Printed CNC“, ist ein Open-Source-Projekt von V1 Engineering. Der Rahmen besteht aus Stahlrohren, die von gedruckten Eckstücken und Schlitten zusammengehalten werden. Schrittmotoren bewegen die Achsen, als Spindel dient eine Oberfräse. So entsteht für einen Bruchteil des Preises einer fertigen Maschine eine Fräse, die Holz und Kunststoff bearbeiten kann."
+           data-en="The MPCNC, short for “Mostly Printed CNC”, is an open-source project by V1 Engineering. The frame is made of steel tubes held together by printed corner pieces and carriages. Stepper motors move the axes and a trim router serves as the spindle. The result is a machine that can cut wood and plastic, for a fraction of the price of a ready-made one.">Die MPCNC, kurz für „Mostly Printed CNC“, ist ein Open-Source-Projekt von V1 Engineering. Der Rahmen besteht aus Stahlrohren, die von gedruckten Eckstücken und Schlitten zusammengehalten werden. Schrittmotoren bewegen die Achsen, als Spindel dient eine Oberfräse. So entsteht für einen Bruchteil des Preises einer fertigen Maschine eine Fräse, die Holz und Kunststoff bearbeiten kann.</p>
+        <p data-de="Mein Bruder und ich bauen sie gemeinsam von Grund auf: Teile drucken, Rohre zuschneiden, Mechanik ausrichten, Motoren verkabeln. Ein Projekt, bei dem Genauigkeit wirklich zählt, denn jeder Millimeter Spiel im Rahmen landet später im Werkstück."
+           data-en="My brother and I are building it together from scratch: printing parts, cutting tubes, aligning the mechanics, wiring the motors. A project where precision truly matters, because every millimetre of play in the frame ends up in the workpiece.">Mein Bruder und ich bauen sie gemeinsam von Grund auf: Teile drucken, Rohre zuschneiden, Mechanik ausrichten, Motoren verkabeln. Ein Projekt, bei dem Genauigkeit wirklich zählt, denn jeder Millimeter Spiel im Rahmen landet später im Werkstück.</p>
+        <dl class="rb-parts">
+          <div><dt data-de="Projekt" data-en="Project">Projekt</dt><dd data-de="MPCNC, Open Source von V1 Engineering" data-en="MPCNC, open source by V1 Engineering">MPCNC, Open Source von V1 Engineering</dd></div>
+          <div><dt data-de="Rahmen" data-en="Frame">Rahmen</dt><dd data-de="Stahlrohre mit 3D-gedruckten Verbindern" data-en="Steel tubes with 3D-printed joints">Stahlrohre mit 3D-gedruckten Verbindern</dd></div>
+          <div><dt data-de="Antrieb" data-en="Drive">Antrieb</dt><dd data-de="Schrittmotoren, Oberfräse als Spindel" data-en="Stepper motors, trim router as spindle">Schrittmotoren, Oberfräse als Spindel</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== WERKZEUGKASTEN ===== -->
+    <section class="p-sec rv" style="margin-top:100px">
+      <div class="p-kicker" data-de="Werkzeugkasten" data-en="Toolbox">Werkzeugkasten</div>
+      <h2 data-de="Was sich durch alle Builds zieht" data-en="What runs through every build">Was sich durch alle Builds zieht</h2>
+      <dl class="rb-kit">
+        <div><dt data-de="Mikrocontroller" data-en="Microcontrollers">Mikrocontroller</dt><dd>ESP32 · ESP32-S3 · ESP32-CAM</dd></div>
+        <div><dt data-de="Sensorik" data-en="Sensors">Sensorik</dt><dd data-de="IMUs, Magnetometer, Kamera, Touch" data-en="IMUs, magnetometer, camera, touch">IMUs, Magnetometer, Kamera, Touch</dd></div>
+        <div><dt data-de="Aktorik" data-en="Actuators">Aktorik</dt><dd data-de="Servos, Schrittmotoren, Audio" data-en="Servos, stepper motors, audio">Servos, Schrittmotoren, Audio</dd></div>
+        <div><dt data-de="Fertigung" data-en="Fabrication">Fertigung</dt><dd data-de="CAD, 3D-Druck, Löten" data-en="CAD, 3D printing, soldering">CAD, 3D-Druck, Löten</dd></div>
+      </dl>
+    </section>
+
+    <!-- ===== AUSBLICK ===== -->
+    <section class="rb-next rv">
+      <div class="p-kicker" data-de="Auf der Werkbank" data-en="On the workbench">Auf der Werkbank</div>
+      <h2 data-de="Was als Nächstes kommt" data-en="What's next">Was als Nächstes kommt</h2>
+      <ul>
+        <li><b data-de="Gimbal-Gehäuse" data-en="Gimbal housing">Gimbal-Gehäuse</b><span data-de="Elektronik und Kabel sauber verpacken, damit der Gimbal in die Hand passt." data-en="Packing electronics and cables neatly so the gimbal fits the hand.">Elektronik und Kabel sauber verpacken, damit der Gimbal in die Hand passt.</span></li>
+        <li><b data-de="Gimbal-Steuerung" data-en="Gimbal control">Gimbal-Steuerung</b><span data-de="Ein Joystick, um die Kamera gezielt zu schwenken, statt nur zu stabilisieren." data-en="A joystick to pan the camera on purpose, not just stabilise it.">Ein Joystick, um die Kamera gezielt zu schwenken, statt nur zu stabilisieren.</span></li>
+        <li><b data-de="Erste Frästeile" data-en="First milled parts">Erste Frästeile</b><span data-de="Die MPCNC fertig aufbauen, kalibrieren und die ersten Teile fräsen." data-en="Finish and calibrate the MPCNC and mill the first parts.">Die MPCNC fertig aufbauen, kalibrieren und die ersten Teile fräsen.</span></li>
+      </ul>
+    </section>
+
+    <nav class="p-next">
+      <a href="sustainappility.html">
+        <span>
+          <span class="lbl" data-de="Nächstes Projekt" data-en="Next project">Nächstes Projekt</span>
+          <span class="t">SustainAppility</span>
+        </span>
+        <span class="arr"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Elia Baisch</span>
+    <span data-de="Gebaut mit Sorgfalt" data-en="Built with care">Gebaut mit Sorgfalt</span>
+    <span id="clock">--:--</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/project.js"></script>
+</body>
+</html>

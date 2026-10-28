@@ -30,6 +30,7 @@ Portfolio/
 ├─ projects/
 │  ├─ _template.html       → Vorlage für neue Projektseiten (kopieren!)
 │  ├─ reachy-mini.html
+│  ├─ robotics.html
 │  ├─ sustainappility.html
 │  ├─ vst3-plugin-dev.html
 │  └─ design-portfolios.html
@@ -38,6 +39,7 @@ Portfolio/
 │  ├─ portrait.jpg         → Foto im Hero
 │  ├─ covers/              → ein Cover je Projekt (Liste + Projektkopf)
 │  ├─ reachy-mini/         → Roboterfoto, Studien-Setup, Erkennung
+│  ├─ robotics/            → Fotos der Hardware-Builds (KI-freigestellt)
 │  ├─ sustainappility/     → Screens & Sketches
 │  └─ plugin/              → Plugin-UIs
 └─ README.md

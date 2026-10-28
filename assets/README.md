@@ -8,6 +8,7 @@ Namen überschreiben — die Seiten referenzieren nur die Pfade.
                               Projektliste + Cover-Bild auf der Projektseite)
 - `sustainappility/*`       → Sketches, Screen-Entwicklung, finale Screens
 - `reachy-mini/*`           → Roboterfoto, Studien-Setup, Erkennung
+- `robotics/*`              → Fotos der Hardware-Builds (KI-freigestellt)
 - `plugin/*`                → Plugin-Oberflächen
 
 Bilder mit `data-optional` im HTML blenden ihren Block aus, wenn die

@@ -23,6 +23,13 @@ const PROJECTS = [
     link:  'projects/reachy-mini.html'
   },
   {
+    title: 'Robotics',
+    tags:  { de:['ESP32','Sensorik','3D-Druck'], en:['ESP32','Sensors','3D printing'] },
+    year:  '2026',
+    cover: 'assets/covers/robotics.jpg',
+    link:  'projects/robotics.html'
+  },
+  {
     title: 'SustainAppility',
     tags:  { de:['UI/UX','Figma','Prototyping'], en:['UI/UX','Figma','Prototyping'] },
     year:  '2025',
