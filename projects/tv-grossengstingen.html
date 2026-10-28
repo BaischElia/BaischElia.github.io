@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>TV Großengstingen — Elia Baisch</title>
+<meta name="description" content="Social Media für die zweite Herrenmannschaft des TV Großengstingen: Spielankündigungen, Ergebnisse und ein eigenes Design für jede Saison.">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/style.css?v=3">
+<style>
+/* =========================================================
+   Nur für diese Seite: Vereinsfarbe, Hero mit Wappen, Poster.
+   ========================================================= */
+.tv{--club:#4A1F68}
+
+/* ---- Hero: Wappen + Infokarte ---- */
+.tv-hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;margin-bottom:60px;align-items:stretch}
+@media(max-width:860px){.tv-hero{grid-template-columns:1fr}}
+.tv-crest{margin:0;background:var(--club);border-radius:12px;display:flex;align-items:center;justify-content:center;padding:clamp(36px,6vw,64px);min-width:0;position:relative;overflow:hidden}
+.tv-crest::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.12),transparent 60%);pointer-events:none}
+.tv-crest img{width:100%;max-width:280px;height:auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.25))}
+.tv-card{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:clamp(26px,4vw,44px);display:flex;flex-direction:column;gap:20px;min-width:0}
+.tv-card .rt{font-family:'Roboto Mono';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.tv-card h2{font-size:clamp(26px,3vw,36px);font-weight:500;line-height:1.12;letter-spacing:-.025em;text-wrap:balance}
+.tv-card p{font-size:16px;color:var(--ink-2);line-height:1.6}
+.tv-side{margin-top:auto;border-top:1px solid var(--line-2);padding-top:18px;display:flex;gap:14px;align-items:flex-start}
+.tv-side .badge{flex:none;font-family:'Roboto Mono';font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--club);color:#fff;padding:4px 9px;border-radius:100px;margin-top:2px}
+.tv-side p{font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+.tv-side b{color:var(--ink);font-weight:500}
+
+/* ---- Instagram-Button ---- */
+.tv-ig{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:12px 20px;border-radius:100px;background:var(--club);color:#fff;font-size:14px;font-weight:500;letter-spacing:.01em;transition:.35s var(--ease)}
+.tv-ig:hover{background:#2f1244;transform:translateY(-1px)}
+.tv-ig svg{flex:none}
+
+/* ---- Poster ---- */
+.tv-posters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:36px}
+@media(max-width:620px){.tv-posters{grid-template-columns:1fr}}
+.tv-posters figure{margin:0}
+.tv-posters img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:var(--bg-2);display:block;box-shadow:0 20px 40px -24px rgba(30,10,45,.35)}
+.tv-posters figcaption{font-family:'Roboto Mono';font-size:11px;letter-spacing:.06em;color:var(--ink-3);margin-top:12px}
+
+.tv-bullets{list-style:none;margin:18px 0 0;display:grid;gap:8px}
+.tv-bullets li{font-size:15.5px;color:var(--ink-2);padding-left:18px;position:relative;line-height:1.5}
+.tv-bullets li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:1px;background:var(--club)}
+
+/* ---- Inhalte ---- */
+.tv-types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:34px}
+@media(max-width:780px){.tv-types{grid-template-columns:1fr}}
+.tv-type{border:1px solid var(--line-2);border-radius:12px;padding:20px 18px 18px;background:var(--bg)}
+.tv-type .n{font-family:'Roboto Mono';font-size:11px;color:var(--club);margin-bottom:10px;display:block}
+.tv-type h4{font-size:17px;font-weight:500;letter-spacing:-.01em;margin-bottom:6px}
+.tv-type p{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+
+/* ---- Abschluss ---- */
+.tv-cta{margin-top:20px;border-radius:12px;background:var(--club);color:#fff;padding:clamp(28px,5vw,48px);display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}
+.tv-cta .k{font-family:'Roboto Mono';font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;margin-bottom:8px}
+.tv-cta .h{font-size:clamp(22px,3vw,30px);font-weight:500;letter-spacing:-.02em;word-break:break-word}
+.tv-cta .tv-ig{background:#fff;color:var(--club)}
+.tv-cta .tv-ig:hover{background:#efe8f4}
+</style>
+</head>
+<body class="tv">
+
+<nav class="nav scrolled" id="nav">
+  <a href="../index.html" class="brand"><b>Elia</b><span class="dot">.</span>Baisch</a>
+  <div class="nav-r">
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html#about" data-de="Über mich" data-en="About">Über mich</a>
+      <a href="../index.html#work" data-de="Projekte" data-en="Work">Projekte</a>
+      <a href="../index.html#tools">Tools</a>
+      <a href="../index.html#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    </div>
+    <button class="lang" id="langBtn" onclick="toggleLang()">DE</button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main class="project-page">
+  <div class="wrap">
+
+    <a href="../index.html#work" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span data-de="Zurück zu Projekten" data-en="Back to work">Zurück zu Projekten</span>
+    </a>
+
+    <div class="project-kicker" data-de="Ehrenamt · Social Media" data-en="Volunteer work · Social media">Ehrenamt · Social Media</div>
+
+    <div class="project-head">
+      <h1>TV Großengstingen</h1>
+      <span class="py">2026</span>
+    </div>
+
+    <p class="project-lead"
+       data-de="Spielankündigungen, Ergebnisse und alles rund um die Mannschaft: Ich gestalte und betreue den Instagram-Kanal der zweiten Herrenmannschaft meines Handballvereins."
+       data-en="Match announcements, results and everything around the team: I design and run the Instagram channel of my handball club's second men's team.">Spielankündigungen, Ergebnisse und alles rund um die Mannschaft: Ich gestalte und betreue den Instagram-Kanal der zweiten Herrenmannschaft meines Handballvereins.</p>
+
+    <div class="project-meta">
+      <span class="tag">Social Media</span>
+      <span class="tag">Design</span>
+      <span class="tag">Instagram</span>
+      <span class="tag">Handball</span>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="tv-hero rv">
+      <figure class="tv-crest"><img src="../assets/tv-grossengstingen/logo.png" alt="Wappen des TV Großengstingen 1907 e.V." data-optional></figure>
+      <div class="tv-card">
+        <div class="rt" data-de="Handball · Männer 2 · Bezirksklasse" data-en="Handball · Men 2 · District league">Handball · Männer 2 · Bezirksklasse</div>
+        <h2 data-de="Social Media Manager für meinen Heimatverein" data-en="Social media manager for my home club">Social Media Manager für meinen Heimatverein</h2>
+        <p data-de="Für die zweite Herrenmannschaft des TV Großengstingen kümmere ich mich um den Instagram-Auftritt. Ich plane Beiträge, gestalte die Grafiken und sorge dafür, dass Fans, Spieler und Familien immer wissen, wann und wo gespielt wird und wie es ausgegangen ist."
+           data-en="For the second men's team of TV Großengstingen I look after the Instagram presence. I plan posts, design the graphics and make sure fans, players and families always know when and where we play and how it ended.">Für die zweite Herrenmannschaft des TV Großengstingen kümmere ich mich um den Instagram-Auftritt. Ich plane Beiträge, gestalte die Grafiken und sorge dafür, dass Fans, Spieler und Familien immer wissen, wann und wo gespielt wird und wie es ausgegangen ist.</p>
+        <a class="tv-ig" href="https://www.instagram.com/tvgrossengstingen_m2/" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+          @tvgrossengstingen_m2
+        </a>
+        <div class="tv-side">
+          <span class="badge" data-de="Außerdem" data-en="Also">Außerdem</span>
+          <p data-de="In der Saison 26/27 bin ich zusätzlich <b>Mannschaftsvorsitzender</b> der Männer 2."
+             data-en="In the 26/27 season I am also <b>team chair</b> of the men's second team.">In der Saison 26/27 bin ich zusätzlich <b>Mannschaftsvorsitzender</b> der Männer 2.</p>
+        </div>
+      </div>
+    </section>
+
+    <dl class="p-facts rv">
+      <div><dt data-de="Rolle" data-en="Role">Rolle</dt><dd>Social Media Manager</dd></div>
+      <div><dt data-de="Außerdem" data-en="Also">Außerdem</dt><dd data-de="Mannschaftsvorsitzender, Saison 26/27" data-en="Team chair, 26/27 season">Mannschaftsvorsitzender, Saison 26/27</dd></div>
+      <div><dt data-de="Kanal" data-en="Channel">Kanal</dt><dd>Instagram</dd></div>
+      <div><dt data-de="Mannschaft" data-en="Team">Mannschaft</dt><dd data-de="Männer 2, Bezirksklasse" data-en="Men 2, district league">Männer 2, Bezirksklasse</dd></div>
+    </dl>
+
+    <!-- ===== DESIGNS ===== -->
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Design · Saison 26/27" data-en="Design · Season 26/27">Design · Saison 26/27</div>
+      <h2 data-de="Jede Saison ein neuer Look" data-en="A new look every season">Jede Saison ein neuer Look</h2>
+      <p data-de="Für jede Saison entwickle ich ein eigenes Design, das sich durch alle Beiträge zieht. So erkennt man die Posts im Feed sofort, und trotzdem fühlt sich jede Saison frisch an. Die aktuelle Linie setzt auf helles, körniges Papier, riesige Zahlen in Vereinslila und dynamische Spieler-Silhouetten."
+         data-en="For every season I develop a dedicated design that runs through all posts. That way the posts are instantly recognisable in the feed, and each season still feels fresh. The current line relies on light, grainy paper, huge numbers in club purple and dynamic player silhouettes.">Für jede Saison entwickle ich ein eigenes Design, das sich durch alle Beiträge zieht. So erkennt man die Posts im Feed sofort, und trotzdem fühlt sich jede Saison frisch an. Die aktuelle Linie setzt auf helles, körniges Papier, riesige Zahlen in Vereinslila und dynamische Spieler-Silhouetten.</p>
+      <ul class="tv-bullets">
+        <li data-de="Ein festes Raster: Wappen, Liga und Saison oben, Paarung und Spielinfos unten" data-en="A fixed grid: crest, league and season on top, fixture and match info below">Ein festes Raster: Wappen, Liga und Saison oben, Paarung und Spielinfos unten</li>
+        <li data-de="Die große Zahl trägt die Hauptinfo, also Spieltag oder Endstand" data-en="The big number carries the key info, matchday or final score">Die große Zahl trägt die Hauptinfo, also Spieltag oder Endstand</li>
+        <li data-de="Ankündigung und Ergebnis teilen sich den Aufbau und wirken im Feed wie ein Paar" data-en="Announcement and result share the layout and read as a pair in the feed">Ankündigung und Ergebnis teilen sich den Aufbau und wirken im Feed wie ein Paar</li>
+      </ul>
+      <div class="tv-posters">
+        <figure><img class="zoom" src="../assets/tv-grossengstingen/matchday.jpg" alt="Spielankündigung: Matchday, 1. Spieltag, TSV Betzingen 2 gegen TV Großengstingen" data-optional><figcaption data-de="Spielankündigung · 1. Spieltag" data-en="Match announcement · Matchday 1">Spielankündigung · 1. Spieltag</figcaption></figure>
+        <figure><img class="zoom" src="../assets/tv-grossengstingen/endstand.jpg" alt="Ergebnis: Endstand 18 zu 21 für den TV Großengstingen" data-optional><figcaption data-de="Ergebnis · Endstand 18:21" data-en="Result · Final score 18:21">Ergebnis · Endstand 18:21</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ===== INHALTE ===== -->
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Inhalte" data-en="Content">Inhalte</div>
+      <h2 data-de="Was auf den Kanal kommt" data-en="What goes on the channel">Was auf den Kanal kommt</h2>
+      <div class="tv-types">
+        <div class="tv-type"><span class="n">01</span><h4 data-de="Spielankündigungen" data-en="Match announcements">Spielankündigungen</h4><p data-de="Gegner, Datum, Uhrzeit und Halle auf einen Blick" data-en="Opponent, date, time and venue at a glance">Gegner, Datum, Uhrzeit und Halle auf einen Blick</p></div>
+        <div class="tv-type"><span class="n">02</span><h4 data-de="Ergebnisse" data-en="Results">Ergebnisse</h4><p data-de="Endstand und Halbzeit, passend zur Ankündigung" data-en="Final score and half time, matching the announcement">Endstand und Halbzeit, passend zur Ankündigung</p></div>
+        <div class="tv-type"><span class="n">03</span><h4 data-de="Rund ums Team" data-en="Around the team">Rund ums Team</h4><p data-de="Alles, was sonst in und um die Mannschaft passiert" data-en="Everything else happening in and around the team">Alles, was sonst in und um die Mannschaft passiert</p></div>
+      </div>
+
+      <div class="tv-cta">
+        <div>
+          <div class="k" data-de="Reinschauen" data-en="Take a look">Reinschauen</div>
+          <div class="h">@tvgrossengstingen_m2</div>
+        </div>
+        <a class="tv-ig" href="https://www.instagram.com/tvgrossengstingen_m2/" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>
+          <span data-de="Auf Instagram öffnen" data-en="Open on Instagram">Auf Instagram öffnen</span>
+        </a>
+      </div>
+    </section>
+
+    <nav class="p-next">
+      <a href="sustainappility.html">
+        <span>
+          <span class="lbl" data-de="Nächstes Projekt" data-en="Next project">Nächstes Projekt</span>
+          <span class="t">SustainAppility</span>
+        </span>
+        <span class="arr"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Elia Baisch · <a href="../datenschutz.html" class="foot-link" data-de="Datenschutz" data-en="Privacy">Datenschutz</a></span>
+    <span data-de="Mit Sorgfalt gebaut. Die KI durfte assistieren." data-en="Built with care. The AI was allowed to assist.">Mit Sorgfalt gebaut. Die KI durfte assistieren.</span>
+    <span id="clock">--:--</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/project.js"></script>
+</body>
+</html>

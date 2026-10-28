@@ -30,6 +30,13 @@ const PROJECTS = [
     link:  'projects/robotics.html'
   },
   {
+    title: 'TV Großengstingen',
+    tags:  { de:['Social Media','Design','Ehrenamt'], en:['Social media','Design','Volunteering'] },
+    year:  '2026',
+    cover: 'assets/covers/tv-grossengstingen.jpg',
+    link:  'projects/tv-grossengstingen.html'
+  },
+  {
     title: 'SustainAppility',
     tags:  { de:['UI/UX','Figma','Prototyping'], en:['UI/UX','Figma','Prototyping'] },
     year:  '2025',

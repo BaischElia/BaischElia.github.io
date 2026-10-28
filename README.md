@@ -37,6 +37,7 @@ Portfolio/
 │  ├─ sustainappility.html
 │  ├─ vst3-plugin-dev.html
 │  ├─ schule-4-0.html
+│  ├─ tv-grossengstingen.html
 │  └─ design-portfolios.html
 ├─ datenschutz.html       → Datenschutzerklärung (in jeder Fußzeile verlinkt)
 ├─ files/                  → PDFs (Portfolios)
@@ -46,6 +47,7 @@ Portfolio/
 │  ├─ reachy-mini/         → Roboterfoto, Studien-Setup, Erkennung
 │  ├─ robotics/            → Fotos der Hardware-Builds (KI-freigestellt)
 │  ├─ schule-4-0/          → Figuren, Skizzen, Grafiken, Screens
+│  ├─ tv-grossengstingen/  → Wappen, Social-Media-Designs
 │  ├─ sustainappility/     → Screens & Sketches
 │  └─ plugin/              → Plugin-UIs
 └─ README.md
