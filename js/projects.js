@@ -44,6 +44,13 @@ const PROJECTS = [
     link:  'projects/vst3-plugin-dev.html'
   },
   {
+    title: 'Schule 4.0',
+    tags:  { de:['UI/UX','Illustration','Interdisziplinär'], en:['UI/UX','Illustration','Interdisciplinary'] },
+    year:  '2023',
+    cover: 'assets/covers/schule-4-0.jpg',
+    link:  'projects/schule-4-0.html'
+  },
+  {
     title: 'Design Portfolios',
     tags:  { de:['Visual','Layout','Theorie'], en:['Visual','Layout','Theory'] },
     year:  '2024',

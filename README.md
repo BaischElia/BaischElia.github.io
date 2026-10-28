@@ -36,6 +36,7 @@ Portfolio/
 │  ├─ robotics.html
 │  ├─ sustainappility.html
 │  ├─ vst3-plugin-dev.html
+│  ├─ schule-4-0.html
 │  └─ design-portfolios.html
 ├─ datenschutz.html       → Datenschutzerklärung (in jeder Fußzeile verlinkt)
 ├─ files/                  → PDFs (Portfolios)
@@ -44,6 +45,7 @@ Portfolio/
 │  ├─ covers/              → ein Cover je Projekt (Liste + Projektkopf)
 │  ├─ reachy-mini/         → Roboterfoto, Studien-Setup, Erkennung
 │  ├─ robotics/            → Fotos der Hardware-Builds (KI-freigestellt)
+│  ├─ schule-4-0/          → Figuren, Skizzen, Grafiken, Screens
 │  ├─ sustainappility/     → Screens & Sketches
 │  └─ plugin/              → Plugin-UIs
 └─ README.md
@@ -101,7 +103,6 @@ mit Leerzeichen müssen im `href` als `%20` geschrieben werden, z. B.
 
 | Datei | verlinkt in |
 |---|---|
-| `Portfolio.pdf` | `index.html` (Ausgewählte Arbeiten) |
 | `Grundlagen Design.pdf`, `A1_App_Deconstruction_Elia_Baisch.pdf`, `A2_Design_Prototyping.pdf`, `Design_Reflection.pdf` | `projects/design-portfolios.html` |
 
 ## Bilder tauschen

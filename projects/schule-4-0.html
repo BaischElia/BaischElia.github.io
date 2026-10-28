@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Schule 4.0 — Elia Baisch</title>
+<meta name="description" content="Schule 4.0: eine digitale Lern-App, mit der Lehrkräfte Erstklässlern spielerisch den Umgang mit Haustieren beibringen. Interdisziplinäres Projekt an der HdM Stuttgart.">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+/* =========================================================
+   Nur für diese Seite: Prozess-Leiste und Screen-Raster.
+   ========================================================= */
+.sc-paper{--paper:#FFFFFF}
+
+/* ---- Hero: Figuren + Partner ---- */
+.sc-hero{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:60px;align-items:stretch}
+@media(max-width:860px){.sc-hero{grid-template-columns:1fr}}
+.sc-hero figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:24px;min-width:0}
+.sc-hero figure img{width:100%;max-width:420px;height:auto}
+.sc-card{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:clamp(26px,4vw,44px);display:flex;flex-direction:column;gap:22px;min-width:0}
+.sc-card .rt{font-family:'Roboto Mono';font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.sc-card h2{font-size:clamp(26px,3vw,36px);font-weight:500;line-height:1.12;letter-spacing:-.025em;text-wrap:balance}
+.sc-card p{font-size:16px;color:var(--ink-2);line-height:1.6}
+.sc-partners{margin-top:auto;border-top:1px solid var(--line-2);padding-top:20px;display:grid;gap:10px}
+.sc-partners dt{font-family:'Roboto Mono';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.sc-partners dd{font-size:15px;color:var(--ink);line-height:1.5}
+
+/* ---- Prozess: User-Centered Design ---- */
+.sc-process{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:34px}
+@media(max-width:780px){.sc-process{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sc-step{border:1px solid var(--line-2);border-radius:12px;padding:18px 16px 16px;background:var(--bg);position:relative}
+.sc-step .n{font-family:'Roboto Mono';font-size:11px;color:var(--ink-3);margin-bottom:10px;display:block}
+.sc-step h4{font-size:17px;font-weight:500;letter-spacing:-.01em;margin-bottom:6px}
+.sc-step p{font-size:13.5px;color:var(--ink-2);line-height:1.5}
+.sc-step.me{border-color:var(--accent);background:rgba(154,107,69,.07)}
+.sc-step.me .n{color:var(--accent)}
+.sc-step .me-tag{position:absolute;top:-10px;right:12px;font-family:'Roboto Mono';font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:#fff;padding:3px 8px;border-radius:100px}
+
+/* ---- Bilder auf weißem Grund ---- */
+.sc-white{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.sc-white img{width:100%;display:block}
+.sc-bullets{list-style:none;margin:18px 0 0;display:grid;gap:8px}
+.sc-bullets li{font-size:15.5px;color:var(--ink-2);padding-left:18px;position:relative;line-height:1.5}
+.sc-bullets li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:1px;background:var(--accent)}
+
+/* ---- Screens ---- */
+.sc-screens{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:36px}
+@media(max-width:620px){.sc-screens{grid-template-columns:1fr}}
+.sc-screens figure{margin:0}
+.sc-screens img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--line);background:var(--bg-2);display:block}
+.sc-screens figcaption{font-family:'Roboto Mono';font-size:11px;letter-spacing:.06em;color:var(--ink-3);margin-top:10px}
+</style>
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <a href="../index.html" class="brand"><b>Elia</b><span class="dot">.</span>Baisch</a>
+  <div class="nav-r">
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html#about" data-de="Über mich" data-en="About">Über mich</a>
+      <a href="../index.html#work" data-de="Projekte" data-en="Work">Projekte</a>
+      <a href="../index.html#tools">Tools</a>
+      <a href="../index.html#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    </div>
+    <button class="lang" id="langBtn" onclick="toggleLang()">DE</button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main class="project-page">
+  <div class="wrap">
+
+    <a href="../index.html#work" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span data-de="Zurück zu Projekten" data-en="Back to work">Zurück zu Projekten</span>
+    </a>
+
+    <div class="project-kicker" data-de="Interdisziplinäres Projekt · HdM" data-en="Interdisciplinary project · HdM">Interdisziplinäres Projekt · HdM</div>
+
+    <div class="project-head">
+      <h1>Schule 4.0</h1>
+      <span class="py">2023</span>
+    </div>
+
+    <p class="project-lead"
+       data-de="Eine Lern-App, mit der Erstklässler spielerisch lernen, wie man sich gut um ein Haustier kümmert."
+       data-en="A learning app that lets first graders discover, through play, how to take good care of a pet.">Eine Lern-App, mit der Erstklässler spielerisch lernen, wie man sich gut um ein Haustier kümmert.</p>
+
+    <div class="project-meta">
+      <span class="tag">UI/UX</span>
+      <span class="tag" data-de="Illustration" data-en="Illustration">Illustration</span>
+      <span class="tag">Screen Design</span>
+      <span class="tag">User-Centered Design</span>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="sc-hero rv">
+      <figure><img class="zoom" src="../assets/schule-4-0/characters.jpg" alt="Die Hauptfigur der App, ein Mädchen, mit dem Hund Rocky" data-optional></figure>
+      <div class="sc-card">
+        <div class="rt">Schule 4.0 · Pets</div>
+        <h2 data-de="Spielerisch mehr über Haustiere lernen" data-en="Playfully learn more about pets">Spielerisch mehr über Haustiere lernen</h2>
+        <p data-de="Eine digitale Lernanwendung, mit der Lehrkräfte Kindern der ersten Klasse interaktiv beibringen, verantwortungsvoll mit Haustieren umzugehen. Durch die App führt ein Mädchen, das gemeinsam mit den Kindern den Hund Rocky versorgt."
+           data-en="A digital learning application that enables teachers to interactively teach first graders how to handle pets responsibly. A girl guides the children through the app as they look after the dog Rocky together.">Eine digitale Lernanwendung, mit der Lehrkräfte Kindern der ersten Klasse interaktiv beibringen, verantwortungsvoll mit Haustieren umzugehen. Durch die App führt ein Mädchen, das gemeinsam mit den Kindern den Hund Rocky versorgt.</p>
+        <dl class="sc-partners">
+          <dt data-de="In Kooperation mit" data-en="In cooperation with">In Kooperation mit</dt>
+          <dd data-de="Pädagogische Hochschule Weingarten<br>Teichwiesenschule Korntal" data-en="Weingarten University of Education<br>Teichwiesenschule Korntal (primary school)">Pädagogische Hochschule Weingarten<br>Teichwiesenschule Korntal</dd>
+        </dl>
+      </div>
+    </section>
+
+    <dl class="p-facts rv">
+      <div><dt data-de="Rolle" data-en="Role">Rolle</dt><dd data-de="Design: UX/UI, Grafiken, Screens" data-en="Design: UX/UI, graphics, screens">Design: UX/UI, Grafiken, Screens</dd></div>
+      <div><dt data-de="Team" data-en="Team">Team</dt><dd data-de="Interdisziplinäres Projektteam" data-en="Interdisciplinary project team">Interdisziplinäres Projektteam</dd></div>
+      <div><dt data-de="Kontext" data-en="Context">Kontext</dt><dd data-de="Interdisziplinäres Projekt, HdM Stuttgart" data-en="Interdisciplinary project, HdM Stuttgart">Interdisziplinäres Projekt, HdM Stuttgart</dd></div>
+      <div><dt data-de="Zielgruppe" data-en="Audience">Zielgruppe</dt><dd data-de="Erstklässler und Lehrkräfte" data-en="First graders and teachers">Erstklässler und Lehrkräfte</dd></div>
+    </dl>
+
+    <!-- ===== PROZESS ===== -->
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Vorgehen" data-en="Approach">Vorgehen</div>
+      <h2 data-de="Nutzerzentriert, vom ersten Gespräch bis zum Test" data-en="User-centred, from the first conversation to the test">Nutzerzentriert, vom ersten Gespräch bis zum Test</h2>
+      <p data-de="Das Projekt folgte dem User-Centered-Design-Prozess. Weil die Nutzer sechs Jahre alt sind, musste jede Entscheidung zwei Gruppen gerecht werden: den Kindern, die noch kaum lesen können, und den Lehrkräften, die die App im Unterricht einsetzen."
+         data-en="The project followed the user-centred design process. Because the users are six years old, every decision had to work for two groups: the children, who can barely read yet, and the teachers who use the app in class.">Das Projekt folgte dem User-Centered-Design-Prozess. Weil die Nutzer sechs Jahre alt sind, musste jede Entscheidung zwei Gruppen gerecht werden: den Kindern, die noch kaum lesen können, und den Lehrkräften, die die App im Unterricht einsetzen.</p>
+      <div class="sc-process">
+        <div class="sc-step"><span class="n">01</span><h4>Research</h4><p data-de="Bedürfnisse von Kindern und Lehrkräften" data-en="Needs of children and teachers">Bedürfnisse von Kindern und Lehrkräften</p></div>
+        <div class="sc-step"><span class="n">02</span><h4 data-de="Konzept" data-en="Concept">Konzept</h4><p data-de="Lernziele und Ablauf der Minispiele" data-en="Learning goals and mini-game flow">Lernziele und Ablauf der Minispiele</p></div>
+        <div class="sc-step me"><span class="me-tag" data-de="Mein Bereich" data-en="My part">Mein Bereich</span><span class="n">03</span><h4>Design</h4><p data-de="UX/UI, Grafiken und Screens" data-en="UX/UI, graphics and screens">UX/UI, Grafiken und Screens</p></div>
+        <div class="sc-step"><span class="n">04</span><h4 data-de="Entwicklung" data-en="Develop">Entwicklung</h4><p data-de="Umsetzung als interaktive App" data-en="Building the interactive app">Umsetzung als interaktive App</p></div>
+        <div class="sc-step"><span class="n">05</span><h4>Test</h4><p data-de="Erprobung mit der Zielgruppe" data-en="Trying it out with the audience">Erprobung mit der Zielgruppe</p></div>
+      </div>
+    </section>
+
+    <!-- ===== SKIZZEN ===== -->
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Design · Konzept" data-en="Design · Concept">Design · Konzept</div>
+      <h2 data-de="Von der Skizze zum Ablauf" data-en="From sketch to flow">Von der Skizze zum Ablauf</h2>
+      <p data-de="Bevor ein einziger Screen entstand, habe ich die Minispiele und die Navigation auf Papier durchgespielt: welche Aufgabe kommt wann, wie erkennt ein Kind ohne Lesen, was zu tun ist, und wo die Lehrkraft eingreifen kann."
+         data-en="Before a single screen was drawn, I played through the mini-games and navigation on paper: which task comes when, how a child who can't read knows what to do, and where the teacher can step in.">Bevor ein einziger Screen entstand, habe ich die Minispiele und die Navigation auf Papier durchgespielt: welche Aufgabe kommt wann, wie erkennt ein Kind ohne Lesen, was zu tun ist, und wo die Lehrkraft eingreifen kann.</p>
+      <div class="sc-white" style="margin-top:32px"><img class="zoom" src="../assets/schule-4-0/sketches.jpg" alt="Handgezeichnete Skizzen der Screens und Minispiele" data-optional></div>
+    </section>
+
+    <!-- ===== GRAFIKEN ===== -->
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Design · Grafiken" data-en="Design · Graphics">Design · Grafiken</div>
+      <h2 data-de="Ein Stil, den Sechsjährige sofort verstehen" data-en="A style six-year-olds get at a glance">Ein Stil, den Sechsjährige sofort verstehen</h2>
+      <p data-de="Für die Figuren und Gegenstände habe ich einen eigenen, einheitlichen Grafikstil festgelegt. Die Figuren wurden dabei bewusst weiterentwickelt, bis sie freundlich, klar und für Kinder sofort lesbar waren."
+         data-en="I defined a consistent graphic style of my own for the characters and objects. The characters were refined deliberately until they felt friendly, clear and instantly readable for children.">Für die Figuren und Gegenstände habe ich einen eigenen, einheitlichen Grafikstil festgelegt. Die Figuren wurden dabei bewusst weiterentwickelt, bis sie freundlich, klar und für Kinder sofort lesbar waren.</p>
+      <ul class="sc-bullets">
+        <li data-de="2D-Grafiken mit zurückhaltender Schattierung" data-en="2D graphics with minimal shading">2D-Grafiken mit zurückhaltender Schattierung</li>
+        <li data-de="Vereinfachte Formen und Farben" data-en="Simplified shapes and colours">Vereinfachte Formen und Farben</li>
+        <li data-de="Kindgerechter, reduzierter Zeichenstil" data-en="Simplified, child-friendly art style">Kindgerechter, reduzierter Zeichenstil</li>
+      </ul>
+      <div class="sc-white" style="margin-top:32px"><img class="zoom" src="../assets/schule-4-0/graphics.jpg" alt="Gegenstände wie Napf, Ball und Seife sowie die Figuren der App" data-optional></div>
+    </section>
+
+    <!-- ===== SCREENS ===== -->
+    <section class="p-sec rv">
+      <div class="p-kicker" data-de="Design · Screens" data-en="Design · Screens">Design · Screens</div>
+      <h2 data-de="Minispiele rund um Rocky" data-en="Mini-games around Rocky">Minispiele rund um Rocky</h2>
+      <p data-de="Die fertigen Screens verbinden die Grafiken zu kurzen Minispielen. Kurze Sprechblasen der Hauptfigur erklären jede Aufgabe, große Bildflächen ersetzen Text, und ein Fortschrittsbalken zeigt, wie weit man schon ist."
+         data-en="The final screens combine the graphics into short mini-games. Short speech bubbles from the main character explain each task, large images replace text, and a progress bar shows how far along you are.">Die fertigen Screens verbinden die Grafiken zu kurzen Minispielen. Kurze Sprechblasen der Hauptfigur erklären jede Aufgabe, große Bildflächen ersetzen Text, und ein Fortschrittsbalken zeigt, wie weit man schon ist.</p>
+      <div class="sc-screens">
+        <figure><img class="zoom" src="../assets/schule-4-0/screen-wash.jpg" alt="Minispiel: Rocky baden" data-optional><figcaption data-de="Rocky baden" data-en="Giving Rocky a bath">Rocky baden</figcaption></figure>
+        <figure><img class="zoom" src="../assets/schule-4-0/screen-room.jpg" alt="Minispiel im Wohnzimmer" data-optional><figcaption data-de="Sachen im Wohnzimmer finden" data-en="Finding things in the living room">Sachen im Wohnzimmer finden</figcaption></figure>
+        <figure><img class="zoom" src="../assets/schule-4-0/screen-city.jpg" alt="Minispiel: Spaziergang mit Rocky" data-optional><figcaption data-de="Spaziergang mit Rocky" data-en="Walking Rocky">Spaziergang mit Rocky</figcaption></figure>
+        <figure><img class="zoom" src="../assets/schule-4-0/screen-quiz.jpg" alt="Quiz: Womit kann Rocky spielen?" data-optional><figcaption data-de="Quiz: Womit kann Rocky spielen?" data-en="Quiz: what can Rocky play with?">Quiz: Womit kann Rocky spielen?</figcaption></figure>
+      </div>
+    </section>
+
+    <nav class="p-next">
+      <a href="design-portfolios.html">
+        <span>
+          <span class="lbl" data-de="Nächstes Projekt" data-en="Next project">Nächstes Projekt</span>
+          <span class="t">Design Portfolios</span>
+        </span>
+        <span class="arr"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </nav>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Elia Baisch · <a href="../datenschutz.html" class="foot-link" data-de="Datenschutz" data-en="Privacy">Datenschutz</a></span>
+    <span data-de="Gebaut mit Sorgfalt" data-en="Built with care">Gebaut mit Sorgfalt</span>
+    <span id="clock">--:--</span>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/project.js"></script>
+</body>
+</html>
