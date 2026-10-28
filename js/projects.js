@@ -32,7 +32,7 @@ const PROJECTS = [
   {
     title: 'TV Großengstingen',
     tags:  { de:['Social Media','Design','Ehrenamt'], en:['Social media','Design','Volunteering'] },
-    year:  '2026',
+    year:  '2025',
     cover: 'assets/covers/tv-grossengstingen.jpg',
     link:  'projects/tv-grossengstingen.html'
   },
