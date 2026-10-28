@@ -421,3 +421,7 @@ button.social{background:none;cursor:pointer;font-family:'Roboto Mono';color:var
 /* ---------- FUSSZEILE ---------- */
 .foot-link{border-bottom:1px solid var(--line-2);transition:color .3s,border-color .3s}
 .foot-link:hover{color:var(--accent);border-color:var(--accent)}
+
+/* E-Mail im Kontaktbereich öffnet das Kontaktformular */
+button.contact-mail{background:none;border:none;border-bottom:2px solid var(--line-2);font-family:inherit;color:var(--ink);cursor:pointer;padding:0 0 6px}
+button.contact-mail:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:2px}

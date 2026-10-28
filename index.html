@@ -186,11 +186,10 @@
   <div class="wrap rv">
     <span class="sec-idx" style="display:block;margin-bottom:6px">04 / 04</span>
     <h2 class="contact-h" data-de="Lass uns <span class='em'>reden</span>." data-en="Let's <span class='em'>talk</span>.">Lass uns <span class="em">reden</span>.</h2>
-    <a href="mailto:baischelia@gmx.de" class="contact-mail">baischelia@gmx.de</a>
+    <button type="button" class="contact-mail" onclick="openContact()" aria-label="Kontaktformular öffnen">baischelia@gmx.de</button>
     <div class="social-row">
       <a href="https://github.com/BaischElia" target="_blank" class="social">GitHub</a>
       <a href="https://www.linkedin.com/in/elia-baisch" target="_blank" class="social">LinkedIn</a>
-      <button type="button" class="social" onclick="openCvRequest()" data-de="Lebenslauf anfragen" data-en="Request CV">Lebenslauf anfragen</button>
     </div>
   </div>
 </section>
@@ -232,7 +231,7 @@
   </div>
 </div>
 
-<!-- ================= LEBENSLAUF-ANFRAGE ================= -->
+<!-- ================= FORMULAR: LEBENSLAUF-ANFRAGE & KONTAKT ================= -->
 <div class="mb" id="cvMb">
   <div class="modal cv-modal" role="dialog" aria-modal="true" aria-labelledby="cvTitle">
     <div class="mh">
@@ -244,7 +243,7 @@
     </div>
     <div class="mbody">
       <form id="cvForm" novalidate>
-        <p class="cv-intro" data-de="Meinen Lebenslauf schicke ich auf Anfrage gern per E-Mail. Sag mir kurz, wer du bist und wohin er gehen soll."
+        <p class="cv-intro" id="cvIntro" data-de="Meinen Lebenslauf schicke ich auf Anfrage gern per E-Mail. Sag mir kurz, wer du bist und wohin er gehen soll."
            data-en="I'm happy to send my CV by email on request. Just tell me who you are and where to send it.">Meinen Lebenslauf schicke ich auf Anfrage gern per E-Mail. Sag mir kurz, wer du bist und wohin er gehen soll.</p>
         <div class="grid2">
           <div class="field"><label for="cvName" data-de="Name *" data-en="Name *">Name *</label>
@@ -252,9 +251,9 @@
           <div class="field"><label for="cvCompany" data-de="Unternehmen" data-en="Company">Unternehmen</label>
             <input type="text" id="cvCompany" name="company" autocomplete="organization"></div>
         </div>
-        <div class="field"><label for="cvEmail" data-de="E-Mail für den Lebenslauf *" data-en="Email for the CV *">E-Mail für den Lebenslauf *</label>
+        <div class="field"><label for="cvEmail" id="cvEmailLbl" data-de="E-Mail für den Lebenslauf *" data-en="Email for the CV *">E-Mail für den Lebenslauf *</label>
           <input type="email" id="cvEmail" name="email" required autocomplete="email"></div>
-        <div class="field"><label for="cvMsg" data-de="Nachricht (optional)" data-en="Message (optional)">Nachricht (optional)</label>
+        <div class="field"><label for="cvMsg" id="cvMsgLbl" data-de="Nachricht (optional)" data-en="Message (optional)">Nachricht (optional)</label>
           <textarea id="cvMsg" name="message" rows="3"></textarea></div>
         <input type="text" id="cvHoney" name="_honey" tabindex="-1" autocomplete="off" class="cv-honey" aria-hidden="true">
         <label class="cv-consent"><input type="checkbox" id="cvConsent" required>
@@ -262,13 +261,13 @@
                 data-en="I agree that my details are processed to handle this request. More in the <a href='datenschutz.html' target='_blank'>privacy policy</a>.">Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verarbeitet werden. Mehr in der <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a>.</span></label>
         <p class="cv-err" id="cvErr" hidden data-de="Das hat leider nicht geklappt. Versuch es später noch einmal oder schreib mir direkt an baischelia@gmx.de."
            data-en="That didn't work, sorry. Please try again later or email me directly at baischelia@gmx.de.">Das hat leider nicht geklappt. Versuch es später noch einmal oder schreib mir direkt an baischelia@gmx.de.</p>
-        <button type="submit" class="mbtn" id="cvSend"><span data-de="Anfrage senden" data-en="Send request">Anfrage senden</span>
+        <button type="submit" class="mbtn" id="cvSend"><span id="cvSendLbl" data-de="Anfrage senden" data-en="Send request">Anfrage senden</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </form>
       <div class="cv-done" id="cvDone" hidden>
         <div class="cv-check"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-        <h4 data-de="Danke, deine Anfrage ist angekommen." data-en="Thanks, your request has arrived.">Danke, deine Anfrage ist angekommen.</h4>
-        <p data-de="Ich schicke dir den Lebenslauf so bald wie möglich an die angegebene Adresse." data-en="I'll send my CV to the address you gave as soon as I can.">Ich schicke dir den Lebenslauf so bald wie möglich an die angegebene Adresse.</p>
+        <h4 id="cvDoneH" data-de="Danke, deine Anfrage ist angekommen." data-en="Thanks, your request has arrived.">Danke, deine Anfrage ist angekommen.</h4>
+        <p id="cvDoneP" data-de="Ich schicke dir den Lebenslauf so bald wie möglich an die angegebene Adresse." data-en="I'll send my CV to the address you gave as soon as I can.">Ich schicke dir den Lebenslauf so bald wie möglich an die angegebene Adresse.</p>
         <button type="button" class="btn btn-ghost" onclick="closeCvRequest()" data-de="Schließen" data-en="Close">Schließen</button>
       </div>
     </div>
