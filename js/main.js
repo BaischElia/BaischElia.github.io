@@ -60,10 +60,18 @@ function initNav(){
   const burger = document.getElementById('burger');
   const navLinks = document.getElementById('navLinks');
   if(burger && navLinks){
-    burger.onclick = ()=>{ burger.classList.toggle('open'); navLinks.classList.toggle('open'); };
-    navLinks.querySelectorAll('a').forEach(a=> a.onclick = ()=>{
-      burger.classList.remove('open'); navLinks.classList.remove('open');
-    });
+    // Menü öffnen/schließen; solange es offen ist, scrollt die Seite dahinter nicht.
+    const setMenu = open=>{
+      burger.classList.toggle('open', open);
+      navLinks.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    burger.onclick = ()=> setMenu(!navLinks.classList.contains('open'));
+    navLinks.querySelectorAll('a').forEach(a=> a.onclick = ()=> setMenu(false));
+    addEventListener('keydown', e=>{ if(e.key === 'Escape' && navLinks.classList.contains('open')) setMenu(false); });
+    // Wird das Fenster breiter (z. B. Handy gedreht), Menü-Zustand zurücksetzen.
+    matchMedia('(min-width:861px)').addEventListener('change', e=>{ if(e.matches) setMenu(false); });
   }
 }
 
