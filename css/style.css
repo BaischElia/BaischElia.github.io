@@ -432,3 +432,5 @@ button.btn{font-family:inherit;background:transparent;cursor:pointer}
 .mods-h{font-family:'Roboto Mono';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .mods-t{display:flex;flex-wrap:wrap;gap:6px}
 .mod{font-size:13px;color:var(--ink-2);background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:5px 10px;line-height:1.35}
+.mod-link{color:var(--accent);border-color:var(--accent-soft);transition:.3s var(--ease)}
+.mod-link:hover{background:var(--card);border-color:var(--accent)}
