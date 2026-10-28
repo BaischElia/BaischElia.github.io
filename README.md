@@ -11,10 +11,13 @@ damit sie automatisch einheitlich aussehen.
 Portfolio/
 ├─ index.html              → Startseite
 ├─ css/
+│  ├─ fonts.css            → lokale Schriften (assets/fonts/), kein Google Fonts
 │  └─ style.css            → alle Styles (auch für Projekt-Unterseiten)
 ├─ js/
 │  ├─ main.js              → Nav, Sprache (DE/EN), Typed-Animation, Reveal, Uhr
 │  ├─ projects.js          → HIER Projekte pflegen (Array)
+│  ├─ cvrequest.js         → Formular „Lebenslauf anfragen“ (FormSubmit)
+│  ├─ vendor/              → typed.js + qrcode-generator, lokal statt CDN
 │  ├─ project.js           → nur Projektseiten: Lightbox, fehlende Bilder
 │  ├─ tools.js             → Modal-Steuerung + Info-Panel
 │  └─ tools/
@@ -34,7 +37,8 @@ Portfolio/
 │  ├─ sustainappility.html
 │  ├─ vst3-plugin-dev.html
 │  └─ design-portfolios.html
-├─ files/                  → PDFs (Lebenslauf, Portfolios)
+├─ datenschutz.html       → Datenschutzerklärung (in jeder Fußzeile verlinkt)
+├─ files/                  → PDFs (Portfolios)
 ├─ assets/
 │  ├─ portrait.jpg         → Foto im Hero
 │  ├─ covers/              → ein Cover je Projekt (Liste + Projektkopf)
@@ -93,11 +97,10 @@ Portfolio/
 Alle PDFs liegen in `files/` und werden relativ verlinkt — von der
 Startseite als `files/…`, von Projektseiten als `../files/…`. Dateinamen
 mit Leerzeichen müssen im `href` als `%20` geschrieben werden, z. B.
-`files/CV%20Elia%20Baisch.pdf`.
+`files/Grundlagen%20Design.pdf`.
 
 | Datei | verlinkt in |
 |---|---|
-| `CV Elia Baisch.pdf` | `index.html` (Über mich) |
 | `Portfolio.pdf` | `index.html` (Ausgewählte Arbeiten) |
 | `Grundlagen Design.pdf`, `A1_App_Deconstruction_Elia_Baisch.pdf`, `A2_Design_Prototyping.pdf`, `Design_Reflection.pdf` | `projects/design-portfolios.html` |
 
@@ -195,7 +198,15 @@ Danach in beiden Fällen:
 ## Bibliotheken
 
 - **Typed.js** (Hero-Schriftanimation) und **qrcode-generator** (QR-Tool)
-  werden per CDN geladen — funktioniert online (z. B. GitHub Pages) out of the box.
+  liegen lokal in `js/vendor/`. Die Seite lädt nichts von fremden Servern.
+
+## Lebenslauf auf Anfrage
+
+Der Lebenslauf liegt bewusst nicht öffentlich auf der Seite. Der Button
+„Lebenslauf anfragen“ öffnet ein Formular (`js/cvrequest.js`), das die
+Anfrage über FormSubmit per E-Mail an `CV_INBOX` schickt. Beim ersten
+Absenden kommt einmalig eine Bestätigungs-Mail von FormSubmit, darin
+auf „Activate Form“ klicken.
 - Das QR-Tool zeichnet das Poster selbst auf ein `<canvas>` (1080 × 1350) —
   die Bibliothek liefert nur die Modul-Matrix. Themes stehen oben in
   `js/tools/qr.js` im Objekt `QR_THEMES` und entsprechen 1:1 denen aus

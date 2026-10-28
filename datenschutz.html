@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="robots" content="noindex">
+<title>Datenschutz — Elia Baisch</title>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* Nur für diese Seite: ruhige Textseite */
+.legal{max-width:760px}
+.legal .p-sec{margin-bottom:56px}
+.legal .p-sec h2{font-size:clamp(22px,2.6vw,28px);margin-bottom:14px}
+.legal .p-sec p,.legal .p-sec li{font-size:16px}
+.legal ul{list-style:none;margin:0 0 16px;max-width:680px}
+.legal li{color:var(--ink-2);line-height:1.65;padding-left:18px;position:relative;margin-bottom:6px}
+.legal li::before{content:"";position:absolute;left:0;top:12px;width:6px;height:1px;background:var(--accent)}
+.legal a.inline{color:var(--accent);border-bottom:1px solid var(--accent-soft)}
+.legal .card{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:56px}
+.legal .card p{font-size:15.5px;color:var(--ink);line-height:1.6;margin:0}
+.legal .stand{font-family:'Roboto Mono';font-size:11.5px;letter-spacing:.06em;color:var(--ink-3)}
+</style>
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <a href="index.html" class="brand"><b>Elia</b><span class="dot">.</span>Baisch</a>
+  <div class="nav-r">
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#about" data-de="Über mich" data-en="About">Über mich</a>
+      <a href="index.html#work" data-de="Projekte" data-en="Work">Projekte</a>
+      <a href="index.html#tools">Tools</a>
+      <a href="index.html#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+    </div>
+    <button class="lang" id="langBtn" onclick="toggleLang()">DE</button>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<main class="project-page">
+  <div class="wrap legal">
+
+    <a href="index.html" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      <span data-de="Zur Startseite" data-en="Back to home">Zur Startseite</span>
+    </a>
+
+    <div class="project-kicker" data-de="Rechtliches" data-en="Legal">Rechtliches</div>
+    <div class="project-head"><h1 data-de="Datenschutz" data-en="Privacy">Datenschutz</h1></div>
+    <p class="project-lead" data-de="Kurz gesagt: Diese Seite setzt keine Cookies, nutzt kein Tracking und lädt nichts von fremden Servern. Daten fallen nur beim Hosting und bei einer Anfrage über das Formular an."
+       data-en="In short: this site sets no cookies, uses no tracking and loads nothing from third-party servers. Data is only processed by the host and when you send a request through the form.">Kurz gesagt: Diese Seite setzt keine Cookies, nutzt kein Tracking und lädt nichts von fremden Servern. Daten fallen nur beim Hosting und bei einer Anfrage über das Formular an.</p>
+
+    <!-- Verantwortlicher -->
+    <section class="p-sec">
+      <div class="p-kicker">01</div>
+      <h2 data-de="Verantwortlicher" data-en="Controller">Verantwortlicher</h2>
+      <div class="card"><p>Elia Baisch<br><span data-de="E-Mail" data-en="Email">E-Mail</span>: baischelia@gmx.de</p></div>
+    </section>
+
+    <!-- Hosting -->
+    <section class="p-sec">
+      <div class="p-kicker">02</div>
+      <h2 data-de="Hosting über GitHub Pages" data-en="Hosting on GitHub Pages">Hosting über GitHub Pages</h2>
+      <p data-de="Diese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Seite verarbeitet GitHub technisch notwendige Daten, insbesondere deine IP-Adresse, Datum und Uhrzeit des Zugriffs, die aufgerufene Seite sowie Angaben zu Browser und Betriebssystem. Das dient der Auslieferung und der Sicherheit der Seite."
+         data-en="This website is served via GitHub Pages, a service of GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. When you visit, GitHub processes technically necessary data, in particular your IP address, date and time of access, the page requested and details about your browser and operating system. This is used to deliver the site and keep it secure.">Diese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Seite verarbeitet GitHub technisch notwendige Daten, insbesondere deine IP-Adresse, Datum und Uhrzeit des Zugriffs, die aufgerufene Seite sowie Angaben zu Browser und Betriebssystem. Das dient der Auslieferung und der Sicherheit der Seite.</p>
+      <p data-de="Rechtsgrundlage ist mein berechtigtes Interesse an einer sicheren und zuverlässigen Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO). Dabei können Daten in die USA übertragen werden. Die Übermittlung erfolgt auf Grundlage geeigneter Garantien wie dem EU-US Data Privacy Framework bzw. den Standardvertragsklauseln der EU-Kommission. Details findest du in der <a class='inline' href='https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement' target='_blank' rel='noopener'>Datenschutzerklärung von GitHub</a>."
+         data-en="The legal basis is my legitimate interest in providing the website securely and reliably (Art. 6(1)(f) GDPR). Data may be transferred to the USA. Such transfers rely on appropriate safeguards such as the EU-US Data Privacy Framework or the European Commission's standard contractual clauses. Details are in <a class='inline' href='https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement' target='_blank' rel='noopener'>GitHub's privacy statement</a>.">Rechtsgrundlage ist mein berechtigtes Interesse an einer sicheren und zuverlässigen Bereitstellung der Website (Art. 6 Abs. 1 lit. f DSGVO). Dabei können Daten in die USA übertragen werden. Die Übermittlung erfolgt auf Grundlage geeigneter Garantien wie dem EU-US Data Privacy Framework bzw. den Standardvertragsklauseln der EU-Kommission. Details findest du in der <a class="inline" href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Datenschutzerklärung von GitHub</a>.</p>
+    </section>
+
+    <!-- Formular -->
+    <section class="p-sec">
+      <div class="p-kicker">03</div>
+      <h2 data-de="Lebenslauf-Anfrage über das Formular" data-en="CV request via the form">Lebenslauf-Anfrage über das Formular</h2>
+      <p data-de="Wenn du meinen Lebenslauf anfragst, verarbeite ich die Angaben, die du ins Formular einträgst:" data-en="If you request my CV, I process the details you enter in the form:">Wenn du meinen Lebenslauf anfragst, verarbeite ich die Angaben, die du ins Formular einträgst:</p>
+      <ul>
+        <li data-de="Name und E-Mail-Adresse (Pflicht)" data-en="Name and email address (required)">Name und E-Mail-Adresse (Pflicht)</li>
+        <li data-de="Unternehmen und Nachricht (freiwillig)" data-en="Company and message (optional)">Unternehmen und Nachricht (freiwillig)</li>
+      </ul>
+      <p data-de="Die Daten nutze ich ausschließlich, um dir den Lebenslauf zu schicken und auf deine Anfrage zu antworten. Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die du jederzeit per E-Mail widerrufen kannst. Ich lösche die Anfrage, sobald sie erledigt ist und keine weitere Korrespondenz zu erwarten ist."
+         data-en="I use the data only to send you my CV and reply to your request. The legal basis is your consent (Art. 6(1)(a) GDPR), which you can withdraw by email at any time. I delete the request once it has been dealt with and no further correspondence is expected.">Die Daten nutze ich ausschließlich, um dir den Lebenslauf zu schicken und auf deine Anfrage zu antworten. Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die du jederzeit per E-Mail widerrufen kannst. Ich lösche die Anfrage, sobald sie erledigt ist und keine weitere Korrespondenz zu erwarten ist.</p>
+      <p data-de="Damit das Formular ohne eigenen Server funktioniert, wird es über den Dienst FormSubmit (formsubmit.co) als E-Mail an mich weitergeleitet. Dabei werden deine Angaben und deine IP-Adresse von FormSubmit verarbeitet, möglicherweise auch auf Servern außerhalb der EU. Die E-Mail landet anschließend in meinem Postfach beim Anbieter GMX. Wenn du das nicht möchtest, schreib mir einfach direkt eine E-Mail."
+         data-en="So that the form works without a server of my own, it is forwarded to me by email through the service FormSubmit (formsubmit.co). FormSubmit processes your details and your IP address for this, possibly on servers outside the EU. The email then arrives in my mailbox at the provider GMX. If you'd rather avoid this, simply email me directly.">Damit das Formular ohne eigenen Server funktioniert, wird es über den Dienst FormSubmit (formsubmit.co) als E-Mail an mich weitergeleitet. Dabei werden deine Angaben und deine IP-Adresse von FormSubmit verarbeitet, möglicherweise auch auf Servern außerhalb der EU. Die E-Mail landet anschließend in meinem Postfach beim Anbieter GMX. Wenn du das nicht möchtest, schreib mir einfach direkt eine E-Mail.</p>
+    </section>
+
+    <!-- Keine Dritten -->
+    <section class="p-sec">
+      <div class="p-kicker">04</div>
+      <h2 data-de="Was diese Seite nicht tut" data-en="What this site doesn't do">Was diese Seite nicht tut</h2>
+      <ul>
+        <li data-de="Keine Cookies und kein Tracking, keine Analyse- oder Werbedienste." data-en="No cookies and no tracking, no analytics or advertising services.">Keine Cookies und kein Tracking, keine Analyse- oder Werbedienste.</li>
+        <li data-de="Schriften und Skripte liegen auf dieser Seite selbst. Es wird keine Verbindung zu Google Fonts oder anderen Content-Netzwerken aufgebaut." data-en="Fonts and scripts are hosted on this site itself. No connection is made to Google Fonts or other content networks.">Schriften und Skripte liegen auf dieser Seite selbst. Es wird keine Verbindung zu Google Fonts oder anderen Content-Netzwerken aufgebaut.</li>
+        <li data-de="Die Bild-Tools rechnen vollständig in deinem Browser. Bilder, die du dort lädst, werden nicht hochgeladen und verlassen dein Gerät nicht." data-en="The image tools run entirely in your browser. Images you load there are not uploaded and never leave your device.">Die Bild-Tools rechnen vollständig in deinem Browser. Bilder, die du dort lädst, werden nicht hochgeladen und verlassen dein Gerät nicht.</li>
+        <li data-de="Links zu GitHub, LinkedIn oder Figma führen auf externe Seiten. Erst wenn du sie anklickst, gelten dort deren eigene Datenschutzbestimmungen." data-en="Links to GitHub, LinkedIn or Figma lead to external sites. Only once you click them do those sites' own privacy policies apply.">Links zu GitHub, LinkedIn oder Figma führen auf externe Seiten. Erst wenn du sie anklickst, gelten dort deren eigene Datenschutzbestimmungen.</li>
+      </ul>
+    </section>
+
+    <!-- Rechte -->
+    <section class="p-sec">
+      <div class="p-kicker">05</div>
+      <h2 data-de="Deine Rechte" data-en="Your rights">Deine Rechte</h2>
+      <p data-de="Du hast jederzeit das Recht auf Auskunft über deine gespeicherten Daten, auf Berichtigung, Löschung und Einschränkung der Verarbeitung, auf Datenübertragbarkeit sowie das Recht, der Verarbeitung zu widersprechen und eine Einwilligung zu widerrufen. Schreib mir dafür einfach an baischelia@gmx.de."
+         data-en="You have the right at any time to access the data stored about you, to rectification, erasure and restriction of processing, to data portability, and to object to processing and withdraw consent. Just email me at baischelia@gmx.de.">Du hast jederzeit das Recht auf Auskunft über deine gespeicherten Daten, auf Berichtigung, Löschung und Einschränkung der Verarbeitung, auf Datenübertragbarkeit sowie das Recht, der Verarbeitung zu widersprechen und eine Einwilligung zu widerrufen. Schreib mir dafür einfach an baischelia@gmx.de.</p>
+      <p data-de="Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren, zum Beispiel beim Landesbeauftragten für den Datenschutz und die Informationsfreiheit Baden-Württemberg."
+         data-en="You can also lodge a complaint with a data protection supervisory authority, for example the State Commissioner for Data Protection and Freedom of Information of Baden-Württemberg.">Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren, zum Beispiel beim Landesbeauftragten für den Datenschutz und die Informationsfreiheit Baden-Württemberg.</p>
+      <p class="stand" data-de="Stand: Oktober 2026" data-en="Last updated: October 2026">Stand: Oktober 2026</p>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Elia Baisch · <a href="datenschutz.html" class="foot-link" data-de="Datenschutz" data-en="Privacy">Datenschutz</a></span>
+    <span data-de="Gebaut mit Sorgfalt" data-en="Built with care">Gebaut mit Sorgfalt</span>
+    <span id="clock">--:--</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

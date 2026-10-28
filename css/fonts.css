@@ -1,0 +1,18 @@
+/* =========================================================
+   Lokale Schriften (statt Google Fonts)
+   ---------------------------------------------------------
+   Die Dateien liegen in assets/fonts/ und kommen von
+   Fontsource (Roboto, Roboto Mono, Lizenz: OFL / Apache 2.0).
+   So baut die Seite keine Verbindung zu Google auf und es
+   werden keine Besucherdaten an Dritte übertragen.
+   ========================================================= */
+
+@font-face{font-family:'Roboto';font-style:normal;font-weight:300;font-display:swap;src:url('../assets/fonts/roboto-latin-300-normal.woff2') format('woff2')}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:400;font-display:swap;src:url('../assets/fonts/roboto-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Roboto';font-style:italic;font-weight:400;font-display:swap;src:url('../assets/fonts/roboto-latin-400-italic.woff2') format('woff2')}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:500;font-display:swap;src:url('../assets/fonts/roboto-latin-500-normal.woff2') format('woff2')}
+@font-face{font-family:'Roboto';font-style:italic;font-weight:500;font-display:swap;src:url('../assets/fonts/roboto-latin-500-italic.woff2') format('woff2')}
+@font-face{font-family:'Roboto';font-style:normal;font-weight:700;font-display:swap;src:url('../assets/fonts/roboto-latin-700-normal.woff2') format('woff2')}
+
+@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:400;font-display:swap;src:url('../assets/fonts/roboto-mono-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Roboto Mono';font-style:normal;font-weight:500;font-display:swap;src:url('../assets/fonts/roboto-mono-latin-500-normal.woff2') format('woff2')}
