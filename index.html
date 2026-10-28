@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="css/fonts.css">
 <!-- Styles -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 
@@ -73,12 +73,13 @@
           data-en="I am interested in creative solutions, efficient ways of working and turning ideas into things that genuinely work and provide value. I enjoy moving between design and technology, exploring new approaches and quickly finding my way into unfamiliar topics. With my current focus on management, I am expanding this foundation with a strategic and organizational perspective. My goal is to connect these different areas rather than viewing them separately and use them to develop better solutions. Above all, I want to stay curious, explore new possibilities and continuously expand my knowledge.">
           Ich interessiere mich für kreative Lösungen, effiziente Arbeitsweisen und die Frage, wie aus einer Idee etwas entsteht, das am Ende tatsächlich funktioniert und einen Mehrwert bietet. Dabei bewege ich mich gerne zwischen Gestaltung und Technik, probiere neue Ansätze aus und finde mich schnell in unbekannten Themen zurecht. Mit meinem aktuellen Fokus auf Management erweitere ich dieses Fundament um eine strategische und organisatorische Perspektive. Mein Ziel ist es, die verschiedenen Bereiche nicht getrennt voneinander zu betrachten, sondern miteinander zu verbinden und daraus bessere Lösungen zu entwickeln. Dabei bleibt für mich vor allem eines wichtig: neugierig zu bleiben, neue Möglichkeiten auszuprobieren und das eigene Wissen kontinuierlich weiterzuentwickeln.
         </p>
-        <a href="mailto:baischelia@gmx.de" id="cvMail" class="btn btn-ghost" style="margin-top:8px" data-de="Lebenslauf anfragen" data-en="Request my CV">Lebenslauf anfragen
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></a>
+        <button type="button" id="cvToggle" class="btn btn-ghost" style="margin-top:8px" aria-expanded="false" aria-controls="cvFallback" data-de="Lebenslauf anfragen" data-en="Request my CV">Lebenslauf anfragen
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></button>
         <div class="cv-fallback" id="cvFallback" hidden>
-          <p data-de="Falls sich kein Mailprogramm geöffnet hat, schreib mir einfach an:" data-en="If no mail app opened, just write to me at:">Falls sich kein Mailprogramm geöffnet hat, schreib mir einfach an:</p>
+          <p data-de="Schreib mir kurz eine Mail, dann schicke ich dir meinen Lebenslauf zu:" data-en="Just send me a short email and I will send you my CV:">Schreib mir kurz eine Mail, dann schicke ich dir meinen Lebenslauf zu:</p>
           <div class="cv-fb-mail">baischelia@gmx.de</div>
           <div class="cv-fb-actions">
+            <a href="mailto:baischelia@gmx.de" id="cvMail" class="copy-mail"><span data-de="Mail-App öffnen" data-en="Open mail app">Mail-App öffnen</span></a>
             <button type="button" class="copy-mail" data-copy="mail"><span data-de="Adresse kopieren" data-en="Copy address">Adresse kopieren</span></button>
             <button type="button" class="copy-mail" data-copy="text"><span data-de="Anfragetext kopieren" data-en="Copy request text">Anfragetext kopieren</span></button>
           </div>
@@ -248,7 +249,7 @@
 <script src="js/main.js"></script>
 <script src="js/projects.js"></script>
 <script src="js/tools.js"></script>
-<script src="js/contact.js"></script>
+<script src="js/contact.js?v=3"></script>
 <!-- Gemeinsame Basis der Bild-Tools — muss vor den Tools kommen -->
 <script src="js/tools/_lib.js"></script>
 <!-- Einzelne Tools (jederzeit erweiterbar) -->

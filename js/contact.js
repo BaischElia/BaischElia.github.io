@@ -70,18 +70,21 @@ async function copyText(text, btn){
 /* E-Mail-Adresse kopieren (Button im Kontaktbereich) */
 function copyMail(){ copyText(MAIL_TO, document.getElementById('copyMail')); }
 
-/* Nach dem Klick auf „Lebenslauf anfragen“ eine Absicherung zeigen:
-   Hat der Besucher kein Mailprogramm eingerichtet, passiert beim
-   mailto-Link sonst einfach gar nichts. */
+/* „Lebenslauf anfragen“ klappt einen Kasten auf: Mail-App öffnen,
+   Adresse kopieren oder Anfragetext kopieren. Der Kasten erscheint
+   sofort, auch auf Geräten ohne eingerichtetes Mailprogramm. */
 function initCvFallback(){
-  const a = document.getElementById('cvMail');
+  const btn = document.getElementById('cvToggle');
   const box = document.getElementById('cvFallback');
-  if(!a || !box) return;
-  a.addEventListener('click', ()=>{ setTimeout(()=>{ box.hidden = false; }, 600); });
-  box.querySelectorAll('[data-copy]').forEach(btn => btn.addEventListener('click', ()=>{
+  if(!btn || !box) return;
+  btn.addEventListener('click', ()=>{
+    box.hidden = !box.hidden;
+    btn.setAttribute('aria-expanded', String(!box.hidden));
+  });
+  box.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', ()=>{
     const t = CV_MAIL[(window.lang || 'de') === 'de' ? 'de' : 'en'];
-    const text = btn.dataset.copy === 'mail' ? MAIL_TO : t.subject + '\n\n' + t.body;
-    copyText(text, btn);
+    const text = b.dataset.copy === 'mail' ? MAIL_TO : t.subject + '\n\n' + t.body;
+    copyText(text, b);
   }));
 }
 
