@@ -419,3 +419,16 @@ footer{border-top:1px solid var(--line);padding:38px 0}
 .cv-fb-actions{display:flex;gap:10px;flex-wrap:wrap}
 .cv-fb-actions .copy-mail{padding:8px 14px;font-size:11px;text-decoration:none}
 button.btn{font-family:inherit;background:transparent;cursor:pointer}
+
+/* ---- Modulübersicht im Reiter Ausbildung ---- */
+.mods{margin-top:12px}
+.mods summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:'Roboto Mono';font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line-2);border-radius:100px;padding:7px 14px;transition:.3s var(--ease)}
+.mods summary::-webkit-details-marker{display:none}
+.mods summary::after{content:"+";font-size:14px;line-height:1;color:var(--accent);transition:transform .3s var(--ease)}
+.mods[open] summary::after{transform:rotate(45deg)}
+.mods summary:hover{border-color:var(--ink);color:var(--ink)}
+.mods summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.mods-b{display:grid;gap:16px;margin-top:16px;animation:fade .4s var(--ease)}
+.mods-h{font-family:'Roboto Mono';font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.mods-t{display:flex;flex-wrap:wrap;gap:6px}
+.mod{font-size:13px;color:var(--ink-2);background:var(--bg-2);border:1px solid var(--line);border-radius:8px;padding:5px 10px;line-height:1.35}
