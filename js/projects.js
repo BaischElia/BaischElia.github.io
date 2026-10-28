@@ -16,6 +16,13 @@
 
 const PROJECTS = [
   {
+    title: 'Reachy Mini — HRI',
+    tags:  { de:['HRI','Studie','Paper'], en:['HRI','Study','Paper'] },
+    year:  '2026',
+    cover: 'assets/covers/reachy-mini.jpg',
+    link:  'projects/reachy-mini.html'
+  },
+  {
     title: 'SustainAppility',
     tags:  { de:['UI/UX','Figma','Prototyping'], en:['UI/UX','Figma','Prototyping'] },
     year:  '2025',
