@@ -28,7 +28,7 @@ window.TOOLS['qr'] = function(body, title){
   body.innerHTML = `
     <div class="field">
       <label>${de ? 'Inhalt — URL oder Text' : 'Content — URL or text'}</label>
-      <input type="text" id="qT" value="https://baischelia.github.io">
+      <input type="text" id="qT" value="https://eliabaisch.de">
     </div>
     <div class="grid2">
       <div class="field"><label>${de ? 'Titel' : 'Title'}</label>
