@@ -7,7 +7,7 @@ Namen überschreiben — die Seiten referenzieren nur die Pfade.
 - `covers/*`                → ein Cover je Projekt (Hover-Vorschau in der
                               Projektliste + Cover-Bild auf der Projektseite)
 - `sustainappility/*`       → Sketches, Screen-Entwicklung, finale Screens
-- `todolist/*`              → App-Screenshots
+- `reachy-mini/*`           → Roboterfoto, Studien-Setup, Erkennung
 - `plugin/*`                → Plugin-Oberflächen
 - `modeling/*`              → 3D-Renderings
 

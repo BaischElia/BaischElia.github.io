@@ -37,13 +37,6 @@ const PROJECTS = [
     link:  'projects/vst3-plugin-dev.html'
   },
   {
-    title: 'ToDoList',
-    tags:  { de:['Android','Java','Team'], en:['Android','Java','Team'] },
-    year:  '2024',
-    cover: 'assets/covers/todolist.jpg',
-    link:  'projects/todolist.html'
-  },
-  {
     title: 'Design Portfolios',
     tags:  { de:['Visual','Layout','Theorie'], en:['Visual','Layout','Theory'] },
     year:  '2024',
@@ -56,27 +49,6 @@ const PROJECTS = [
     year:  '2023',
     cover: 'assets/covers/3d-modeling.png',
     link:  'projects/3d-modeling.html'
-  },
-  {
-    title: 'Videos',
-    tags:  { de:['Film','Schnitt'], en:['Film','Editing'] },
-    year:  '2023',
-    cover: 'assets/covers/videos.png',
-    link:  'projects/videos.html'
-  },
-  {
-    title: 'Lunar Lunacy — VR',
-    tags:  { de:['3D','VR','Blender'], en:['3D','VR','Blender'] },
-    year:  '2026',
-    cover: 'assets/covers/lunar-lunacy.png',
-    link:  'projects/lunar-lunacy.html'
-  },
-  {
-    title: 'Adventurous — Unity',
-    tags:  { de:['Unity','C#','Sound'], en:['Unity','C#','Sound'] },
-    year:  '2026',
-    cover: 'assets/covers/adventurous.png',
-    link:  'projects/adventurous.html'
   }
 ];
 

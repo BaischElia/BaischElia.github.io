@@ -29,20 +29,17 @@ Portfolio/
 │     └─ qr.js             → QR-Poster Generator (Port von QRCodeGenerator.py)
 ├─ projects/
 │  ├─ _template.html       → Vorlage für neue Projektseiten (kopieren!)
+│  ├─ reachy-mini.html
 │  ├─ sustainappility.html
 │  ├─ vst3-plugin-dev.html
-│  ├─ todolist.html
 │  ├─ design-portfolios.html
-│  ├─ 3d-modeling.html
-│  ├─ videos.html
-│  ├─ lunar-lunacy.html
-│  └─ adventurous.html
+│  └─ 3d-modeling.html
 ├─ files/                  → PDFs (Lebenslauf, Portfolios, Messestand)
 ├─ assets/
 │  ├─ portrait.jpg         → Foto im Hero
 │  ├─ covers/              → ein Cover je Projekt (Liste + Projektkopf)
+│  ├─ reachy-mini/         → Roboterfoto, Studien-Setup, Erkennung
 │  ├─ sustainappility/     → Screens & Sketches
-│  ├─ todolist/            → App-Screenshots
 │  ├─ plugin/              → Plugin-UIs
 │  └─ modeling/            → 3D-Renderings
 └─ README.md
