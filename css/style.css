@@ -411,3 +411,10 @@ footer{border-top:1px solid var(--line);padding:38px 0}
 .foot-link{border-bottom:1px solid var(--line-2);transition:color .3s,border-color .3s}
 .foot-link:hover{color:var(--accent);border-color:var(--accent)}
 
+
+/* Absicherung, falls kein Mailprogramm aufgeht */
+.cv-fallback{margin-top:18px;max-width:480px;border:1px solid var(--line-2);border-radius:12px;background:var(--bg-2);padding:18px 20px;animation:fade .4s var(--ease)}
+.cv-fallback p{font-size:14px!important;color:var(--ink-2)!important;margin:0 0 8px!important;line-height:1.5}
+.cv-fb-mail{font-size:19px;font-weight:500;letter-spacing:-.01em;margin-bottom:14px;user-select:all;word-break:break-all}
+.cv-fb-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cv-fb-actions .copy-mail{padding:8px 14px;font-size:11px}
