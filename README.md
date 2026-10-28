@@ -16,7 +16,7 @@ Portfolio/
 ├─ js/
 │  ├─ main.js              → Nav, Sprache (DE/EN), Typed-Animation, Reveal, Uhr
 │  ├─ projects.js          → HIER Projekte pflegen (Array)
-│  ├─ cvrequest.js         → Formular „Lebenslauf anfragen“ (FormSubmit)
+│  ├─ contact.js           → Mail-Links (Lebenslauf anfragen) + E-Mail kopieren
 │  ├─ vendor/              → typed.js + qrcode-generator, lokal statt CDN
 │  ├─ project.js           → nur Projektseiten: Lightbox, fehlende Bilder
 │  ├─ tools.js             → Modal-Steuerung + Info-Panel
@@ -203,14 +203,9 @@ Danach in beiden Fällen:
 ## Lebenslauf auf Anfrage
 
 Der Lebenslauf liegt bewusst nicht öffentlich auf der Seite. Der Button
-„Lebenslauf anfragen“ öffnet ein Formular (`js/cvrequest.js`), das die
-Anfrage über FormSubmit per E-Mail an `CV_INBOX` schickt. Beim ersten
-Absenden kommt einmalig eine Bestätigungs-Mail von FormSubmit, darin
-auf „Activate Form“ klicken.
-- Das QR-Tool zeichnet das Poster selbst auf ein `<canvas>` (1080 × 1350) —
-  die Bibliothek liefert nur die Modul-Matrix. Themes stehen oben in
-  `js/tools/qr.js` im Objekt `QR_THEMES` und entsprechen 1:1 denen aus
-  `QRCodeGenerator.py`.
+„Lebenslauf anfragen“ öffnet das Mailprogramm des Besuchers mit einer
+vorbereiteten Mail (Betreff und Text in `js/contact.js`, DE/EN je nach
+Sprache). Es gibt kein Formular und keinen fremden Dienst.
 
 ## Sprache
 

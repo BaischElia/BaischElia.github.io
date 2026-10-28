@@ -399,29 +399,15 @@ footer{border-top:1px solid var(--line);padding:38px 0}
 .proj-prev.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
 @media(max-width:1000px),(pointer:coarse){.proj-prev{display:none}}
 
-/* ---------- LEBENSLAUF-ANFRAGE ---------- */
+/* ---------- KONTAKT: E-Mail + Kopieren ---------- */
 [hidden]{display:none!important}
-.cv-modal{max-width:540px}
-.cv-intro{font-size:15px;color:var(--ink-2);line-height:1.55;margin-bottom:22px}
-.field textarea{width:100%;padding:13px 15px;border:1px solid var(--line-2);border-radius:10px;font-family:inherit;font-size:14.5px;background:var(--card);color:var(--ink);resize:vertical;min-height:84px;transition:border .3s}
-.field textarea:focus{outline:none;border-color:var(--accent)}
-.field input:focus-visible,.field textarea:focus-visible{box-shadow:0 0 0 3px rgba(154,107,69,.18)}
-.cv-honey{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}
-.cv-consent{display:flex;gap:11px;align-items:flex-start;font-size:13px;color:var(--ink-2);line-height:1.5;margin:4px 0 22px;cursor:pointer}
-.cv-consent input{accent-color:var(--accent);width:16px;height:16px;margin-top:2px;flex-shrink:0}
-.cv-consent a{color:var(--accent);border-bottom:1px solid var(--accent-soft)}
-.cv-err{font-size:13.5px;color:#B8452F;background:rgba(184,69,47,.06);border:1px solid rgba(184,69,47,.25);border-radius:10px;padding:12px 14px;margin-bottom:18px;line-height:1.5}
-.mbtn:disabled{opacity:.6;cursor:wait}
-.cv-done{text-align:center;padding:14px 6px 8px}
-.cv-check{width:52px;height:52px;border-radius:50%;background:rgba(63,138,85,.1);color:#3F8A55;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
-.cv-done h4{font-size:21px;font-weight:500;letter-spacing:-.015em;margin-bottom:8px}
-.cv-done p{font-size:15px;color:var(--ink-2);line-height:1.55;margin:0 auto 24px;max-width:380px}
-button.social{background:none;cursor:pointer;font-family:'Roboto Mono';color:var(--ink)}
+.mail-row{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.copy-mail{display:inline-flex;align-items:center;gap:8px;font-family:'Roboto Mono';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);background:none;border:1px solid var(--line-2);border-radius:100px;padding:10px 16px;cursor:pointer;transition:.35s var(--ease)}
+.copy-mail:hover{border-color:var(--ink);color:var(--ink)}
+.copy-mail.done{border-color:#3F8A55;color:#3F8A55}
+.copy-mail:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
 /* ---------- FUSSZEILE ---------- */
 .foot-link{border-bottom:1px solid var(--line-2);transition:color .3s,border-color .3s}
 .foot-link:hover{color:var(--accent);border-color:var(--accent)}
 
-/* E-Mail im Kontaktbereich öffnet das Kontaktformular */
-button.contact-mail{background:none;border:none;border-bottom:2px solid var(--line-2);font-family:inherit;color:var(--ink);cursor:pointer;padding:0 0 6px}
-button.contact-mail:focus-visible{outline:2px solid var(--accent);outline-offset:6px;border-radius:2px}
